@@ -10,7 +10,7 @@ function Nav() {
           : "text-white opacity-60";   
 
     return (
-      <header className="top-0 left-0 w-full z-50 text-white bg-transparent">
+      <header className="fixed top-0 left-0 w-full z-50 text-white bg-transparent">
         <div className="px-20 py-12 flex items-center justify-between">
             <a href="/" className="text-2xl font-bold">Western Sales Club</a>
             <nav>
