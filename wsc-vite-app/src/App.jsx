@@ -11,7 +11,7 @@ import './App.css'
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-grow pt-[384px] px-4">
+      <main className="flex-grow">
         <Router>
           <Routes>
             <Route path="/" element={<Landing />} />

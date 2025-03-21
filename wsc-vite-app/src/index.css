@@ -7,6 +7,10 @@
   line-height: 1.5;
   font-weight: 400;
 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
   color-scheme: light dark;
   color: #f9f9f9;
   background-color: #1a1a1a;
@@ -30,11 +34,13 @@ a:hover {
 }
 
 body {
-  margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
