@@ -11,6 +11,7 @@ import './App.css'
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
+      {/* TESTING */}
       <main className="flex-grow">
         <Router>
           <Routes>
