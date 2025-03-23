@@ -7,6 +7,10 @@ module.exports = {
     extend: {
       colors: {
         gold: '#ffd95a',
+        purple: '#7F42A9',
+      },
+      fontFamily: {
+        georgia: ['Georgia', 'serif'],
       },
     },
   },

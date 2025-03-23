@@ -4,7 +4,7 @@ function Event({ image, title, date, location, description }) {
 
     return (
         <div className="bg-[#262626] flex w-1/2 mx-auto p-6 gap-6 my-5 rounded-lg hover:bg-[#363636] transition-all duration-500 ease-in-out">
-            <div className="w-1/3 h-40">
+            <div className="w-1/4 h-40 mx-2 my-2">
                 <img 
                     src={image} 
                     alt={title} 
