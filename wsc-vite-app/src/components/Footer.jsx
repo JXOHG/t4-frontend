@@ -16,7 +16,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="flex gap-4 mr-10">
-                    <a href="https://www.instagram.com/wsc.uwo/" target="_blank" rel="noopener noreferrer"><img src='/instagram-brands.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img></a>
+                    <a href="https://www.instagram.com/westernsalesclub/" target="_blank" rel="noopener noreferrer"><img src='/instagram-brands.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img></a>
                     <a href="https://www.linkedin.com/company/western-sales-club/" target="_blank" rel="noopener noreferrer"><img src='/linkedin-brands.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img></a>
                 </div>
             </footer>

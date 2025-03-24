@@ -90,7 +90,9 @@ function Landing() {
                     <div className="absolute inset-0 bg-[url(/Western3.png)] bg-cover bg-center opacity-25"></div>
                     <div className="relative z-10 h-full flex flex-col items-center justify-center">
                         <h2 className="text-4xl font-georgia font-bold text-white mb-8">Begin your journey with us today.</h2>
-                        <button className="px-8 py-4 text-m tracking-wider font-georgia bg-[#7f42a9] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">Register with WSC</button>
+                        <a href="https://westernusc.store/product/western-sales-club/" target="_blank" rel="noopener noreferrer">
+                            <button className="px-8 py-4 text-m tracking-wider font-georgia bg-[#7f42a9] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">Register with WSC</button>
+                        </a>
                     </div>
                 </div>
                 <Footer />
