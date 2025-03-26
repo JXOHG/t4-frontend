@@ -13,7 +13,10 @@ function Events() {
                         <h2 className="text-4xl font-georgia font-bold mb-4">Events</h2>
                         <hr className="w-full border-1 border-[#F9C726] mb-6" />
                         <p className="text-gray-300 font-georgia leading-relaxed text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            Stay up to date with our upcoming workshops, seminars, and networking events 
+                            designed to help you hone your sales skills and connect with industry professionals. 
+                            Whether you’re a seasoned salesperson or just starting out, our events offer valuable 
+                            insights and real-world applications that will set you apart.
                         </p>
                     </div>
                 </div>

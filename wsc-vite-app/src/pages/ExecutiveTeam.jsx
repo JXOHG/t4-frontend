@@ -14,85 +14,91 @@ function ExecutiveTeam() {
                 {/* Executive 1 */}
                 <div className="flex flex-col items-center">
                 <img
-                    src="lebron.jpg"
-                    className="w-[200px] h-[220px] object-cover"
+                    src="placeholder-person.png"
+                    className="w-[220px] h-[220px] object-cover"
+                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
                     alt="President Headshot"
                 />
                 <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    LeBron James
+                    Hudson Bates
                 </h4>
                 <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President
+                    President, Co-Founder
                 </h5>
                 </div>
-                {/* Executive 1 */}
+                {/* Executive 2 */}
                 <div className="flex flex-col items-center">
                 <img
-                    src="lebron.jpg"
-                    className="w-[200px] h-[220px] object-cover"
+                    src="placeholder-person.png"
+                    className="w-[220px] h-[220px] object-cover"
+                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
                     alt="President Headshot"
                 />
                 <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    LeBron James
+                    Connor Hinton
                 </h4>
                 <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President
+                    VP Communications, Co-Founder
                 </h5>
                 </div>
-                {/* Executive 1 */}
+                {/* Executive 3 */}
                 <div className="flex flex-col items-center">
                 <img
-                    src="lebron.jpg"
-                    className="w-[200px] h-[220px] object-cover"
+                    src="placeholder-person.png"
+                    className="w-[220px] h-[220px] object-cover"
+                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
                     alt="President Headshot"
                 />
                 <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    LeBron James
+                    Owen Gerrard
                 </h4>
                 <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President
+                    VP Events, Co-Founder
                 </h5>
                 </div>
-                {/* Executive 1 */}
+                {/* Executive 4 */}
                 <div className="flex flex-col items-center">
                 <img
-                    src="lebron.jpg"
-                    className="w-[200px] h-[220px] object-cover"
+                    src="placeholder-person.png"
+                    className="w-[220px] h-[220px] object-cover"
+                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
                     alt="President Headshot"
                 />
                 <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    LeBron James
+                    Arda Deniz
                 </h4>
                 <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President
+                    VP External Outreach, Co-Founder
                 </h5>
                 </div>
-                {/* Executive 1 */}
+                {/* Executive 5 */}
                 <div className="flex flex-col items-center">
                 <img
-                    src="lebron.jpg"
-                    className="w-[200px] h-[220px] object-cover"
+                    src="placeholder-person.png"
+                    className="w-[220px] h-[220px] object-cover"
+                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
                     alt="President Headshot"
                 />
                 <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    LeBron James
+                    Jeevan Sahota
                 </h4>
                 <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President
+                    VP Finance
                 </h5>
                 </div>
-                {/* Executive 1 */}
+                {/* Executive 6 */}
                 <div className="flex flex-col items-center">
                 <img
-                    src="lebron.jpg"
-                    className="w-[200px] h-[220px] object-cover"
+                    src="placeholder-person.png"
+                    className="w-[220px] h-[220px] object-cover"
+                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
                     alt="President Headshot"
                 />
                 <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    LeBron James
+                    TBD
                 </h4>
                 <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President
+                    VP Marketing
                 </h5>
                 </div>
             </div>

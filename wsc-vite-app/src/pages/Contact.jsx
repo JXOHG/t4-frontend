@@ -12,9 +12,9 @@ function Contact() {
             <h1 className="text-3xl font-bold mb-2">Contact Us</h1>
             <div className="w-90 border-t-2 border-yellow-500 mb-4 mx-auto"></div>
             <p className="max-w-2xl mx-auto text-white-400">
-              This is where you can get in touch with us. For business inquiries, tell us relevant
-              information about who you are, what we can do for you, and provide any meaningful
-              resources or references that will help us understand the matter.
+              We’d love to hear from you! For business inquiries, collaboration opportunities, 
+              or general questions, please fill out the form below. Share any relevant information 
+              or resources so we can better understand your needs and work together toward your goals.
             </p>
           </div>
   
