@@ -6,17 +6,96 @@ function ExecutiveTeam() {
     return (
         <>
             <Nav />
-            <div className="flex flex-col justify-center w-[850px] mx-auto">
-                <h1 className="text-center">Executive Team</h1>
-                <div>
-                    <hr className="border-t-2 border-gold my-10" />
-                    <div className="my-20 flex items-center gap-8 w-[200px]">
-                    <img src="lebron.jpg" className="w-[200px] h-[200px] object-cover" alt="President Headshot" />
-                    <p className="text-left my-1">
-                            Our mission is to promote the sport of weightlifting in the Washington State area.
-                    </p>
-                    </div>
+            <div className="flex flex-col justify-center w-[850px] mx-auto mb-20">
+            <h1 className="text-center text-3xl font-bold mb-4">Executive Team</h1>
+            <hr className="border-t-2 border-gold my-10" />
+
+            <div className="grid grid-cols-3 gap-x-8 my-10 gap-y-20">
+                {/* Executive 1 */}
+                <div className="flex flex-col items-center">
+                <img
+                    src="lebron.jpg"
+                    className="w-[200px] h-[220px] object-cover"
+                    alt="President Headshot"
+                />
+                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
+                    LeBron James
+                </h4>
+                <h5 className="text-center mt-[-4px] font-sans text-base">
+                    President
+                </h5>
                 </div>
+                {/* Executive 1 */}
+                <div className="flex flex-col items-center">
+                <img
+                    src="lebron.jpg"
+                    className="w-[200px] h-[220px] object-cover"
+                    alt="President Headshot"
+                />
+                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
+                    LeBron James
+                </h4>
+                <h5 className="text-center mt-[-4px] font-sans text-base">
+                    President
+                </h5>
+                </div>
+                {/* Executive 1 */}
+                <div className="flex flex-col items-center">
+                <img
+                    src="lebron.jpg"
+                    className="w-[200px] h-[220px] object-cover"
+                    alt="President Headshot"
+                />
+                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
+                    LeBron James
+                </h4>
+                <h5 className="text-center mt-[-4px] font-sans text-base">
+                    President
+                </h5>
+                </div>
+                {/* Executive 1 */}
+                <div className="flex flex-col items-center">
+                <img
+                    src="lebron.jpg"
+                    className="w-[200px] h-[220px] object-cover"
+                    alt="President Headshot"
+                />
+                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
+                    LeBron James
+                </h4>
+                <h5 className="text-center mt-[-4px] font-sans text-base">
+                    President
+                </h5>
+                </div>
+                {/* Executive 1 */}
+                <div className="flex flex-col items-center">
+                <img
+                    src="lebron.jpg"
+                    className="w-[200px] h-[220px] object-cover"
+                    alt="President Headshot"
+                />
+                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
+                    LeBron James
+                </h4>
+                <h5 className="text-center mt-[-4px] font-sans text-base">
+                    President
+                </h5>
+                </div>
+                {/* Executive 1 */}
+                <div className="flex flex-col items-center">
+                <img
+                    src="lebron.jpg"
+                    className="w-[200px] h-[220px] object-cover"
+                    alt="President Headshot"
+                />
+                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
+                    LeBron James
+                </h4>
+                <h5 className="text-center mt-[-4px] font-sans text-base">
+                    President
+                </h5>
+                </div>
+            </div>
             </div>
             <Footer />
         </>
