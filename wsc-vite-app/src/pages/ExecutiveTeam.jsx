@@ -1,107 +1,90 @@
 import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import PageTitle from '../components/page-title';
+import Profile from '../components/Profile';
 
 function ExecutiveTeam() {
     return (
         <>
             <Nav />
-            <div className="flex flex-col justify-center w-[850px] mx-auto mb-20">
-            <h1 className="text-center text-3xl font-bold mb-4">Executive Team</h1>
-            <hr className="border-t-2 border-gold my-10" />
+            
+            <PageTitle
+                title="Executive Team"
+                description="Meet the team behind the Western Sales Club. Our executives are dedicated to providing students with the resources and opportunities they need to succeed in sales."
+            />
 
-            <div className="grid grid-cols-3 gap-x-8 my-10 gap-y-20">
-                {/* Executive 1 */}
-                <div className="flex flex-col items-center">
-                <img
-                    src="placeholder-person.png"
-                    className="w-[220px] h-[220px] object-cover"
-                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
-                    alt="President Headshot"
-                />
-                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    Hudson Bates
-                </h4>
-                <h5 className="text-center mt-[-4px] font-sans text-base">
-                    President, Co-Founder
-                </h5>
+            <div className="flex flex-col justify-center w-[950px] mx-auto mb-10">
+
+                {/* Co-Presidents */}
+                <h3 className="font-bold text-2xl mt-10 mb-4">Our Presidents</h3>
+                <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
+                <div className="flex justify-center px-36 gap-4 my-10">
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Hudson Bates"
+                        title="Co-President"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Connor Hinton"
+                        title="Co-President"
+                    />
                 </div>
-                {/* Executive 2 */}
-                <div className="flex flex-col items-center">
-                <img
-                    src="placeholder-person.png"
-                    className="w-[220px] h-[220px] object-cover"
-                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
-                    alt="President Headshot"
-                />
-                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    Connor Hinton
-                </h4>
-                <h5 className="text-center mt-[-4px] font-sans text-base">
-                    VP Communications, Co-Founder
-                </h5>
+
+
+                {/* Vice Presidents */}
+                <h3 className="font-bold text-2xl mt-10 mb-4">Vice Presidents</h3>
+                <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
+                <div className="grid grid-cols-4 gap-x-8 my-10 gap-y-20">
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Owen Gerrard"
+                        title="VP Events, Co-Founder"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Jeevan Sahota"
+                        title="VP Finance, Co-Founder"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Arda Deniz"
+                        title="VP External, Co-Founder"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="TBD"
+                        title="VP Marketing"
+                    />
                 </div>
-                {/* Executive 3 */}
-                <div className="flex flex-col items-center">
-                <img
-                    src="placeholder-person.png"
-                    className="w-[220px] h-[220px] object-cover"
-                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
-                    alt="President Headshot"
-                />
-                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    Owen Gerrard
-                </h4>
-                <h5 className="text-center mt-[-4px] font-sans text-base">
-                    VP Events, Co-Founder
-                </h5>
+
+                {/* Assistant Vice Presidents */}
+                <h3 className="font-bold text-2xl mt-10 mb-4">Assistant Vice Presidents</h3>
+                <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
+                <div className="grid grid-cols-4 my-10 gap-y-20 pb-20">
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Matthew Collyer"
+                        title="VP Brainrot"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="Alex Logan"
+                        title="VP Droiding"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="TBD"
+                        title="AVP External"
+                    />
+                    <Profile
+                        image="placeholder-person.png"
+                        name="TBD"
+                        title="AVP Marketing"
+                    />
                 </div>
-                {/* Executive 4 */}
-                <div className="flex flex-col items-center">
-                <img
-                    src="placeholder-person.png"
-                    className="w-[220px] h-[220px] object-cover"
-                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
-                    alt="President Headshot"
-                />
-                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    Arda Deniz
-                </h4>
-                <h5 className="text-center mt-[-4px] font-sans text-base">
-                    VP External Outreach, Co-Founder
-                </h5>
-                </div>
-                {/* Executive 5 */}
-                <div className="flex flex-col items-center">
-                <img
-                    src="placeholder-person.png"
-                    className="w-[220px] h-[220px] object-cover"
-                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
-                    alt="President Headshot"
-                />
-                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    Jeevan Sahota
-                </h4>
-                <h5 className="text-center mt-[-4px] font-sans text-base">
-                    VP Finance
-                </h5>
-                </div>
-                {/* Executive 6 */}
-                <div className="flex flex-col items-center">
-                <img
-                    src="placeholder-person.png"
-                    className="w-[220px] h-[220px] object-cover"
-                    style={{ border: "2px solid #ffffff", boxShadow: "0 4px 6px #7f42a9" }}
-                    alt="President Headshot"
-                />
-                <h4 className="text-center mt-4 mb-0 text-gold font-serif text-xl font-semibold">
-                    TBD
-                </h4>
-                <h5 className="text-center mt-[-4px] font-sans text-base">
-                    VP Marketing
-                </h5>
-                </div>
-            </div>
+
             </div>
             <Footer />
         </>
