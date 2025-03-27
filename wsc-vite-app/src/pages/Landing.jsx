@@ -76,13 +76,13 @@ function Landing() {
                     <h2 className="text-3xl font-georgia font-bold mb-16">Our Esteemed Sponsors</h2>
                     <div className="flex justify-center gap-32">
                         <div className="w-48 h-48 bg-white/10 flex items-center justify-center">
-                            <img src="/sponsor1.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
+                            <img src="/tsi-logo.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
                         </div>
                         <div className="w-48 h-48 bg-white/10 flex items-center justify-center">
-                            <img src="/sponsor2.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
+                            <img src="/og-pressure-washing.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
                         </div>
                         <div className="w-48 h-48 bg-white/10 flex items-center justify-center">
-                            <img src="/sponsor3.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
+                            <img src="/DRT-logo.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
                         </div>
                     </div>
                 </div>
