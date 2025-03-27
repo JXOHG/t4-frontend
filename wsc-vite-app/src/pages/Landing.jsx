@@ -82,18 +82,34 @@ function Landing() {
 
                 {/* SPONSORS CAROUSEL */}
                 <h2 className="text-4xl font-georgia font-bold mb-16">Our Esteemed Sponsors</h2>
-                <div className="w-full bg-[#1F1F1F] py-4 overflow-hidden relative">
+                <div className="relative w-full bg-[#1F1F1F] py-4 overflow-hidden">
                 <style>{`
                     @keyframes marquee {
-                    0% { transform: translateX(0); }
+                    0%   { transform: translateX(0); }
                     100% { transform: translateX(-50%); }
                     }
-                    .animate-marquee {
-                    animation: marquee 20s linear infinite;
+                    .marquee-track {
+                    width: 200%;
+                    display: flex;
+                    animation: marquee 60s linear infinite;
                     }
                 `}</style>
-                <div className="flex animate-marquee pl-20 gap-x-16">
-                    {/* Using duplicate logos for a better loop */}
+
+                {/* The marquee-track div holds two sets of logos, each set side by side */}
+                <div className="marquee-track">
+
+                    <div className="flex gap-x-24 pl-20">
+                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+                        <img src="/tsi-logo.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+                        <img src="/og-pressure-washing.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
+                    </div>
+                    <div className="w-64 h-48 pr-16 flex-shrink-0 flex items-center justify-center">
+                        <img src="/DRT-logo.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
+                    </div>
+                    </div>
+
                     <div className="flex gap-x-24">
                     <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
                         <img src="/tsi-logo.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
@@ -101,10 +117,11 @@ function Landing() {
                     <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
                         <img src="/og-pressure-washing.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
                     </div>
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+                    <div className="w-64 h-48 pr-16 flex-shrink-0 flex items-center justify-center">
                         <img src="/DRT-logo.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
                     </div>
                     </div>
+
                     <div className="flex gap-x-24">
                     <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
                         <img src="/tsi-logo.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
@@ -112,12 +129,13 @@ function Landing() {
                     <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
                         <img src="/og-pressure-washing.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
                     </div>
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+                    <div className="w-64 h-48 pr-16 flex-shrink-0 flex items-center justify-center">
                         <img src="/DRT-logo.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
                     </div>
                     </div>
                 </div>
                 </div>
+
                 <div className="py-8"></div>
 
                 {/* JOIN */}

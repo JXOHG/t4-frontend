@@ -65,13 +65,13 @@ function ExecutiveTeam() {
                 <div className="grid grid-cols-4 my-10 gap-y-20 pb-20">
                     <Profile
                         image="placeholder-person.png"
-                        name="TBD"
-                        title="AVP Events"
+                        name="Matthew Collyer"
+                        title="VP Brainrot"
                     />
                     <Profile
                         image="placeholder-person.png"
-                        name="TBD"
-                        title="AVP Finance"
+                        name="Alex Logan"
+                        title="VP Droiding"
                     />
                     <Profile
                         image="placeholder-person.png"
