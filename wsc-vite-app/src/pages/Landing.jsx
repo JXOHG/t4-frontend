@@ -29,7 +29,7 @@ function Landing() {
                         </div>
                         <div className="w-3/4">
                             <h2 className="text-3xl font-georgia font-bold mb-4 text-left">"Empowering Sales Excellence"</h2>
-                            <hr className="w-full border-2 border-[#F9C726] mb-5" />
+                            <hr className="w-full border-[#F9C726] mb-5" />
                             <p className="font-georgia text-gray-300 leading-relaxed text-left">
                                 Western Sales Club envisions a future where sales education and representation is fully integrated into post-secondary learning, equipping students with practical communication skills, confidence, industry connections, and a supportive community to make a positive impact on personal/social lives and drive career success in any field.
                             </p>
