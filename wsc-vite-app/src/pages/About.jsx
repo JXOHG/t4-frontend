@@ -62,28 +62,28 @@ function About() {
                 <h3 className="text-2xl font-semibold text-white pb-8">Values</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-                <div className="p-4 bg-[#9445C9] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
+                <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
                     <h3 className="text-xl font-bold text-gray-300">Collaboration</h3>
                     <p className="mt-2 text-sm text-gray-400">
                     We believe in teamwork and sharing success.
                     </p>
                 </div>
 
-                <div className="p-4 bg-[#9445C9] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
+                <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
                     <h3 className="text-xl font-bold text-gray-300">Community</h3>
                     <p className="mt-2 text-sm text-gray-400">
                     We build networks that celebrate diverse perspectives.
                     </p>
                 </div>
 
-                <div className="p-4 bg-[#9445C9] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
+                <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
                     <h3 className="text-xl font-bold text-gray-300">Innovation</h3>
                     <p className="mt-2 text-sm text-gray-400">
                     We embrace creativity and forward thinking.
                     </p>
                 </div>
 
-                <div className="p-4 bg-[#9445C9] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
+                <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:bg-opacity-40 transition-colors">
                     <h3 className="text-xl font-bold text-gray-300">Inclusivity</h3>
                     <p className="mt-2 text-sm text-gray-400">
                     We welcome everyone and celebrate diversity.

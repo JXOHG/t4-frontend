@@ -22,27 +22,26 @@ function Sponsors() {
                   <Sponsor  image="tsi-logo.png"
                             name="Tech for Social Impact"
                             description="TSI is a student-led organization that provides
-                            technology solutions to local non-profit organizations. They
-                            offereed their services to us free of charge and we are
-                            truly grateful for their support. This sponsorship denotes the
-                            beginning of a strong and mutually beneficial partnership."
+                            technology solutions to local non-profit organizations. TSI
+                            built this website for us free of charge, denoting their 
+                            committment to empowering the community. We continue to collaborate
+                            with them, helping our clients with their tech-needs."
                   />
                   
                   <Sponsor  image="og-pressure-washing.png"
                             name="OG Pressure Washing"
                             description="OG Pressure washing is a local business that
                             specializes in residential pressure washing. Run by our very
-                            own Vice President of Events, Owen Gerrard, OG Pressure Washing
-                            sets a model example of the leadership and entrepreneurship
-                            we strive to foster in our members."
+                            own Co-Founder and Vice President of Events, Owen Gerrard, 
+                            OG Pressure Washing exemplifies the leadership and 
+                            entrepreneurship WSC fosters."
                   />
                   <Sponsor  image="DRT-logo.png"
                             name="DRTCyber"
                             description="DRTCyber is a cybersecurity consulting firm that
                             provides services to small and medium-sized businesses. They
-                            are a valued sponsor of the Western Sales Club and help us to
-                            provide our members with the resources and opportunities they
-                            need address data security concerns in sales."
+                            are a valued sponsor of the WSC that contributes in our guest
+                            speaker panels to bring valued insight to our students."
                   />
 
                 </div>
