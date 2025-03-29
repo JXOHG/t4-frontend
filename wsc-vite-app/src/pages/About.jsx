@@ -65,28 +65,28 @@ function About() {
                 <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:scale-105 transition-transform duration-300">
                     <h3 className="text-xl font-bold text-gray-300">Collaboration</h3>
                     <p className="mt-2 text-sm text-gray-400">
-                    We believe in teamwork and sharing success.
+                    Communities are built with collaboration.
                     </p>
                 </div>
 
                 <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:scale-105 transition-transform duration-300">
                     <h3 className="text-xl font-bold text-gray-300">Community</h3>
                     <p className="mt-2 text-sm text-gray-400">
-                    We build networks that celebrate diverse perspectives.
+                    WSC is dedicated to bringing people together.
                     </p>
                 </div>
 
                 <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:scale-105 transition-transform duration-300">
                     <h3 className="text-xl font-bold text-gray-300">Innovation</h3>
                     <p className="mt-2 text-sm text-gray-400">
-                    We embrace creativity and forward thinking.
+                    We encourage creativity and initiative in our members.
                     </p>
                 </div>
 
                 <div className="p-4 bg-[#ffd95a] bg-opacity-30 rounded-lg shadow hover:scale-105 transition-transform duration-300">
                     <h3 className="text-xl font-bold text-gray-300">Inclusivity</h3>
                     <p className="mt-2 text-sm text-gray-400">
-                    We welcome everyone and celebrate diversity.
+                    We're embracing the amazing diversity Western offers.
                     </p>
                 </div>
                 </div>

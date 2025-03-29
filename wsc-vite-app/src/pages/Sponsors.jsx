@@ -26,6 +26,7 @@ function Sponsors() {
                             built this website for us free of charge, denoting their 
                             committment to empowering the community. We continue to collaborate
                             with them, helping our clients with their tech-needs."
+                            link="https://uwotsi.com"
                   />
                   
                   <Sponsor  image="og-pressure-washing.png"
@@ -35,6 +36,7 @@ function Sponsors() {
                             own Co-Founder and Vice President of Events, Owen Gerrard, 
                             OG Pressure Washing exemplifies the leadership and 
                             entrepreneurship WSC fosters."
+                            link="https://ogpressurewashing.ca"
                   />
                   <Sponsor  image="DRT-logo.png"
                             name="DRTCyber"
@@ -42,6 +44,7 @@ function Sponsors() {
                             provides services to small and medium-sized businesses. They
                             are a valued sponsor of the WSC that contributes in our guest
                             speaker panels to bring valued insight to our students."
+                            link="https://drtcyber.com"
                   />
 
                 </div>
