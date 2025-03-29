@@ -1,16 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
         gold: '#ffd95a',
-        purple: '#7F42A9',
+        purple: '#F9C726',
       },
       fontFamily: {
         georgia: ['Georgia', 'serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
     },
   },
