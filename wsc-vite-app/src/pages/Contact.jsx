@@ -1,26 +1,25 @@
 import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import PageTitle from '../components/page-title';
 
 function Contact() {
     return (
         <>
         <Nav />
-        <div className="text-white py-12 px-6 flex flex-col items-center">
-          {/* Title */}
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-2">Contact Us</h1>
-            <div className="w-90 border-t-2 border-yellow-500 mb-4 mx-auto"></div>
-            <p className="max-w-2xl mx-auto text-white-400">
-              This is where you can get in touch with us. For business inquiries, tell us relevant
-              information about who you are, what we can do for you, and provide any meaningful
-              resources or references that will help us understand the matter.
-            </p>
-          </div>
+
+        <PageTitle
+            title="Contact Us"
+            description="We’d love to hear from you! For business inquiries, collaboration opportunities,
+            or general questions, please fill out the form below. Share any relevant information
+            or resources so we can better understand your needs and work together toward your goals."
+        />
+
+        <div className="justify-center mx-auto">
   
           {/* Contact Form */}
-          <div className="mt-10 w-full max-w-lg">
-            <form className="flex flex-col space-y-4">
+          <div className="pb-12">
+            <form className="flex flex-col space-y-6 max-w-md mx-auto">
               <input
                 type="text"
                 placeholder="Name"
@@ -49,29 +48,10 @@ function Contact() {
               </button>
             </form>
           </div>
-  
-          {/* Contact Info */}
-          <div className="text-center mt-6">
-            <p className="text-lg">sales.club@westernusc.ca</p>
-            <p className="text-gray-400 text-sm">+1 111-111-1111</p>
-  
-            {/* Social Icons */}
-            <div className="flex justify-center space-x-4 mt-4">
-              <a href="#" className="text-gray-400 hover:text-white text-xl">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-xl">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-xl">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-xl">
-                <i className="fab fa-linkedin"></i>
-              </a>
-            </div>
-          </div>
         </div>
+        
+        <div className="pb-20"></div>
+
         <Footer />
       </>
     );
