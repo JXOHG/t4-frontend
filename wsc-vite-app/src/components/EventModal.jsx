@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EventModal({ title, date, location, type, isOpen, onClose, onSave }) {
+export default function EventModal({ title, date, time, location, type, isOpen, onClose, onSave }) {
   if (!isOpen) return null; // Render nothing if modal is not open
 
   return (
@@ -29,6 +29,15 @@ export default function EventModal({ title, date, location, type, isOpen, onClos
             />
           </div>
           <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Time</label>
+            <input
+              type="text"
+              defaultValue={time}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+              name="time"
+            />
+          </div>
+          <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2">Location</label>
             <input
               type="text"
@@ -37,6 +46,7 @@ export default function EventModal({ title, date, location, type, isOpen, onClos
               name="location"
             />
           </div>
+
           <div className="flex justify-end">
             <button
               type="button"

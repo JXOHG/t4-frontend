@@ -3,11 +3,19 @@ import MyEventCalendar from '../components/Calendar';
 import Navbar from '../components/Nav';
 import AdminEvent from '../components/AdminEvent';
 import EventModal from '../components/EventModal';
+import { format } from 'date-fns';
 
 export default function EventsDash() {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
+
+    // Store events in a state array (initially with some hard-coded events)
+    const [events, setEvents] = useState([
+        { title: "Guest Speaker - Consumer Behaviour", date: "Monday, March 17", time: "7:00PM", location: "Western University Campus" },
+        { title: "Guest Speaker - Consumer Behaviour", date: "Monday, March 17", time: "7:00PM", location: "Western University Campus" },
+        { title: "Guest Speaker - Consumer Behaviour", date: "Monday, March 17", time: "7:00PM", location: "Western University Campus" },
+    ]);
 
     return ( 
         <>
@@ -21,10 +29,16 @@ export default function EventsDash() {
             */}
             <div className="flex gap-8"> 
                 <div className="w-1/2 flex flex-col gap-4">
-                    <AdminEvent title="Guest Speaker - Consumer Behaviour" date="Monday, March 17 • 7:00 PM" location="Western University Campus" />                    
-                    <AdminEvent title="Guest Speaker - Consumer Behaviour" date="Monday, March 17 • 7:00 PM" location="Western University Campus" />                    
-                    <AdminEvent title="Guest Speaker - Consumer Behaviour" date="Monday, March 17 • 7:00 PM" location="Western University Campus" />                    
-                </div>
+                {events.map((ev, index) => (
+                <AdminEvent
+                    key={index}
+                    title={ev.title}
+                    date={ev.date}
+                    time={ev.time}
+                    location={ev.location}
+                />
+                ))}
+            </div>
 
                 <div className="w-1/3 flex flex-col gap-4 ml-48 mr-20">
                     <div className="bg-white rounded-3xl p-6 shadow-lg">
@@ -53,10 +67,31 @@ export default function EventsDash() {
             onSave={(e) => {
                 e.preventDefault();
 
-                // Handle saving new event logic here
-                    // Add a new AdminEvent object to where all of the events are shown to the admin
-                        // Will have to use a list of sorts and refactor how events are displayed to the admin
-                    // New AdminEvent object should be created with admin input passed through arguments
+                const formData = new FormData(e.target);
+                const submittedTitle = formData.get('title');
+                const submittedTime = formData.get('time');
+                const submittedLocation = formData.get('location');
+                const dayOfWeek = format(selectedDate, 'EEEE, MMMM d');
+
+                console.log("New Event Data:", submittedTitle, dayOfWeek, submittedTime, submittedLocation);
+
+                setEvents((prevEvents) => [
+                    ...prevEvents,
+                    { title: submittedTitle, date: dayOfWeek, time: submittedTime, location: submittedLocation },
+                ]);
+
+
+                /**  HARRY: Just manage adding the event visually to the admin's event dashboard, 
+                    Do not worry about making it connect to the actual Events Page
+
+                Handle saving new event logic here
+                    Add a new AdminEvent object to where all of the events are shown to the admin
+                        Will have to use a list of sorts and refactor how events are displayed to the admin
+                    New AdminEvent object should be created with admin input passed through arguments
+
+                THOMAS: Create API endpoint here
+                    Make POST request to add event to backend with event info in JSON?
+                */
 
                 setModalOpen(false);
             }}

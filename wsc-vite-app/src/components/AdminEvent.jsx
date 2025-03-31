@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import EventModal from '../components/EventModal';
 
-export default function AdminEvent({ title, date, location }) {
+export default function AdminEvent({ title, date, time, location }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ export default function AdminEvent({ title, date, location }) {
       <div className="flex-bottom text-left">
         <div className="flex justify-between items-center">
           <div>
-            <p className="font-bold text-black flex-bottom font-inter">{date}</p>
+            <p className="font-bold text-black flex-bottom font-inter">{date} @ {time}</p>
             <span className="flex-bottom text-black font-inter">{location}</span>
           </div>
           <button
@@ -28,6 +28,7 @@ export default function AdminEvent({ title, date, location }) {
       <EventModal
         title={title}
         date={date}
+        time={time}
         location={location}
         type="edit"
         isOpen={modalOpen}
@@ -38,6 +39,8 @@ export default function AdminEvent({ title, date, location }) {
           // Handle save logic here
             // Must change the information shown on the AdminEvent the admin chose to edit
             // Should ideally interact with the title, date, location parameters of this AdminEvent function
+
+        // THOMAS: Make POST request to backend here to update backend
 
           setModalOpen(false);
         }}
