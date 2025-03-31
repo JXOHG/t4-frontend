@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MyEventCalendar from '../components/Calendar';
 import Navbar from '../components/Nav';
-import Footer from '../components/Footer';
 import AdminEvent from '../components/AdminEvent';
+import EventModal from '../components/EventModal';
 
 export default function EventsDash() {
+
+    const [modalOpen, setModalOpen] = useState(false);
+
     return ( 
         <>
         <Navbar />
         <div className="p-8">
             <h1 className="text-4xl font-georgia text-left ml-64 font-bold mb-8 text-white">Events Dashboard</h1>
             
-            <div className="flex gap-8">
+            {/* This area likely needs to change in order to characterize "Add New Event" functionality */}
+            <div className="flex gap-8"> 
                 <div className="w-1/2 flex flex-col gap-4">
                     <AdminEvent title="Guest Speaker - Consumer Behaviour" date="Monday, March 17 • 7:00 PM" location="Western University Campus" />                    
                     <AdminEvent title="Guest Speaker - Consumer Behaviour" date="Monday, March 17 • 7:00 PM" location="Western University Campus" />                    
@@ -23,13 +27,33 @@ export default function EventsDash() {
                         <MyEventCalendar />
                     </div>
                     
-                    <button className="bg-[#F9C726] hover:bg-[#ffd95a] text-black font-bold py-4 px-6 rounded-2xl mt-2 transition duration-300">
+                    <button 
+                        onClick={() => setModalOpen(true)}
+                        className="bg-[#F9C726] hover:bg-[#ffd95a] text-black font-bold py-4 px-6 rounded-2xl mt-2 transition duration-300">
                         Add New Event
                     </button>
                 </div>
             </div>
         </div>
-        <Footer/>
+
+        <EventModal
+            title=""
+            date=""
+            location=""
+            type="add"
+            isOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            onSave={(e) => {
+                e.preventDefault();
+
+                // Handle saving new event logic here
+                    // Add a new AdminEvent object to where all of the events are shown to the admin
+                        // Will have to use a list of sorts and refactor how events are displayed to the admin
+                    // New AdminEvent object should be created with admin input passed through arguments
+
+                setModalOpen(false);
+            }}
+        />
         </>
     );
 }

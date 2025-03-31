@@ -74,7 +74,7 @@ const Calendar = () => {
       <style>{`
         .calendar {
           width: 100%;
-          max-width: 800px;
+          max-width: 400px;
           margin: 0 auto;
           font-family: Inter, sans-serif;
           background-color: white;
