@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
     return (
-        <div className="w-full py-10 bg-[#414141]"> 
+        <div className="w-full py-10 bg-[#1F1F1F]"> 
             <footer className="text-white flex justify-between items-center">
                 <div className="ml-10">
                     <a href="https://uwotsi.com/" target="_blank" rel="noopener noreferrer"><img src='/tsi-logo.png' className="w-12 h-12 hover:opacity-75 delay-100 duration-200 ease-in-out"></img></a>

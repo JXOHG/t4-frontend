@@ -21,18 +21,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #f9f9f9;
-  text-decoration: inherit;
-  font-family: 'Georgia', Times, serif;
-  font-size: 1.2em;
-  transition: color 0.5s ease;
-}
-a:hover {
-  color: #ffd95a;
-}
-
 body {
   display: flex;
   place-items: center;
@@ -43,19 +31,37 @@ body {
   padding: 0;
 }
 
+/* PAGE TITLES */
 h1 {
-  font-size: 3.2em;
+  font-size: 3.0em;
   font-weight: 500;
   line-height: 1.1;
   font-family: 'Georgia', Times, serif;
 }
 
-h3 {
-  font-size: 1.7em;
+/* SECTION TITLES */
+h2 {
+  font-size: 2.2em;
+  font-weight: 250;
   line-height: 1.1;
   font-family: 'Georgia', Times, serif;
 }
 
+/* SUB-SECTION/ITEM TITLES */
+h3 {
+  font-size: 1.5em;
+  line-height: 1.1;
+  font-family: 'Georgia', Times, serif;
+}
+
+/* PARAGRAPHS */
+p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  font-family: 'Georgia', Times, serif;
+}
+
+/* BUTTONS */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -74,6 +80,19 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* LINKS */
+a { 
+  font-weight: 500;
+  color: #f9f9f9;
+  text-decoration: inherit;
+  font-family: 'Georgia', Times, serif;
+  font-size: 1.2em;
+  transition: color 0.5s ease;
+}
+a:hover {
+  color: #ffd95a;
 }
 
 @media (prefers-color-scheme: dark) {

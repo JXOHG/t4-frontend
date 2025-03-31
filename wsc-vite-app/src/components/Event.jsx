@@ -13,9 +13,9 @@ function Event({ image, title, date, location, description }) {
             </div>
             <div className="w-2/3 mx-3">
                 <h3 className="text-2xl font-bold mb-2 text-left">{title}</h3>
-                <div className="flex flex-col gap-2 text-gray-600 mb-3">
+                <div className="flex flex-col gap-1 text-gray-600">
                     <div className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                         </svg>
                         <span className="text-gray-400">{date}</span>
