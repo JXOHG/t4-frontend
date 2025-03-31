@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { format } from 'date-fns';
 
-const Calendar = () => {
+const Calendar = ({ onDateSelect, selectedDate }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   // Get days in month
@@ -29,15 +29,25 @@ const Calendar = () => {
 
     // Add cells for each day of the month
     for (let day = 1; day <= daysInMonth; day++) {
+      const thisDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
       const isToday = 
         new Date().getDate() === day && 
         new Date().getMonth() === currentDate.getMonth() &&
         new Date().getFullYear() === currentDate.getFullYear();
 
+      // Check if this day is the selected date
+      const isSelected =
+        selectedDate &&
+        thisDate.getDate() === selectedDate.getDate() &&
+        thisDate.getMonth() === selectedDate.getMonth() &&
+        thisDate.getFullYear() === selectedDate.getFullYear();
+
       days.push(
         <div 
           key={day} 
-          className={`calendar-day ${isToday ? 'today' : ''}`}
+          onClick={() => onDateSelect && onDateSelect(thisDate)}
+          className={`calendar-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''}`}
+          style={{ cursor: 'pointer' }}
         >
           {day}
         </div>
@@ -161,7 +171,14 @@ const Calendar = () => {
           border-radius: 50%;
         }
 
-        .calendar-day:hover:not(.empty) {
+        .calendar-day.selected {
+          background-color: #ffd95a;
+          font-weight: bold;
+          color: black;
+          border-radius: 50%;
+        }
+
+        .calendar-day:not(.selected):hover:not(.empty) {
           background-color: #e8e8e8;
           cursor: pointer;
           border-radius: 50%;

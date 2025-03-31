@@ -7,6 +7,7 @@ import EventModal from '../components/EventModal';
 export default function EventsDash() {
 
     const [modalOpen, setModalOpen] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     return ( 
         <>
@@ -14,7 +15,10 @@ export default function EventsDash() {
         <div className="p-8">
             <h1 className="text-4xl font-georgia text-left ml-64 font-bold mb-8 text-white">Events Dashboard</h1>
             
-            {/* This area likely needs to change in order to characterize "Add New Event" functionality */}
+            {/* 
+                This area likely needs to change in order to characterize "Add New Event" functionality 
+                Use for loop?
+            */}
             <div className="flex gap-8"> 
                 <div className="w-1/2 flex flex-col gap-4">
                     <AdminEvent title="Guest Speaker - Consumer Behaviour" date="Monday, March 17 • 7:00 PM" location="Western University Campus" />                    
@@ -24,7 +28,10 @@ export default function EventsDash() {
 
                 <div className="w-1/3 flex flex-col gap-4 ml-48 mr-20">
                     <div className="bg-white rounded-3xl p-6 shadow-lg">
-                        <MyEventCalendar />
+                        <MyEventCalendar 
+                            onDateSelect={setSelectedDate} 
+                            selectedDate={selectedDate}
+                        />
                     </div>
                     
                     <button 
@@ -38,7 +45,7 @@ export default function EventsDash() {
 
         <EventModal
             title=""
-            date=""
+            date={selectedDate.toLocaleDateString()}
             location=""
             type="add"
             isOpen={modalOpen}
