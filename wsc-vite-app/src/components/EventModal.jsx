@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function EventModal({ title, date, time, location, type, isOpen, onClose, onSave }) {
+export default function EventModal({ title, date, time, location, type, isOpen, onClose, onSave, onDelete }) {
   if (!isOpen) return null; // Render nothing if modal is not open
 
   return (
@@ -48,6 +48,13 @@ export default function EventModal({ title, date, time, location, type, isOpen, 
           </div>
 
           <div className="flex justify-end">
+            <button
+        type="button"
+        onClick={onDelete}
+        className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+      >
+        Delete Event
+      </button>
             <button
               type="button"
               onClick={onClose}

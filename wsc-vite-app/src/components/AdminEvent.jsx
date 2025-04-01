@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import EventModal from '../components/EventModal';
 
-export default function AdminEvent({ title, date, time, location }) {
+export default function AdminEvent({ title, date, time, location, onUpdate, onDelete }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -35,6 +35,20 @@ export default function AdminEvent({ title, date, time, location }) {
         onClose={() => setModalOpen(false)}
         onSave={(e) => {
           e.preventDefault();
+          const formData = new FormData(e.target);
+          const updatedEvent = {
+            title: formData.get('title'),
+            date: formData.get('date'),
+            time: formData.get('time'),
+            location: formData.get('location'),
+          };
+
+          if (onUpdate) onUpdate(updatedEvent);
+            setModalOpen(false);
+          }}
+          onDelete={() => {
+            if (onDelete) onDelete(); // ✅ call delete handler
+            setModalOpen(false);
 
           // Handle save logic here
             // Must change the information shown on the AdminEvent the admin chose to edit

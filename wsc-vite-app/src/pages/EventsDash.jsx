@@ -17,6 +17,18 @@ export default function EventsDash() {
         { title: "Guest Speaker - Consumer Behaviour", date: "Monday, March 17", time: "7:00PM", location: "Western University Campus" },
     ]);
 
+    const handleUpdateEvent = (indexToUpdate, updatedEvent) => {
+        setEvents((prevEvents) => {
+          const newEvents = [...prevEvents];
+          newEvents[indexToUpdate] = updatedEvent;
+          return newEvents;
+        });
+    };
+
+    const handleDeleteEvent = (indexToDelete) => {
+        setEvents((prevEvents) => prevEvents.filter((_, index) => index !== indexToDelete));
+    };
+
     return ( 
         <>
         <Navbar />
@@ -36,6 +48,8 @@ export default function EventsDash() {
                     date={ev.date}
                     time={ev.time}
                     location={ev.location}
+                    onUpdate={(updatedEvent) => handleUpdateEvent(index, updatedEvent)} // changed but no clue
+                    onDelete={() => handleDeleteEvent(index)} // added delete function
                 />
                 ))}
             </div>
