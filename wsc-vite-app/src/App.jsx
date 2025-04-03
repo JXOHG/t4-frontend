@@ -6,7 +6,7 @@ import ExecutiveTeam from './pages/ExecutiveTeam'
 import Events from './pages/Events'
 import ContactUs from './pages/Contact'
 import Sponsors from './pages/Sponsors'
-import EventsDash from './pages/EventsDash'
+import EventsDash from './admin-dash/EventsDash'
 import AdminLogin from './admin-dash/AdminLogin'
 import './App.css'
 
@@ -23,6 +23,7 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/sponsors" element={<Sponsors />} />
+            
             { /* REMOVE THESE ROUTES LATER, FOR TESTING PURPOSES*/}
             <Route path="/events-dashboard" element={<EventsDash />} />
             <Route path="/admin-login" element={<AdminLogin />} />
