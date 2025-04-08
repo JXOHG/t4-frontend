@@ -23,16 +23,21 @@ function Landing() {
 
                 {/* MISSION STATEMENT */}
                 <div className="w-full left-0 h-500 flex justify-center align-middle gap-20 my-20">
-                    <div className="w-1/2 flex items-center justify-center gap-12">
-                        <div className="w-1/4">
+                    <div className="w-4/5 sm:w-1/2 flex items-center justify-center gap-12">
+                        <div className="hidden sm:block w-2/3">
                             <img src="/WSC Logo.JPEG" alt="Community" className="rounded-2xl shadow-lg aspect-square object-cover" />
                         </div>
-                        <div className="w-3/4">
-                            <h2 className="text-3xl font-georgia font-bold mb-4 text-left">"Empowering Sales Excellence"</h2>
-                            <hr className="w-full border-[#F9C726] mb-5" />
-                            <p className="font-georgia text-gray-300 leading-relaxed text-left">
-                                Western Sales Club envisions a future where sales education and representation is fully integrated into post-secondary learning, equipping students with practical communication skills, confidence, industry connections, and a supportive community to make a positive impact on personal/social lives and drive career success in any field.
-                            </p>
+                        <div className="w-full sm:w-3/4 flex flex-col items-center">
+                            <div className="w-2/3 mb-6 sm:hidden">
+                                <img src="/WSC Logo.JPEG" alt="Community" className="rounded-2xl shadow-lg aspect-square object-cover" />
+                            </div>
+                            <div className="w-full text-center sm:text-left">
+                                <h2 className="text-3xl font-georgia font-bold mb-4 whitespace-nowrap">"Empowering Sales Excellence"</h2>
+                                <hr className="w-full border-[#F9C726] mb-5" />
+                                <p className="font-georgia text-gray-300 leading-relaxed">
+                                    Western Sales Club envisions a future where sales education and representation is fully integrated into post-secondary learning, equipping students with practical communication skills, confidence, industry connections, and a supportive community to make a positive impact on personal/social lives and drive career success in any field.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
