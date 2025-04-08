@@ -1,6 +1,6 @@
 export default function AdminEvent( { title, date, location } ) {
     return (
-        <div className="bg-white rounded-3xl p-8 shadow-lg ml-64">
+        <div className="bg-white rounded-3xl p-8 shadow-lg md:ml-8 w-full md:w-[90%]">
             <div className="flex-top mb-12">
                 <h2 className="text-2xl font-bold text-gray-800 text-left font-inter">{ title }</h2>
             </div>
@@ -16,4 +16,3 @@ export default function AdminEvent( { title, date, location } ) {
         </div>
     );
 }
-

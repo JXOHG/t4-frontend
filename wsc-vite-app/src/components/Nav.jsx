@@ -11,20 +11,19 @@ function Nav() {
 
     return (
       <header className="top-0 left-0 w-full z-50 text-white bg-transparent z-500">
-        <div className="px-20 py-12 flex items-center justify-between">
-            <a href="/" className="text-2xl font-bold">Western Sales Club</a>
+        <div className="px-3 lg:px-20 py-6 lg:py-12 flex items-center justify-between">
+            <a href="/" className="text-sm lg:text-2xl font-bold whitespace-nowrap">Western Sales Club</a>
             <nav>
-            <ul className="flex space-x-6">
-                <li><Link to="/about" className={getLinkClass("/about")}>About Us</Link></li>
-                <li><Link to="/executive-team" className={getLinkClass("/executive-team")}>Executive Team</Link></li>
-                <li><Link to="/events" className={getLinkClass("/events")}>Events</Link></li>
-                <li><Link to="/contact-us" className={getLinkClass("/contact-us")}>Contact Us</Link></li>
-                <li><Link to="/sponsors" className={getLinkClass("/sponsors")}>Sponsors</Link></li>
+            <ul className="flex space-x-2 lg:space-x-6">
+                <li><Link to="/about" className={`${getLinkClass("/about")} text-sm lg:text-lg whitespace-nowrap`}>About Us</Link></li>
+                <li><Link to="/executive-team" className={`${getLinkClass("/executive-team")} text-sm lg:text-lg whitespace-nowrap`}>Executive Team</Link></li>
+                <li><Link to="/events" className={`${getLinkClass("/events")} text-sm lg:text-lg whitespace-nowrap`}>Events</Link></li>
+                <li><Link to="/contact-us" className={`${getLinkClass("/contact-us")} text-sm lg:text-lg whitespace-nowrap`}>Contact Us</Link></li>
+                <li><Link to="/sponsors" className={`${getLinkClass("/sponsors")} text-sm lg:text-lg whitespace-nowrap`}>Sponsors</Link></li>
             </ul>
             </nav>
         </div>
       </header>
     );
 }
-
 export default Nav;
