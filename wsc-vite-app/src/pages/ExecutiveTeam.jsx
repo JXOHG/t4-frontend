@@ -14,13 +14,13 @@ function ExecutiveTeam() {
                 description="Meet the team behind the Western Sales Club. Our executives are dedicated to providing students with the resources and opportunities they need to succeed in sales."
             />
 
-            <div className="flex flex-col justify-center w-[950px] mx-auto mb-10">
+            <div className="w-full max-w-6xl px-4 mx-auto mb-10">
 
                 {/* Co-Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Our Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="flex justify-center px-36 gap-4 my-10">
-                    <Profile
+                <div className="grid justify-center grid-cols-[repeat(auto-fit,_minmax(280px,_max-content))] gap-x-8 gap-y-20 px-4 py-8">
+                <Profile
                         image="placeholder-person.png"
                         name="Hudson Bates"
                         title="Co-President"
@@ -36,8 +36,8 @@ function ExecutiveTeam() {
                 {/* Vice Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Vice Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid grid-cols-4 gap-x-8 my-10 gap-y-20">
-                    <Profile
+                <div className="grid justify-center grid-cols-[repeat(auto-fit,_minmax(280px,_max-content))] gap-x-8 gap-y-20 px-4 py-8">
+                <Profile
                         image="placeholder-person.png"
                         name="Owen Gerrard"
                         title="VP Events, Co-Founder"
@@ -62,7 +62,7 @@ function ExecutiveTeam() {
                 {/* Assistant Vice Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Assistant Vice Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid grid-cols-4 my-10 gap-y-20 pb-20">
+                <div className="grid justify-center grid-cols-[repeat(auto-fit,_minmax(280px,_max-content))] gap-x-8 gap-y-20 px-4 py-8">
                     <Profile
                         image="placeholder-person.png"
                         name="Nishaan Mangat"
