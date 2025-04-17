@@ -95,9 +95,7 @@ export default function EventsDash() {
                 ]);
 
 
-                /**  HARRY: Just manage adding the event visually to the admin's event dashboard, 
-                    Do not worry about making it connect to the actual Events Page
-
+                /**
                 Handle saving new event logic here
                     Add a new AdminEvent object to where all of the events are shown to the admin
                         Will have to use a list of sorts and refactor how events are displayed to the admin
