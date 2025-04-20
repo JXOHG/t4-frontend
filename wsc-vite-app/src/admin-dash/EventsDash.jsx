@@ -35,10 +35,6 @@ export default function EventsDash() {
         <div className="p-8">
             <h1 className="text-4xl font-georgia text-left ml-64 font-bold mb-8 text-white">Events Dashboard</h1>
             
-            {/* 
-                This area likely needs to change in order to characterize "Add New Event" functionality 
-                Use for loop?
-            */}
             <div className="flex gap-8"> 
                 <div className="w-1/2 flex flex-col gap-4">
                 {events.map((ev, index) => (
@@ -48,12 +44,11 @@ export default function EventsDash() {
                     date={ev.date}
                     time={ev.time}
                     location={ev.location}
-                    onUpdate={(updatedEvent) => handleUpdateEvent(index, updatedEvent)} // changed but no clue
-                    onDelete={() => handleDeleteEvent(index)} // added delete function
+                    onUpdate={(updatedEvent) => handleUpdateEvent(index, updatedEvent)}
+                    onDelete={() => handleDeleteEvent(index)}
                 />
                 ))}
             </div>
-
                 <div className="w-1/3 flex flex-col gap-4 ml-48 mr-20">
                     <div className="bg-white rounded-3xl p-6 shadow-lg">
                         <MyEventCalendar 
@@ -80,35 +75,54 @@ export default function EventsDash() {
             onClose={() => setModalOpen(false)}
             onSave={(e) => {
                 e.preventDefault();
-
+            
                 const formData = new FormData(e.target);
                 const submittedTitle = formData.get('title');
                 const submittedTime = formData.get('time');
                 const submittedLocation = formData.get('location');
-                const dayOfWeek = format(selectedDate, 'EEEE, MMMM d');
-
-                console.log("New Event Data:", submittedTitle, dayOfWeek, submittedTime, submittedLocation);
-
-                setEvents((prevEvents) => [
-                    ...prevEvents,
-                    { title: submittedTitle, date: dayOfWeek, time: submittedTime, location: submittedLocation },
-                ]);
-
-
-                /**  HARRY: Just manage adding the event visually to the admin's event dashboard, 
-                    Do not worry about making it connect to the actual Events Page
-
-                Handle saving new event logic here
-                    Add a new AdminEvent object to where all of the events are shown to the admin
-                        Will have to use a list of sorts and refactor how events are displayed to the admin
-                    New AdminEvent object should be created with admin input passed through arguments
-
-                THOMAS: Create API endpoint here
-                    Make POST request to add event to backend with event info in JSON?
-                */
-
+            
+                // Combine selected date and time into one ISO string
+                const fullDate = new Date(selectedDate);
+                const [hours, minutes] = submittedTime.split(":");
+                fullDate.setHours(parseInt(hours), parseInt(minutes));
+            
+                const payload = {
+                    title: submittedTitle,
+                    description: `${submittedTitle} @ ${submittedLocation}`, // Placeholder
+                    eventDate: fullDate.toUTCString(), // Backend expects GMT format
+                    location: submittedLocation
+                };
+            
+                fetch("https://flask-app-250624862173.us-central1.run.app/events", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include", // important to send cookies/session to Flask
+                    body: JSON.stringify(payload)
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error("Failed to create event");
+                    return response.json();
+                })
+                .then(() => {
+                    // Add to frontend state for now
+                    const formattedDate = fullDate.toLocaleDateString(undefined, {
+                        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                    });
+            
+                    setEvents(prev => [
+                        ...prev,
+                        { title: submittedTitle, date: formattedDate, time: submittedTime, location: submittedLocation }
+                    ]);
+                })
+                .catch(err => {
+                    console.error("Error posting event:", err);
+                    alert("Failed to create event. Are you logged in?");
+                });
+            
                 setModalOpen(false);
-            }}
+            }}            
         />
         </>
     );
