@@ -1,33 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Event({ image, title, date, location, description }) {
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageError = () => {
+        console.error("Failed to load image:", image);
+        setImageError(true);
+    };
 
     return (
-        <div className="bg-[#262626] flex w-1/2 mx-auto p-6 gap-6 my-5 rounded-lg hover:bg-[#363636] transition-all duration-500 ease-in-out">
-            <div className="w-1/4 h-40 mx-2 my-2">
-                <img 
-                    src={image} 
-                    alt={title} 
-                    className="w-full h-40 object-cover rounded-lg"
-                />
+        <div className="flex flex-col items-center text-white rounded-lg shadow-md m-6 p-6 md:flex-row md:max-w-4xl mx-auto ">
+            <div className="w-full md:w-1/3 flex justify-center">
+                {image && !imageError ? (
+                    <img 
+                        src={image} 
+                        alt={title} 
+                        className="h-48 w-48 object-contain rounded"
+                        onError={handleImageError}
+                    />
+                ) : (
+                    <div className="h-48 w-48 bg-gray-800 flex items-center justify-center rounded">
+                        <span className="text-white-400 text-lg font-medium">No Image</span>
+                    </div>
+                )}
             </div>
-            <div className="w-2/3 mx-3">
-                <h3 className="text-2xl font-bold mb-2 text-left">{title}</h3>
-                <div className="flex flex-col gap-1 text-gray-600">
-                    <div className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-2.5 w-2.5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-gray-400">{date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-gray-400">{location}</span>
-                    </div>
+            <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-6 text-left">
+                <h2 className="text-2xl font-bold text-white-200">{title}</h2>
+                <div className="flex flex-col sm:flex-row sm:items-center text-white-400 mt-2">
+                    <p className="mr-4 flex items-center">
+                        <i className="far fa-calendar-alt mr-2"></i>
+                        {date}
+                    </p>
+                    <p className="flex items-center mt-2 sm:mt-0">
+                        <i className="fas fa-map-marker-alt mr-2"></i>
+                        {location}
+                    </p>
                 </div>
-                <p className="text-gray-400 text-left">{description}</p>
+                <p className="text-white-400 mt-3">{description}</p>
             </div>
         </div>
     );
