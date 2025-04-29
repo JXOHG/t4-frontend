@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function AdminLogin() {
   const handleLogin = () => {
-    window.location.href = "http://127.0.0.1:5000/login";
-    // "https://flask-app-250624862173.us-central1.run.app/login";
+    window.location.href =
+      "https://flask-app-250624862173.us-central1.run.app/login";
   };
 
   return (
