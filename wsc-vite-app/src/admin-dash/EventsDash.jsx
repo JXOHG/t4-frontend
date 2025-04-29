@@ -5,6 +5,7 @@ import AdminEvent from "../components/AdminEvent";
 import EventModal from "../components/EventModal";
 import { format } from "date-fns";
 import { useNavigate, useLocation } from "react-router-dom";
+import { BASE_URL } from "../utils/config";
 
 export default function EventsDash() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,31 +24,44 @@ export default function EventsDash() {
   // Format date for date input (YYYY-MM-DD)
   const formatDateForInput = (date) => {
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
 
   // Parse date string from input to date object
   const parseDateAndTime = (dateStr, timeStr) => {
-    const [year, month, day] = dateStr.split('-').map(Number);
-    const [hours, minutes] = timeStr.split(':').map(Number);
+    const [year, month, day] = dateStr.split("-").map(Number);
+    const [hours, minutes] = timeStr.split(":").map(Number);
     return new Date(year, month - 1, day, hours, minutes);
   };
 
   // Format date for API in the exact format expected by backend
   const formatDateForAPI = (date) => {
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
     const dayOfWeek = daysOfWeek[date.getDay()];
     const day = date.getDate();
     const month = months[date.getMonth()];
     const year = date.getFullYear();
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const seconds = String(date.getSeconds()).padStart(2, '0');
-    
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const seconds = String(date.getSeconds()).padStart(2, "0");
+
     return `${dayOfWeek}, ${day} ${month} ${year} ${hours}:${minutes}:${seconds} GMT`;
   };
 
@@ -57,20 +71,20 @@ export default function EventsDash() {
     try {
       setLoading(true);
       const token = localStorage.getItem("authToken");
-      
+
       if (!token) {
         throw new Error("No authentication token found");
       }
-      
-      const response = await fetch("http://127.0.0.1:5000/events", {
+
+      const response = await fetch(`${BASE_URL}/events`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
-        credentials: "include" // Include cookies for session-based auth
+        credentials: "include", // Include cookies for session-based auth
       });
-  
+
       if (!response.ok) {
         // Handle different error statuses
         if (response.status === 401 || response.status === 403) {
@@ -81,38 +95,40 @@ export default function EventsDash() {
         }
         throw new Error(`Failed to fetch events: ${response.status}`);
       }
-  
+
       const data = await response.json();
-      
+
       // Check if data has the expected structure
       if (!data.message || !Array.isArray(data.message)) {
         throw new Error("Unexpected API response format");
       }
-      
+
       // Transform events data from API to match component needs
-      const formattedEvents = data.message.map(event => {
-        try {
-          // Parse event date to create readable format
-          const eventDate = new Date(event.event_date);
-          
-          return {
-            id: event.event_id,
-            title: event.title,
-            description: event.description || "",
-            date: format(eventDate, "yyyy-MM-dd"), // Format for the form input
-            formattedDate: format(eventDate, "EEEE, MMMM d"), // Formatted for display
-            time: format(eventDate, "HH:mm"), // 24-hour format for the form input
-            formattedTime: format(eventDate, "h:mma"), // Formatted for display
-            location: event.location || "",
-            rawDate: event.event_date,
-            imageUrl: event.image_url || null // Add image URL to display if needed
-          };
-        } catch (err) {
-          console.error("Error processing event:", event, err);
-          return null; // Skip any events that can't be processed
-        }
-      }).filter(event => event !== null); // Remove any null events
-  
+      const formattedEvents = data.message
+        .map((event) => {
+          try {
+            // Parse event date to create readable format
+            const eventDate = new Date(event.event_date);
+
+            return {
+              id: event.event_id,
+              title: event.title,
+              description: event.description || "",
+              date: format(eventDate, "yyyy-MM-dd"), // Format for the form input
+              formattedDate: format(eventDate, "EEEE, MMMM d"), // Formatted for display
+              time: format(eventDate, "HH:mm"), // 24-hour format for the form input
+              formattedTime: format(eventDate, "h:mma"), // Formatted for display
+              location: event.location || "",
+              rawDate: event.event_date,
+              imageUrl: event.image_url || null, // Add image URL to display if needed
+            };
+          } catch (err) {
+            console.error("Error processing event:", event, err);
+            return null; // Skip any events that can't be processed
+          }
+        })
+        .filter((event) => event !== null); // Remove any null events
+
       setEvents(formattedEvents);
       console.log("Fetched and processed events:", formattedEvents);
       setError(null);
@@ -127,19 +143,19 @@ export default function EventsDash() {
   // Update event in the backend
   const handleUpdateEvent = async (indexToUpdate, updatedEvent) => {
     const eventToUpdate = events[indexToUpdate];
-    
+
     try {
       // Parse the date and time to create a proper date string
       const dateObj = parseDateAndTime(updatedEvent.date, updatedEvent.time);
       const formattedDate = formatDateForAPI(dateObj);
-      
+
       const token = localStorage.getItem("authToken");
-      
-      const response = await fetch(`http://127.0.0.1:5000/events/${eventToUpdate.id}`, {
+
+      const response = await fetch(`${BASE_URL}/events/${eventToUpdate.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}` // Include token in headers
+          Authorization: `Bearer ${token}`, // Include token in headers
         },
         credentials: "include", // Include cookies for session
         body: JSON.stringify({
@@ -165,16 +181,16 @@ export default function EventsDash() {
   // Delete event from the backend
   const handleDeleteEvent = async (indexToDelete) => {
     const eventToDelete = events[indexToDelete];
-    
+
     try {
       const token = localStorage.getItem("authToken");
-      
-      const response = await fetch(`http://127.0.0.1:5000/events/${eventToDelete.id}`, {
+
+      const response = await fetch(`${BASE_URL}/events/${eventToDelete.id}`, {
         method: "DELETE",
         headers: {
-          "Authorization": `Bearer ${token}` // Include token in headers
+          Authorization: `Bearer ${token}`, // Include token in headers
         },
-        credentials: "include" // Include cookies for session
+        credentials: "include", // Include cookies for session
       });
 
       if (!response.ok) {
@@ -195,12 +211,12 @@ export default function EventsDash() {
   const handleAddEvent = async (eventData) => {
     try {
       const token = localStorage.getItem("authToken");
-      
-      const response = await fetch("http://127.0.0.1:5000/events", {
+
+      const response = await fetch(`${BASE_URL}/events`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}` // Include token in headers
+          Authorization: `Bearer ${token}`, // Include token in headers
         },
         credentials: "include", // Include cookies for session
         body: JSON.stringify(eventData),
@@ -222,48 +238,55 @@ export default function EventsDash() {
     const checkAuthentication = async () => {
       try {
         setLoading(true);
-        
+
+        // Check for token in URL parameters
+        const params = new URLSearchParams(location.search);
+        const urlToken = params.get("token");
+
+        if (urlToken) {
+          localStorage.setItem("authToken", urlToken);
+        }
+
         // Check for token in localStorage
         const token = localStorage.getItem("authToken");
-        
+
         if (!token) {
           // No token found, redirect to login
           navigate("/admin-login");
           return;
         }
-        
+
         // Verify the token with backend
-        const response = await fetch("http://127.0.0.1:5000/verify", {
+        const response = await fetch(`${BASE_URL}/verify`, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify({ token })
+          body: JSON.stringify({ token }),
         });
-        
+
         if (!response.ok) {
           // Token verification failed
           localStorage.removeItem("authToken");
           navigate("/admin-login");
           return;
         }
-        
+
         const data = await response.json();
-        
+
         if (!data.valid) {
           // Token is invalid or expired
           localStorage.removeItem("authToken");
           navigate("/admin-login");
           return;
         }
-        
+
         // Authentication successful
         setAuthToken(token);
         setIsAuthenticated(true);
-        
+
         // Fetch events with the validated token
         fetchEvents();
-        
       } catch (err) {
         console.error("Authentication check failed:", err);
         navigate("/admin-login");
@@ -271,7 +294,7 @@ export default function EventsDash() {
         setLoading(false);
       }
     };
-    
+
     checkAuthentication();
   }, [navigate]);
 
@@ -299,7 +322,9 @@ export default function EventsDash() {
           <div className="flex gap-8">
             <div className="w-1/2 flex flex-col gap-4">
               {events.length === 0 ? (
-                <p className="text-white text-xl">No events found. Add an event to get started.</p>
+                <p className="text-white text-xl">
+                  No events found. Add an event to get started.
+                </p>
               ) : (
                 events.map((ev, index) => (
                   <AdminEvent
@@ -357,7 +382,7 @@ export default function EventsDash() {
           const submittedTime = formData.get("time");
           const submittedLocation = formData.get("location");
           const submittedDescription = formData.get("description") || "";
-          
+
           // Create a date object from the submitted date and time
           const eventDate = parseDateAndTime(submittedDate, submittedTime);
           const formattedEventDate = formatDateForAPI(eventDate);
