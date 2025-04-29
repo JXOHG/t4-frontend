@@ -9,7 +9,7 @@ function Event({ image, title, date, location, description }) {
     };
 
     return (
-        <div className="flex flex-col items-center text-white rounded-lg shadow-md m-6 p-6 md:flex-row md:max-w-4xl mx-auto ">
+        <div className="flex flex-col items-center text-white rounded-lg shadow-md m-6 p-6 md:flex-row w-full md:max-w-4xl mx-auto">
             <div className="w-full md:w-1/3 flex justify-center">
                 {image && !imageError ? (
                     <img 
