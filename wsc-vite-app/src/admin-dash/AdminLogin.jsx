@@ -61,9 +61,10 @@ function AdminLogin() {
   };
 
   const handleLogin = () => {
+
     setIsRedirecting(true);
     window.location.href = "http://127.0.0.1:5000/login";
-  };
+
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
