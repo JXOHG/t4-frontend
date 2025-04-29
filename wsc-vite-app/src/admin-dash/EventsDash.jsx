@@ -11,6 +11,7 @@ export default function EventsDash() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [authToken, setAuthToken] = useState(null);
 
   // Store events in a state array
   const [events, setEvents] = useState([]);
@@ -27,40 +28,93 @@ export default function EventsDash() {
     return `${year}-${month}-${day}`;
   };
 
+  // Parse date string from input to date object
+  const parseDateAndTime = (dateStr, timeStr) => {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    return new Date(year, month - 1, day, hours, minutes);
+  };
+
+  // Format date for API in the exact format expected by backend
+  const formatDateForAPI = (date) => {
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    
+    return `${dayOfWeek}, ${day} ${month} ${year} ${hours}:${minutes}:${seconds} GMT`;
+  };
+
   // Fetch events from API
+  // Replace the fetchEvents function with this:
   const fetchEvents = async () => {
     try {
       setLoading(true);
+      const token = localStorage.getItem("authToken");
+      
+      if (!token) {
+        throw new Error("No authentication token found");
+      }
+      
       const response = await fetch("http://127.0.0.1:5000/events", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
         },
+        credentials: "include" // Include cookies for session-based auth
       });
-
+  
       if (!response.ok) {
+        // Handle different error statuses
+        if (response.status === 401 || response.status === 403) {
+          // Authentication error, redirect to login
+          localStorage.removeItem("authToken");
+          navigate("/admin-login");
+          return;
+        }
         throw new Error(`Failed to fetch events: ${response.status}`);
       }
-
+  
       const data = await response.json();
+      
+      // Check if data has the expected structure
+      if (!data.message || !Array.isArray(data.message)) {
+        throw new Error("Unexpected API response format");
+      }
       
       // Transform events data from API to match component needs
       const formattedEvents = data.message.map(event => {
-        // Parse event date to create readable format
-        const eventDate = new Date(event.event_date);
-        
-        return {
-          id: event.event_id,
-          title: event.title,
-          description: event.description,
-          date: format(eventDate, "EEEE, MMMM d"),
-          time: format(eventDate, "h:mma"),
-          location: event.location,
-          rawDate: event.event_date
-        };
-      });
-
+        try {
+          // Parse event date to create readable format
+          const eventDate = new Date(event.event_date);
+          
+          return {
+            id: event.event_id,
+            title: event.title,
+            description: event.description || "",
+            date: format(eventDate, "yyyy-MM-dd"), // Format for the form input
+            formattedDate: format(eventDate, "EEEE, MMMM d"), // Formatted for display
+            time: format(eventDate, "HH:mm"), // 24-hour format for the form input
+            formattedTime: format(eventDate, "h:mma"), // Formatted for display
+            location: event.location || "",
+            rawDate: event.event_date,
+            imageUrl: event.image_url || null // Add image URL to display if needed
+          };
+        } catch (err) {
+          console.error("Error processing event:", event, err);
+          return null; // Skip any events that can't be processed
+        }
+      }).filter(event => event !== null); // Remove any null events
+  
       setEvents(formattedEvents);
+      console.log("Fetched and processed events:", formattedEvents);
       setError(null);
     } catch (err) {
       console.error("Error fetching events:", err);
@@ -76,21 +130,22 @@ export default function EventsDash() {
     
     try {
       // Parse the date and time to create a proper date string
-      const dateStr = updatedEvent.date;
-      const timeStr = updatedEvent.time;
+      const dateObj = parseDateAndTime(updatedEvent.date, updatedEvent.time);
+      const formattedDate = formatDateForAPI(dateObj);
       
-      // Create a date object from the date and time strings
-      const dateObj = new Date(`${dateStr} ${timeStr}`);
+      const token = localStorage.getItem("authToken");
       
       const response = await fetch(`http://127.0.0.1:5000/events/${eventToUpdate.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` // Include token in headers
         },
+        credentials: "include", // Include cookies for session
         body: JSON.stringify({
           title: updatedEvent.title,
           description: updatedEvent.description || eventToUpdate.description,
-          eventDate: dateObj.toUTCString(),
+          eventDate: formattedDate,
           location: updatedEvent.location,
         }),
       });
@@ -99,15 +154,8 @@ export default function EventsDash() {
         throw new Error(`Failed to update event: ${response.status}`);
       }
 
-      // Update local state
-      setEvents((prevEvents) => {
-        const newEvents = [...prevEvents];
-        newEvents[indexToUpdate] = {
-          ...eventToUpdate,
-          ...updatedEvent,
-        };
-        return newEvents;
-      });
+      // Refresh events to get updated data from server
+      await fetchEvents();
     } catch (err) {
       console.error("Error updating event:", err);
       alert("Failed to update event. Please try again.");
@@ -119,8 +167,14 @@ export default function EventsDash() {
     const eventToDelete = events[indexToDelete];
     
     try {
+      const token = localStorage.getItem("authToken");
+      
       const response = await fetch(`http://127.0.0.1:5000/events/${eventToDelete.id}`, {
         method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}` // Include token in headers
+        },
+        credentials: "include" // Include cookies for session
       });
 
       if (!response.ok) {
@@ -140,11 +194,15 @@ export default function EventsDash() {
   // Add new event to the backend
   const handleAddEvent = async (eventData) => {
     try {
+      const token = localStorage.getItem("authToken");
+      
       const response = await fetch("http://127.0.0.1:5000/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` // Include token in headers
         },
+        credentials: "include", // Include cookies for session
         body: JSON.stringify(eventData),
       });
 
@@ -161,39 +219,61 @@ export default function EventsDash() {
   };
 
   useEffect(() => {
-    const verifyToken = async () => {
+    const checkAuthentication = async () => {
       try {
-        const params = new URLSearchParams(location.search);
-        const token = params.get("token");
-
+        setLoading(true);
+        
+        // Check for token in localStorage
+        const token = localStorage.getItem("authToken");
+        
         if (!token) {
+          // No token found, redirect to login
           navigate("/admin-login");
           return;
         }
-
+        
+        // Verify the token with backend
         const response = await fetch("http://127.0.0.1:5000/verify", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify({ token }),
+          body: JSON.stringify({ token })
         });
-
+        
         if (!response.ok) {
-          throw new Error("Invalid token");
+          // Token verification failed
+          localStorage.removeItem("authToken");
+          navigate("/admin-login");
+          return;
         }
-
+        
+        const data = await response.json();
+        
+        if (!data.valid) {
+          // Token is invalid or expired
+          localStorage.removeItem("authToken");
+          navigate("/admin-login");
+          return;
+        }
+        
+        // Authentication successful
+        setAuthToken(token);
         setIsAuthenticated(true);
-        // Once authenticated, fetch events
+        
+        // Fetch events with the validated token
         fetchEvents();
-      } catch (error) {
-        console.error("Token verification failed:", error);
+        
+      } catch (err) {
+        console.error("Authentication check failed:", err);
         navigate("/admin-login");
+      } finally {
+        setLoading(false);
       }
     };
-
-    verifyToken();
-  }, [navigate, location]);
+    
+    checkAuthentication();
+  }, [navigate]);
 
   if (!isAuthenticated) {
     return <div>Verifying authentication...</div>;
@@ -225,10 +305,12 @@ export default function EventsDash() {
                   <AdminEvent
                     key={index}
                     title={ev.title}
-                    date={ev.date}
-                    time={ev.time}
+                    date={ev.formattedDate}
+                    time={ev.formattedTime}
                     location={ev.location}
                     description={ev.description}
+                    rawDate={ev.date} // Pass the raw date for the form
+                    rawTime={ev.time} // Pass the raw time for the form
                     onUpdate={(updatedEvent) =>
                       handleUpdateEvent(index, updatedEvent)
                     }
@@ -277,15 +359,13 @@ export default function EventsDash() {
           const submittedDescription = formData.get("description") || "";
           
           // Create a date object from the submitted date and time
-          const [year, month, day] = submittedDate.split('-').map(Number);
-          const [hours, minutes] = submittedTime.split(':').map(Number);
-          
-          const eventDate = new Date(year, month - 1, day, hours, minutes);
+          const eventDate = parseDateAndTime(submittedDate, submittedTime);
+          const formattedEventDate = formatDateForAPI(eventDate);
 
           const eventData = {
             title: submittedTitle,
             description: submittedDescription,
-            eventDate: eventDate.toUTCString(),
+            eventDate: formattedEventDate,
             location: submittedLocation,
           };
 

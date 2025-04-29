@@ -31,7 +31,7 @@ export default function EventModal({ title, date, time, location, description = 
             <input
               type="date"
               id="date"
-              defaultValue={date}
+              defaultValue={date} // Should be YYYY-MM-DD format
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
               name="date"
               required
@@ -45,7 +45,7 @@ export default function EventModal({ title, date, time, location, description = 
             <input
               type="time"
               id="time"
-              defaultValue={time}
+              defaultValue={time} // Should be HH:MM format
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
               name="time"
               required
