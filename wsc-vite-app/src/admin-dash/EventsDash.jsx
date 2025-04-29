@@ -19,6 +19,14 @@ export default function EventsDash() {
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // Format date for date input (YYYY-MM-DD)
+  const formatDateForInput = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   // Fetch events from API
   const fetchEvents = async () => {
     try {
@@ -251,7 +259,8 @@ export default function EventsDash() {
 
       <EventModal
         title=""
-        date={selectedDate.toLocaleDateString()}
+        date={formatDateForInput(selectedDate)}
+        time=""
         location=""
         description=""
         type="add"
@@ -262,14 +271,16 @@ export default function EventsDash() {
 
           const formData = new FormData(e.target);
           const submittedTitle = formData.get("title");
+          const submittedDate = formData.get("date");
           const submittedTime = formData.get("time");
           const submittedLocation = formData.get("location");
           const submittedDescription = formData.get("description") || "";
           
-          // Combine date and time for API
-          const eventDate = new Date(selectedDate);
-          const [hours, minutes] = submittedTime.split(":").map(num => parseInt(num, 10));
-          eventDate.setHours(hours, minutes);
+          // Create a date object from the submitted date and time
+          const [year, month, day] = submittedDate.split('-').map(Number);
+          const [hours, minutes] = submittedTime.split(':').map(Number);
+          
+          const eventDate = new Date(year, month - 1, day, hours, minutes);
 
           const eventData = {
             title: submittedTitle,
