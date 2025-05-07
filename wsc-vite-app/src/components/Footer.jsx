@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -11,8 +11,8 @@ function Footer() {
                 <div>
                     <p className="text-m">&copy; {new Date().getFullYear()} Western Sales Club. All rights reserved.</p>
                     <div className="flex justify-between py-2 px-14">
-                        <a href="https://www.cesoid.com/2048?theme=bkVkd1NxQyU6kED" target="_blank" rel="noopener noreferrer" className="underline text-sm">Terms of Service</a>
-                        <a href="https://www.cesoid.com/2048?theme=AFmtBE9JNezgFMt" target="_blank" rel="noopener noreferrer" className="underline text-sm">Privacy Policy</a>
+                        <Link to="/terms-of-service" className="underline text-sm">Terms of Service</Link>
+                        <Link to="/privacy-policy" className="underline text-sm">Privacy Policy</Link>
                     </div>
                 </div>
                 <div className="flex gap-4 mr-10">
