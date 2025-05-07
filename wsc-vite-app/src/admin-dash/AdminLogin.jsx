@@ -6,6 +6,17 @@ function AdminLogin() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Check for error parameter in URL first
+    const params = new URLSearchParams(window.location.search);
+    const errorMsg = params.get("error");
+    
+    if (errorMsg) {
+      setError(decodeURIComponent(errorMsg));
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+      return;
+    }
+    
     // Check if we have a token in localStorage first
     const savedToken = localStorage.getItem("authToken");
     if (savedToken) {
@@ -14,16 +25,13 @@ function AdminLogin() {
     }
 
     // Check URL for token parameter (from OAuth callback)
-    const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
-
     if (token) {
       // If there's a token in the URL, verify and store it
       verifyToken(token);
 
       // Clean up URL by removing the token
-      const cleanUrl = window.location.pathname;
-      window.history.replaceState({}, document.title, cleanUrl);
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
 
@@ -94,5 +102,4 @@ function AdminLogin() {
     </div>
   );
 }
-
-export default AdminLogin;
+export default AdminLogin
