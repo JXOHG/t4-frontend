@@ -104,7 +104,7 @@ function PrivacyPolicy() {
           
           <section>
             <h2 className="text-2xl font-semibold mb-4 ">10. Contact Us</h2>
-            <p className="mb-3 leading-relaxed">If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:westernsalesclub@gmail.com" className="text-blue-600 hover:text-blue-800 font-medium">westernsalesclub@gmail.com</a>.</p>
+            <p className="mb-3 leading-relaxed">If you have questions or concerns about this Privacy Policy, please contact us at <a href="mailto:sales.club@westernusc.ca" className="text-blue-600 hover:text-blue-800 font-medium">sales.club@westernusc.ca</a>.</p>
           </section>
         </div>
         
