@@ -30,7 +30,7 @@ function Contact() {
         const data = new FormData(form);
 
         // Send the form data using EmailJS - NOTE: Limit is 200 emails per month
-        emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', data, '42b3pM4PT9nrnUz5u')
+        emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', data, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 console.log('Email sent successfully:', result.text);
             }, (error) => {
