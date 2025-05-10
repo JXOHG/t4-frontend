@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import PageTitle from '../components/page-title';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
 
@@ -13,12 +14,9 @@ function Contact() {
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    }
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,6 +26,17 @@ function Contact() {
           return;
         }
 
+        const form = e.target;
+        const data = new FormData(form);
+
+        // Send the form data using EmailJS - NOTE: Limit is 200 emails per month
+        emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', data, '42b3pM4PT9nrnUz5u')
+            .then((result) => {
+                console.log('Email sent successfully:', result.text);
+            }, (error) => {
+                console.error('Error sending email:', error.text);
+            });
+        
         // Clear form after submission
         setFormData({
             name: "",
@@ -74,7 +83,7 @@ function Contact() {
               />
               <input
                 type="text"
-                name="organizationType"
+                name="organization_type"
                 placeholder="Organization Type (optional)"
                 value={formData.organizationType}
                 onChange={handleChange}
@@ -82,7 +91,7 @@ function Contact() {
               />
               <textarea
                 name="message"
-                placeholder="Message"
+                placeholder="Your Message"
                 rows="4"
                 value={formData.message}
                 onChange={handleChange}
