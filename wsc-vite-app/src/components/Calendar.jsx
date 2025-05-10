@@ -1,86 +1,88 @@
-import React, { useState } from 'react';
-import { format } from 'date-fns';
+"use client"
+
+import { useState } from "react"
+import { format } from "date-fns"
 
 const Calendar = ({ onDateSelect, selectedDate }) => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(new Date())
 
   // Get days in month
   const getDaysInMonth = (date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    return new Date(year, month + 1, 0).getDate();
-  };
+    const year = date.getFullYear()
+    const month = date.getMonth()
+    return new Date(year, month + 1, 0).getDate()
+  }
 
   // Get first day of month (0 = Sunday, 1 = Monday, etc.)
   const getFirstDayOfMonth = (date) => {
-    return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-  };
+    return new Date(date.getFullYear(), date.getMonth(), 1).getDay()
+  }
 
   // Generate calendar days
   const generateCalendarDays = () => {
-    const daysInMonth = getDaysInMonth(currentDate);
-    const firstDayOfMonth = getFirstDayOfMonth(currentDate);
-    const days = [];
+    const daysInMonth = getDaysInMonth(currentDate)
+    const firstDayOfMonth = getFirstDayOfMonth(currentDate)
+    const days = []
 
     // Add empty cells for days before the first day of the month
     for (let i = 0; i < firstDayOfMonth; i++) {
-      days.push(<div key={`empty-${i}`} className="calendar-day empty"></div>);
+      days.push(<div key={`empty-${i}`} className="calendar-day empty"></div>)
     }
 
     // Add cells for each day of the month
     for (let day = 1; day <= daysInMonth; day++) {
-      const thisDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-      const isToday = 
-        new Date().getDate() === day && 
+      const thisDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
+      const isToday =
+        new Date().getDate() === day &&
         new Date().getMonth() === currentDate.getMonth() &&
-        new Date().getFullYear() === currentDate.getFullYear();
+        new Date().getFullYear() === currentDate.getFullYear()
 
       // Check if this day is the selected date
       const isSelected =
         selectedDate &&
         thisDate.getDate() === selectedDate.getDate() &&
         thisDate.getMonth() === selectedDate.getMonth() &&
-        thisDate.getFullYear() === selectedDate.getFullYear();
+        thisDate.getFullYear() === selectedDate.getFullYear()
 
       days.push(
-        <div 
-          key={day} 
+        <div
+          key={day}
           onClick={() => onDateSelect && onDateSelect(thisDate)}
-          className={`calendar-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''}`}
-          style={{ cursor: 'pointer' }}
+          className={`calendar-day ${isToday ? "today" : ""} ${isSelected ? "selected" : ""}`}
+          style={{ cursor: "pointer" }}
         >
           {day}
-        </div>
-      );
+        </div>,
+      )
     }
 
-    return days;
-  };
+    return days
+  }
 
   // Navigate months
   const previousMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1));
-  };
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))
+  }
 
   const nextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1));
-  };
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1))
+  }
 
   return (
     <div className="calendar">
       <div className="calendar-header">
         <button onClick={previousMonth}>&lt;</button>
-        <h2>{format(currentDate, 'MMMM yyyy')}</h2>
+        <h2>{format(currentDate, "MMMM yyyy")}</h2>
         <button onClick={nextMonth}>&gt;</button>
       </div>
       <div className="calendar-weekdays">
-        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-          <div key={day} className="weekday">{day}</div>
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+          <div key={day} className="weekday">
+            {day}
+          </div>
         ))}
       </div>
-      <div className="calendar-days">
-        {generateCalendarDays()}
-      </div>
+      <div className="calendar-days">{generateCalendarDays()}</div>
       <style>{`
         .calendar {
           width: 100%;
@@ -89,6 +91,7 @@ const Calendar = ({ onDateSelect, selectedDate }) => {
           font-family: Inter, sans-serif;
           background-color: white;
           border-radius: 8px;
+          overflow: hidden;
         }
 
         .calendar-header {
@@ -101,22 +104,17 @@ const Calendar = ({ onDateSelect, selectedDate }) => {
           color: black;
         }
 
-        .calendar-header button {
-          padding: 0.5rem 1rem;
-          border: none;
-          background-color: white;
-          cursor: pointer;
-          border-radius: 8px;
-          font-size: 1.5rem;
-          color: black;
-          font-weight: 700;
-        }
-
         .calendar-header h2 {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           color: black;
           font-family: Inter, sans-serif;
           font-weight: 700;
+        }
+        
+        @media (min-width: 640px) {
+          .calendar-header h2 {
+            font-size: 1.5rem;
+          }
         }
 
         .calendar-weekdays {
@@ -126,14 +124,14 @@ const Calendar = ({ onDateSelect, selectedDate }) => {
           font-weight: bold;
           background-color: white;
           padding: 0.5rem 0;
-          font-size: 1.2rem;
+          font-size: 0.8rem;
           color: #999999;
         }
-
-        .calendar-weekdays > div {
-          border-radius: 8px;
-          margin: 2px;
-          padding: 4px;
+        
+        @media (min-width: 640px) {
+          .calendar-weekdays {
+            font-size: 1.2rem;
+          }
         }
 
         .calendar-days {
@@ -152,11 +150,21 @@ const Calendar = ({ onDateSelect, selectedDate }) => {
           justify-content: center;
           background-color: white;
           color: black;
-          padding: 0.5rem;
+          padding: 0.25rem;
           font-family: Inter, sans-serif;
           font-weight: bold;
-          font-size: 1.3rem;
+          font-size: 0.9rem;
           border-radius: 50%;
+          width: 100%;
+          max-width: 40px;
+          margin: 0 auto;
+        }
+        
+        @media (min-width: 640px) {
+          .calendar-day {
+            padding: 0.5rem;
+            font-size: 1.3rem;
+          }
         }
 
         .calendar-day.empty {
@@ -185,7 +193,7 @@ const Calendar = ({ onDateSelect, selectedDate }) => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default Calendar;
+export default Calendar
