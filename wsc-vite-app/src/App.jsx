@@ -1,23 +1,34 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Landing from './pages/Landing'
-import About from './pages/About'
-import ExecutiveTeam from './pages/ExecutiveTeam'
-import Events from './pages/Events'
-import ContactUs from './pages/Contact'
-import Sponsors from './pages/Sponsors'
-import TermsOfService from './pages/TermsOfService'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import EventsDash from './admin-dash/EventsDash'
-import AdminLogin from './admin-dash/AdminLogin'
-import './App.css'
+"use client"
+
+import React from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Landing from "./pages/Landing"
+import About from "./pages/About"
+import ExecutiveTeam from "./pages/ExecutiveTeam"
+import Events from "./pages/Events"
+import ContactUs from "./pages/Contact"
+import Sponsors from "./pages/Sponsors"
+import TermsOfService from "./pages/TermsOfService"
+import PrivacyPolicy from "./pages/PrivacyPolicy"
+import EventsDash from "./admin-dash/EventsDash"
+import AdminLogin from "./admin-dash/AdminLogin"
+import "./App.css"
+
+// Add a scroll to top component for better UX with parallax
+const ScrollToTop = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  return null
+}
 
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
-
       <main className="flex-grow">
         <Router>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/about" element={<About />} />
@@ -27,11 +38,8 @@ function App() {
             <Route path="/sponsors" element={<Sponsors />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            
-          
             <Route path="/events-dashboard" element={<EventsDash />} />
             <Route path="/admin-login" element={<AdminLogin />} />
-
           </Routes>
         </Router>
       </main>
@@ -39,4 +47,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

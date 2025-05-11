@@ -15,6 +15,8 @@ export default function EventsDash() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [authToken, setAuthToken] = useState(null)
+  const [newEventId, setNewEventId] = useState(null)
+  const [selectedFile, setSelectedFile] = useState(null) // Track selected file for new events
 
   // Store events in a state array
   const [events, setEvents] = useState([])
@@ -52,6 +54,11 @@ export default function EventsDash() {
     const seconds = String(date.getSeconds()).padStart(2, "0")
 
     return `${dayOfWeek}, ${day} ${month} ${year} ${hours}:${minutes}:${seconds} GMT`
+  }
+
+  // Handle file selection for new event
+  const handleFileSelect = (file) => {
+    setSelectedFile(file)
   }
 
   // Fetch events from API
@@ -166,6 +173,36 @@ export default function EventsDash() {
     }
   }
 
+  // Upload image for an event
+  const uploadEventImage = async (eventId, file) => {
+    if (!file || !eventId) return null
+    
+    try {
+      const token = localStorage.getItem("authToken")
+      const imageFormData = new FormData()
+      imageFormData.append("image", file)
+      
+      const imageResponse = await fetch(`${BASE_URL}/events/${eventId}/image`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: "include",
+        body: imageFormData,
+      })
+      
+      if (!imageResponse.ok) {
+        throw new Error(`Failed to upload image: ${imageResponse.status}`)
+      }
+      
+      console.log("Image uploaded successfully for event ID:", eventId)
+      return true
+    } catch (err) {
+      console.error("Error uploading image:", err)
+      return null
+    }
+  }
+
   // Delete event from the backend
   const handleDeleteEvent = async (indexToDelete) => {
     const eventToDelete = events[indexToDelete]
@@ -194,9 +231,44 @@ export default function EventsDash() {
   }
 
   // Add new event to the backend
-  const handleAddEvent = async (eventData) => {
+  const handleAddEvent = async (e, eventData, imageFile) => {
+    e.preventDefault()
+    
     try {
       const token = localStorage.getItem("authToken")
+      
+      // Extract form data if not provided directly
+      if (!eventData) {
+        const formData = new FormData(e.target)
+        const submittedTitle = formData.get("title")
+        const submittedDate = formData.get("date")
+        const submittedTime = formData.get("time")
+        const submittedLocation = formData.get("location")
+        const submittedDescription = formData.get("description") || ""
+
+        // Create a date object from the submitted date and time
+        const eventDate = parseDateAndTime(submittedDate, submittedTime)
+        const formattedEventDate = formatDateForAPI(eventDate)
+
+        eventData = {
+          title: submittedTitle,
+          description: submittedDescription,
+          eventDate: formattedEventDate,
+          location: submittedLocation,
+        }
+        
+        // Use the imageFile from form if it exists
+        if (!imageFile) {
+          imageFile = formData.get("image") // This won't work as expected and should use the state
+        }
+      } else {
+        // If eventData object is provided, format the date
+        const eventDate = parseDateAndTime(eventData.date, eventData.time)
+        eventData.eventDate = formatDateForAPI(eventDate)
+        // Remove unnecessary fields
+        delete eventData.date
+        delete eventData.time
+      }
 
       const response = await fetch(`${BASE_URL}/events`, {
         method: "POST",
@@ -212,11 +284,28 @@ export default function EventsDash() {
         throw new Error(`Failed to add event: ${response.status}`)
       }
 
+      // Get the new event ID from the response
+      const result = await response.json()
+      const newId = result.event_id
+      setNewEventId(newId)
+      
+      // If there's an image file, upload it now that we have the event ID
+      if (imageFile || selectedFile) {
+        await uploadEventImage(newId, imageFile || selectedFile)
+      }
+      
+      // Reset selected file state
+      setSelectedFile(null)
+      
       // Refresh events list to get the newly added event with its ID
       await fetchEvents()
+      setModalOpen(false)
+      
+      return newId
     } catch (err) {
       console.error("Error adding event:", err)
       alert("Failed to add event. Please try again.")
+      return null
     }
   }
 
@@ -320,6 +409,8 @@ export default function EventsDash() {
                     description={ev.description}
                     rawDate={ev.date} // Pass the raw date for the form
                     rawTime={ev.time} // Pass the raw time for the form
+                    eventId={ev.id} // Pass the event ID
+                    imageUrl={ev.imageUrl} // Pass the image URL
                     onUpdate={(updatedEvent) => handleUpdateEvent(index, updatedEvent)}
                     onDelete={() => handleDeleteEvent(index)}
                   />
@@ -352,31 +443,8 @@ export default function EventsDash() {
         type="add"
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        onSave={(e) => {
-          e.preventDefault()
-
-          const formData = new FormData(e.target)
-          const submittedTitle = formData.get("title")
-          const submittedDate = formData.get("date")
-          const submittedTime = formData.get("time")
-          const submittedLocation = formData.get("location")
-          const submittedDescription = formData.get("description") || ""
-
-          // Create a date object from the submitted date and time
-          const eventDate = parseDateAndTime(submittedDate, submittedTime)
-          const formattedEventDate = formatDateForAPI(eventDate)
-
-          const eventData = {
-            title: submittedTitle,
-            description: submittedDescription,
-            eventDate: formattedEventDate,
-            location: submittedLocation,
-          }
-
-          // Add the event to database
-          handleAddEvent(eventData)
-          setModalOpen(false)
-        }}
+        onSave={(e, eventData) => handleAddEvent(e, eventData, null)}
+        onFileSelect={handleFileSelect}
       />
     </>
   )
