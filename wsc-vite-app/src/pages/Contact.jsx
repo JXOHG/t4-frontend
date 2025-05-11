@@ -9,7 +9,7 @@ function Contact() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        organizationType: "",
+        organization_type: "",
         message: ""
     });
 
@@ -27,21 +27,22 @@ function Contact() {
         }
 
         const form = e.target;
-        const data = new FormData(form);
-
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        
         // Send the form data using EmailJS - NOTE: Limit is 200 emails per month
-        emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', data, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+        emailjs.sendForm('service_07v6vmr', 'template_lt8anmn', form, publicKey)
             .then((result) => {
                 console.log('Email sent successfully:', result.text);
             }, (error) => {
                 console.error('Error sending email:', error.text);
+                console.log('Error details:', error);
             });
         
         // Clear form after submission
         setFormData({
             name: "",
             email: "",
-            organizationType: "",
+            organization_type: "",
             message: ""
         });
 
@@ -85,7 +86,7 @@ function Contact() {
                 type="text"
                 name="organization_type"
                 placeholder="Organization Type (optional)"
-                value={formData.organizationType}
+                value={formData.organization_type}
                 onChange={handleChange}
                 className="p-3 bg-white text-black rounded-md outline-none"
               />
