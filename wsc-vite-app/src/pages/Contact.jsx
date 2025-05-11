@@ -30,7 +30,7 @@ function Contact() {
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
         
         // Send the form data using EmailJS - NOTE: Limit is 200 emails per month
-        emailjs.sendForm('service_07v6vmr', 'template_lt8anmn', form, publicKey)
+        emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', form, publicKey)
             .then((result) => {
                 console.log('Email sent successfully:', result.text);
             }, (error) => {
