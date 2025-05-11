@@ -30,3 +30,4 @@ dist-ssr
 
 # MacOS
 .DS_Store
+.cache
