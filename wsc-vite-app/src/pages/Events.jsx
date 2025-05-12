@@ -69,9 +69,25 @@ function Events() {
             
             <div className="flex flex-col justify-center pb-20">
                 {loading ? (
-                    <div className="text-center py-10">
-                        <p className="text-xl text-gray-600">Loading events...</p>
+                    <div className="flex flex-col items-center space-y-4">
+                    {[...Array(3)].map((_, index) => (
+                        <div
+                        key={index}
+                        className="flex flex-col md:flex-row items-center rounded-lg shadow-md m-4 p-6 w-full md:max-w-4xl mx-auto border border-gray-700 animate-pulse"
+                        >
+                        <div className="w-full md:w-1/3 flex justify-center">
+                            <div className="h-48 w-48 bg-gray-300 rounded"></div>
+                        </div>
+                        <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-6">
+                            <div className="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+                            <div className="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
+                            <div className="h-4 bg-gray-300 rounded w-2/3 mb-2"></div>
+                            <div className="h-16 bg-gray-300 rounded w-full"></div>
+                        </div>
+                        </div>
+                    ))}
                     </div>
+
                 ) : error ? (
                     <div className="text-center py-10">
                         <p className="text-xl text-red-600">{error}</p>

@@ -2,6 +2,7 @@
 import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import emailjs from '@emailjs/browser';
 
 function Landing() {
     return (
@@ -13,8 +14,8 @@ function Landing() {
                     <div className="contents relative z-10">
                         <Nav/>
                     </div>
-                    <div className="absolute inset-0 bg-[url(/Western1.png)] bg-cover bg-top opacity-25"></div>
-                        <div className="relative z-10 flex-grow flex items-center mb-20">
+                    <div className="absolute inset-0 bg-[url(/TORONTO.jpeg)] bg-cover bg-top opacity-50"></div>
+                        <div className="relative z-10 flex-grow flex items-center">
                             <div>
                                 <h3 className="text-2xl text-white">Welcome to</h3>
                                 <h1 className="text-5xl text-white font-bold">Western's Sales Community</h1>
@@ -22,29 +23,62 @@ function Landing() {
                         </div>
                     </div>
 
-                {/* MISSION STATEMENT */}
-                <div className="w-full left-0 h-500 flex justify-center align-middle gap-20 my-20">
-                    <div className="w-4/5 sm:w-1/2 flex items-center justify-center gap-12">
-                        <div className="hidden sm:block w-2/3">
-                            <img src="/WSC Logo.JPEG" alt="Community" className="rounded-2xl shadow-lg aspect-square object-cover" />
+                {/* ABOUT US */}
+                <section id="about" className="section-padding bg-western-dark px-12 py-16">
+                <div className="container-custom">
+                    <div className="text-center py-8">
+                    <h2 className="text-3xl md:text-4xl font-bold">About Our Club</h2>
+                    <div className="w-20 h-1 bg-western-gold mx-auto"></div>
+                    </div>
+
+                    <hr className="mx-auto w-2/3 pb-12 border-1 border-[#F9C726]" />
+
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6 order-2 md:order-1">
+                        <h3 className="text-2xl font-bold">Developing Tomorrow's Sales Leaders</h3>
+                        <p className="text-lg">
+                        The Western Sales Club is dedicated to connecting ambitious students with industry professionals
+                        and sales opportunities. We believe in hands-on learning, professional development, and building
+                        a strong network within the sales industry.
+                        </p>
+                        <h3 className="text-2xl font-bold pt-4">Our Mission</h3>
+                        <p className="text-lg pb-4">
+                            Western Sales Club envisions a future where sales education and representation 
+                            is fully integrated into post-secondary learning, equipping students with practical 
+                            communication skills, confidence, industry connections, and a supportive community to 
+                            make a positive impact on personal/social lives and drive career success in any field.
+                        </p>
+                        
+                        <button className="px-4 py-2 text-m tracking-wider font-georgia bg-[#4f2683] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">Meet our Team</button>
+
+                    </div>
+                    <div className="order-1 md:order-2 bg-white rounded-lg shadow-lg p-8">
+                        <div className="grid grid-cols-2 gap-6">
+                        <div className="text-center p-4 border-b-2 border-gold">
+                            <h4 className="text-4xl font-bold text-[#4f2683]">50+</h4>
+                            <p className="text-gray-600">Active Members</p>
                         </div>
-                        <div className="w-full sm:w-3/4 flex flex-col items-center">
-                            <div className="w-2/3 mb-6 sm:hidden">
-                                <img src="/WSC Logo.JPEG" alt="Community" className="rounded-2xl shadow-lg aspect-square object-cover" />
-                            </div>
-                            <div className="w-full text-center sm:text-left">
-                                <h2 className="text-3xl font-georgia font-bold mb-4 whitespace-nowrap">"Empowering Sales Excellence"</h2>
-                                <hr className="w-full border-[#F9C726] mb-5" />
-                                <p className="font-georgia text-gray-300 leading-relaxed">
-                                    Western Sales Club envisions a future where sales education and representation is fully integrated into post-secondary learning, equipping students with practical communication skills, confidence, industry connections, and a supportive community to make a positive impact on personal/social lives and drive career success in any field.
-                                </p>
-                            </div>
+                        <div className="text-center p-4 border-b-2 border-gold">
+                            <h4 className="text-4xl font-bold text-[#4f2683]">3+</h4>
+                            <p className="text-gray-600">Esteemed Partners</p>
+                        </div>
+                        <div className="text-center p-4 border-b-2 border-gold">
+                            <h4 className="text-4xl font-bold text-[#4f2683]">8+</h4>
+                            <p className="text-gray-600">Annual Events</p>
+                        </div>
+                        <div className="text-center p-4 border-b-2 border-gold">
+                            <h4 className="text-4xl font-bold text-[#4f2683]">10</h4>
+                            <p className="text-gray-600">Committed Executives</p>
+                        </div>
                         </div>
                     </div>
+                    </div>
                 </div>
+                </section>
 
-                <div className="w-full">
-                    <img className="w-full opacity-50" src="/landscape.png" alt="img1" />
+                {/* LANDSCAPE IMAGE */}
+                <div className="w-full"> 
+                    <img className="w-full opacity-65" src="/VANCOUVER.jpg" alt="img1" />
                 </div>
 
                 {/* WHAT WE DO */}
@@ -85,6 +119,27 @@ function Landing() {
                 </div>
 
                 <hr className="mx-auto w-2/3 py-14 border-1 border-[#F9C726]" />
+
+                {/* EVENTS PREVIEW */}
+                <section id="events" className="section-padding bg-gradient-to-b from-western-light to-white">
+                <div className="container-custom">
+                    <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-western-purple mb-4">Upcoming Events</h2>
+                    <div className="w-20 h-1 bg-western-gold mx-auto"></div>
+                    <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
+                        Join us for our upcoming events designed to help you develop your skills and expand your network.
+                    </p>
+                    </div>
+
+                    <div className="space-y-8">
+                    
+                    </div>
+
+                    <div className="mt-12 text-center">
+                    <a href="#events" className="btn-secondary">View All Events</a>
+                    </div>
+                </div>
+                </section>
 
                 {/* SPONSORS CAROUSEL */}
                 <h2 className="text-4xl font-georgia font-bold mb-16">Our Esteemed Sponsors</h2>
@@ -144,13 +199,127 @@ function Landing() {
 
                 <div className="py-8"></div>
 
+                {/* CONTACT US */}
+                <section id="contact" className="px-64 pb-24 section-padding">
+                <div className="container-custom">
+                    <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-western-purple mb-4">Get In Touch</h2>
+                    <div className="w-20 h-1 bg-gold mx-auto"></div>
+                    <p className="mt-6 max-w-2xl mx-auto text-lg">
+                        Interested in joining our club or partnering with us? We'd love to hear from you!
+                    </p>
+                    </div>
+
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="grid md:grid-cols-2">
+                        <div className="bg-[#4f2683] text-white p-8 flex flex-col justify-center">
+                        <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center">
+                            <svg
+                                className="w-5 h-5 mr-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                />
+                            </svg>
+                            <span>sales.club@westernusc.ca</span>
+                            </div>
+
+                            <div className="flex pt-1">
+                            <a href="https://www.linkedin.com/company/western-sales-club/" className="hover:text-western-gold transition-colors" aria-label="LinkedIn">
+                                <img src='/linkedin-brands.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
+                            </a> 
+                            <span className="pl-2">Western Sales Club</span>
+                            </div>
+
+                            <div className="flex pt-1">
+                            <a href="https://www.instagram.com/westernsalesclub/" className="hover:text-western-gold transition-colors" aria-label="Instagram">
+                                <img src='/instagram-brands.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
+                            </a> 
+                            <span className="pl-2">@westernsalesclub</span>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div className="p-8">
+                        <h3 className="text-2xl font-bold text-black mb-6">Send Us a Message</h3>
+                        <form className="space-y-4">
+                            <div>
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                                Your Name
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                placeholder="John Doe"
+                                required
+                            />
+                            </div>
+                            <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                Your Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                placeholder="johndoe@example.com"
+                                required
+                            />
+                            </div>
+                            <div>
+                            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                                Subject
+                            </label>
+                            <input
+                                type="text"
+                                id="subject"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                placeholder="How can we help you?"
+                            />
+                            </div>
+                            <div>
+                            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                                Your Message
+                            </label>
+                            <textarea
+                                id="message"
+                                rows={4}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
+                            </div>
+                            <button
+                            type="submit"
+                            className="btn-primary w-full bg-[#4f2683]"
+                            >
+                            Send Message
+                            </button>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </section>
+
                 {/* JOIN */}
-                <div className="relative w-full h-[50vh] pt-8 flex flex-col items-center">
-                    <div className="absolute inset-0 bg-[url(/Western3.png)] bg-cover bg-center opacity-25"></div>
+                <div className="relative w-full h-[60vh] pt-8 flex flex-col items-center">
+                    <div className="absolute inset-0 bg-[url(/CHICAGO.jpg)] bg-cover bg-center opacity-25"></div>
                     <div className="relative z-10 h-full flex flex-col items-center justify-center">
                         <h2 className="text-4xl font-georgia font-bold text-white mb-8">Begin your journey with us today.</h2>
                         <a href="https://westernusc.store/product/western-sales-club/" target="_blank" rel="noopener noreferrer">
-                            <button className="px-8 py-4 text-m tracking-wider font-georgia bg-[#7f42a9] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">Register with WSC</button>
+                            <button className="px-8 py-4 text-m tracking-wider font-georgia bg-[#4f2683] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">Register with WSC</button>
                         </a>
                     </div>
                 </div>
