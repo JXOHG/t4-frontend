@@ -16,7 +16,7 @@ function About() {
         <section className="mb-16">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <img 
-              src="about1.png" 
+              src="abt1.png" 
               alt="Our Mission" 
               className="w-full md:w-1/2 rounded-lg shadow-lg" 
             />
@@ -47,7 +47,7 @@ function About() {
               </p>
             </div>
             <img 
-              src="about2.png" 
+              src="abt2.png" 
               alt="Our Vision" 
               className="w-full md:w-1/2 rounded-lg shadow-lg" 
             />

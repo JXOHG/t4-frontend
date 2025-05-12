@@ -19,7 +19,7 @@ function Sponsors() {
                 <div className="flex flex-col justify-center pb-20">
 
                   {/* Sponsors */}
-                  <Sponsor  image="tsi-logo.png"
+                  <Sponsor  image="TSI.png"
                             name="Tech for Social Impact"
                             description="TSI is a student-led organization that provides
                             technology solutions to local non-profit organizations. TSI
@@ -29,7 +29,7 @@ function Sponsors() {
                             link="https://uwotsi.com"
                   />
                   
-                  <Sponsor  image="og-pressure-washing.png"
+                  <Sponsor  image="OGPW.png"
                             name="OG Pressure Washing"
                             description="OG Pressure washing is a local business that
                             specializes in residential pressure washing. Run by our very
@@ -38,7 +38,7 @@ function Sponsors() {
                             entrepreneurship WSC fosters."
                             link="https://ogpressurewashing.ca"
                   />
-                  <Sponsor  image="DRT-logo.png"
+                  <Sponsor  image="DRT.png"
                             name="DRTCyber"
                             description="DRTCyber is a cybersecurity consulting firm that
                             provides services to small and medium-sized businesses. They

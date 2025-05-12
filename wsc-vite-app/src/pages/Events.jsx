@@ -4,43 +4,7 @@ import Footer from '../components/Footer';
 import Event from '../components/Event';
 import PageTitle from "../components/page-title";
 
-function Events() {
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        // Fetch events when the component mounts
-        const fetchEvents = async () => {
-            try {
-                setLoading(true);
-                const response = await fetch('https://flask-app-250624862173.us-central1.run.app/events');
-                
-                if (!response.ok) {
-                    throw new Error(`Error: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                
-                // Check if data.message is an array before setting it
-                if (Array.isArray(data.message)) {
-                    setEvents(data.message);
-                } else {
-                    console.error("Unexpected API response format:", data);
-                    setEvents([]);
-                    setError("Unexpected data format received from server");
-                }
-            } catch (err) {
-                console.error("Failed to fetch events:", err);
-                setError("Failed to load events. Please try again later.");
-                setEvents([]);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchEvents();
-    }, []);
+function Events({ events, loading, error }) {
 
     const formatDate = (dateString) => {
         try {
