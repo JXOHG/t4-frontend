@@ -37,11 +37,11 @@ function Landing({ events, loading, error }) {
 
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6 order-2 md:order-1">
-                        <h3 className="text-2xl font-bold">Developing Tomorrow's Sales Leaders</h3>
+                        <h3 className="text-2xl font-bold">Who We Are</h3>
                         <p className="text-lg">
-                        The Western Sales Club is dedicated to connecting ambitious students with industry professionals
-                        and sales opportunities. We believe in hands-on learning, professional development, and building
-                        a strong network within the sales industry.
+                        Western Sales Club is at the frontier of sales education at Western University.
+                        We're not just teaching sales, we're building effective communicators and personable leaders –
+                        giving you the confidence to succeed in any field.
                         </p>
                         <h3 className="text-2xl font-bold pt-4">Our Mission</h3>
                         <p className="text-lg pb-4">

@@ -8,10 +8,10 @@ function ExecutiveTeam() {
     return (
         <>
             <Nav />
-            
-            <PageTitle
-                title="Executive Team"
-                description="Meet the team behind the Western Sales Club. Our executives are dedicated to providing students with the resources and opportunities they need to succeed in sales."
+            <PageTitle 
+                title="Executive Team" 
+                description="Meet the team behind the Western Sales Club. 
+                Our executives are dedicated to providing students with the resources and opportunities they need to succeed in sales."
             />
 
             <div className="w-full max-w-6xl px-4 mx-auto mb-10">

@@ -7,16 +7,26 @@ import PageTitle from '../components/page-title';
 function Sponsors() {
     return (
               <>
-                <Nav />
 
-                <PageTitle
-                  title="Sponsors"
-                  description="Our sponsors empower us to deliver our events and fulfill our mission to 
-                  equip students with the social skillset they need to excel as professionals. We are 
-                  truly grateful for their support and collaborative efforts."
-                />
+                {/** HERO */}
+                <div className="relative flex flex-col w-full h-[80vh] items-center">
+                    <div className="contents relative z-10">
+                        <Nav/>
+                    </div>
+                    <div className="absolute inset-0 bg-[url(/NEWYORK.jpg)] bg-cover bg-top opacity-30"></div>
+                    <div className="relative z-10 flex-grow flex">
+                        <div>
+                            <h1 className="text-5xl text-white font-bold pt-64">Our Sponsors</h1>
+                            <p className="text-white text-lg mt-4"> 
+                              Our sponsors empower us to deliver our events and fulfill our mission to 
+                              equip students with the social skillset they need to excel as professionals. <br/>
+                              We are truly grateful for their support and collaborative efforts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                <div className="flex flex-col justify-center pb-20">
+                <div className="flex flex-col justify-center pb-20 pt-12">
 
                   {/* Sponsors */}
                   <Sponsor  image="TSI.png"

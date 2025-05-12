@@ -18,8 +18,8 @@ function Nav() {
                 <li><Link to="/about" className={`${getLinkClass("/about")} text-sm lg:text-lg whitespace-nowrap`}>About Us</Link></li>
                 <li><Link to="/executive-team" className={`${getLinkClass("/executive-team")} text-sm lg:text-lg whitespace-nowrap`}>Executive Team</Link></li>
                 <li><Link to="/events" className={`${getLinkClass("/events")} text-sm lg:text-lg whitespace-nowrap`}>Events</Link></li>
-                <li><Link to="/contact-us" className={`${getLinkClass("/contact-us")} text-sm lg:text-lg whitespace-nowrap`}>Contact Us</Link></li>
                 <li><Link to="/sponsors" className={`${getLinkClass("/sponsors")} text-sm lg:text-lg whitespace-nowrap`}>Sponsors</Link></li>
+                <li><Link to="/contact-us" className={`${getLinkClass("/contact-us")} text-sm lg:text-lg whitespace-nowrap`}>Contact Us</Link></li>
             </ul>
             </nav>
         </div>
