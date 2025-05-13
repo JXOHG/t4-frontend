@@ -1,4 +1,3 @@
-
 import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -6,6 +5,21 @@ import emailjs from '@emailjs/browser';
 
 function Landing({ events, loading, error }) {
     const previewEvents = events?.slice(0, 3) || [];
+    const formRef = React.useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', formRef.current, publicKey)
+        .then((result) => {
+            alert("Message sent successfully!");
+            e.target.reset();
+        }, (error) => {
+            alert("Failed to send message. Please try again.");
+            console.error(error);
+        });
+    };
 
     return (
         <>
@@ -321,89 +335,87 @@ function Landing({ events, loading, error }) {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div className="grid md:grid-cols-2">
                         <div className="bg-[#4f2683] text-white p-8 flex flex-col justify-center">
-                        <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
+                            <h3 className="text-2xl font-bold mb-8">Connect With Us</h3>
+                            <div className="space-y-4 pl-24">
+                                <div className="flex pt-1">
+                                <a href="https://www.linkedin.com/company/western-sales-club/" className="hover:text-western-gold transition-colors" aria-label="LinkedIn">
+                                    <img src='/Linkedin.svg' className="w-10 h-10 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
+                                </a> 
+                                <span className="pl-2 text-lg">Western Sales Club</span>
+                                </div>
 
-                        <div className="space-y-4">
-                            <div className="flex items-center">
-                            <svg
-                                className="w-5 h-5 mr-3"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                />
-                            </svg>
-                            <span>sales.club@westernusc.ca</span>
+                                <div className="flex pt-1">
+                                <a href="https://www.instagram.com/westernsalesclub/" className="hover:text-western-gold transition-colors" aria-label="Instagram">
+                                    <img src='/Instagram.svg' className="w-10 h-10 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
+                                </a> 
+                                <span className="pl-2 text-lg">@westernsalesclub</span>
+                                </div>
                             </div>
-
-                            <div className="flex pt-1">
-                            <a href="https://www.linkedin.com/company/western-sales-club/" className="hover:text-western-gold transition-colors" aria-label="LinkedIn">
-                                <img src='/Linkedin.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
-                            </a> 
-                            <span className="pl-2">Western Sales Club</span>
-                            </div>
-
-                            <div className="flex pt-1">
-                            <a href="https://www.instagram.com/westernsalesclub/" className="hover:text-western-gold transition-colors" aria-label="Instagram">
-                                <img src='/Instagram.svg' className="w-6 h-6 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
-                            </a> 
-                            <span className="pl-2">@westernsalesclub</span>
-                            </div>
-                        </div>
                         </div>
 
                         <div className="p-8">
                         <h3 className="text-2xl font-bold text-black mb-6">Send Us a Message</h3>
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={sendEmail} ref={formRef}>
                             <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                                Your Name
+                                Your Name*
                             </label>
                             <input
                                 type="text"
                                 id="name"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                name="name"
+                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
                                 placeholder="John Doe"
                                 required
                             />
                             </div>
                             <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                                Your Email
+                                Your Email*
                             </label>
                             <input
                                 type="email"
                                 id="email"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                name="email"
+                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
                                 placeholder="johndoe@example.com"
                                 required
                             />
                             </div>
                             <div>
+                            <label htmlFor="organization_type" className="block text-sm font-medium text-gray-700 mb-1">
+                                Organization Type (optional)
+                            </label>
+                            <input
+                                type="text"
+                                id="organization_type"
+                                name="organization_type"
+                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                placeholder="Who are you representing?"
+                            />
+                            </div>
+                            <div>
                             <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                                Subject
+                                Subject*
                             </label>
                             <input
                                 type="text"
                                 id="subject"
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                name="subject"
+                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
                                 placeholder="How can we help you?"
+                                required
                             />
                             </div>
                             <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                                Your Message
+                                Your Message*
                             </label>
                             <textarea
                                 id="message"
+                                name="message"
                                 rows={4}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
                                 placeholder="Write your message here..."
                                 required
                             ></textarea>

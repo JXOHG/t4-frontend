@@ -10,6 +10,7 @@ function Contact() {
         name: "",
         email: "",
         organization_type: "",
+        subject: "",
         message: ""
     });
 
@@ -21,7 +22,7 @@ function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim() || !formData.subject.trim()) {
           alert("Please fill in all required fields.");
           return;
         }
@@ -43,6 +44,7 @@ function Contact() {
             name: "",
             email: "",
             organization_type: "",
+            subject: "",
             message: ""
         });
 
@@ -69,7 +71,7 @@ function Contact() {
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Name*"
                 value={formData.name}
                 onChange={handleChange}
                 className="p-3 bg-white text-black rounded-md outline-none"
@@ -77,7 +79,7 @@ function Contact() {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Email*"
                 value={formData.email}
                 onChange={handleChange}
                 className="p-3 bg-white text-black rounded-md outline-none"
@@ -90,9 +92,17 @@ function Contact() {
                 onChange={handleChange}
                 className="p-3 bg-white text-black rounded-md outline-none"
               />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject*"
+                value={formData.subject}
+                onChange={handleChange}
+                className="p-3 bg-white text-black rounded-md outline-none"
+              />
               <textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="Your Message*"
                 rows="4"
                 value={formData.message}
                 onChange={handleChange}
