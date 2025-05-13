@@ -14,7 +14,7 @@ function Nav() {
     <header className="top-0 left-0 w-full z-50 text-white bg-transparent">
       <div className="px-4 md:px-10 lg:px-16 py-3 md:py-6 lg:py-8 flex items-center justify-between">
         <button
-          className="md:hidden flex flex-col space-y-2 p-6 focus:outline-none"
+          className="md:hidden flex flex-col space-y-2 p-4 focus:outline-none bg-black"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="block w-6 h-0.5 bg-white"></span>
@@ -28,7 +28,7 @@ function Nav() {
           } md:static md:translate-x-0 md:bg-transparent md:flex-row md:space-x-4`}
         >
           <button
-            className="absolute top-6 right-6 text-white text-2xl focus:outline-none md:hidden"
+            className="absolute top-3 right-3 text-white text-2xl focus:outline-none md:hidden bg-[#4f2683]"
             onClick={() => setIsOpen(false)}
           >
             &times;

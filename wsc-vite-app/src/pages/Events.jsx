@@ -42,7 +42,7 @@ function Events({ events, loading, error }) {
                 <div className="relative z-10 flex-grow flex px-12">
                     <div>
                         <h1 className="text-5xl text-white font-bold pt-48 lg:pt-64">Our Events</h1>
-                        <p className="text-white text-lg mt-4">
+                        <p className="text-white text-md md:text-lg mt-4 hidden sm:block">
                             Follow our upcoming workshops, seminars, and networking events designed to help you
                             develop your sales skills and connect with industry professionals. Open to all experience levels.
                         </p>

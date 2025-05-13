@@ -44,7 +44,7 @@ function Landing({ events, loading, error }) {
                     ></div>
                     <div className="relative z-10 flex-grow flex items-center">
                         <div>
-                            <h3 className="text-xl md:text-2xl text-white">Welcome to</h3>
+                            <h3 className="text-xl md:text-2xl text-white font-bold">Welcome to</h3>
                             <h1 className="text-3xl md:text-5xl text-white font-bold">Western's Sales Community</h1>
                         </div>
                     </div>
