@@ -7,19 +7,29 @@ import PageTitle from '../components/page-title';
 function Sponsors() {
     return (
               <>
-                <Nav />
 
-                <PageTitle
-                  title="Sponsors"
-                  description="Our sponsors empower us to deliver our events and fulfill our mission to 
-                  equip students with the social skillset they need to excel as professionals. We are 
-                  truly grateful for their support and collaborative efforts."
-                />
+                {/** HERO */}
+                <div className="relative flex flex-col w-full h-[80vh] items-center">
+                    <div className="contents relative z-10">
+                        <Nav/>
+                    </div>
+                    <div className="absolute inset-0 bg-[url(/NEWYORK.jpg)] bg-cover bg-top opacity-30"></div>
+                    <div className="relative z-10 flex-grow flex px-12">
+                        <div>
+                            <h1 className="text-5xl text-white font-bold pt-64">Our Sponsors</h1>
+                            <p className="text-white text-lg mt-4 hidden sm:block"> 
+                              Our sponsors empower us to deliver our events and fulfill our mission to 
+                              equip students with the social skillset they need to excel as professionals. <br/>
+                              We are truly grateful for their support and collaborative efforts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                <div className="flex flex-col justify-center pb-20">
+                <div className="flex flex-col justify-center pb-20 pt-12">
 
                   {/* Sponsors */}
-                  <Sponsor  image="tsi-logo.png"
+                  <Sponsor  image="TSI.png"
                             name="Tech for Social Impact"
                             description="TSI is a student-led organization that provides
                             technology solutions to local non-profit organizations. TSI
@@ -29,7 +39,7 @@ function Sponsors() {
                             link="https://uwotsi.com"
                   />
                   
-                  <Sponsor  image="og-pressure-washing.png"
+                  <Sponsor  image="OGPW.png"
                             name="OG Pressure Washing"
                             description="OG Pressure washing is a local business that
                             specializes in residential pressure washing. Run by our very
@@ -38,7 +48,7 @@ function Sponsors() {
                             entrepreneurship WSC fosters."
                             link="https://ogpressurewashing.ca"
                   />
-                  <Sponsor  image="DRT-logo.png"
+                  <Sponsor  image="DRT.png"
                             name="DRTCyber"
                             description="DRTCyber is a cybersecurity consulting firm that
                             provides services to small and medium-sized businesses. They
