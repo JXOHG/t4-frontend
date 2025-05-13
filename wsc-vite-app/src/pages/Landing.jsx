@@ -21,6 +21,14 @@ function Landing({ events, loading, error }) {
         });
     };
 
+    const [scrollY, setScrollY] = React.useState(0);
+
+    React.useEffect(() => {
+        const handleScroll = () => setScrollY(window.scrollY);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <>
             <div className="w-full left-0">
@@ -30,7 +38,10 @@ function Landing({ events, loading, error }) {
                     <div className="contents relative z-10">
                         <Nav/>
                     </div>
-                    <div className="absolute inset-0 bg-[url(/TORONTO.jpeg)] bg-cover bg-top opacity-50"></div>
+                    <div
+                        className="absolute inset-0 bg-[url(/TORONTO.jpeg)] bg-cover bg-top opacity-50"
+                        style={{ backgroundPositionY: `${scrollY * 0.4}px` }}
+                    ></div>
                     <div className="relative z-10 flex-grow flex items-center">
                         <div>
                             <h3 className="text-2xl text-white">Welcome to</h3>
@@ -101,7 +112,11 @@ function Landing({ events, loading, error }) {
 
                 {/* LANDSCAPE IMAGE */}
                 <div className="relative flex flex-col w-full h-[50vh] items-center">
-                    <div className="absolute inset-0 bg-[url(/VANCOUVER.jpg)] bg-cover bg-top opacity-40"></div>
+                    <div
+                        className="absolute inset-0 bg-[url(/VANCOUVER.jpg)] bg-cover bg-top opacity-40"
+                        style={{ backgroundPositionY: `${scrollY * 0.22}px` }}
+                    ></div>
+
                     <div className="relative z-10 flex-grow flex items-center text-gray-200">
                         <div>
                             <h1 className="text-4xl text-white font-bold italic">"Empowering Sales Excellence"</h1>
@@ -186,7 +201,7 @@ function Landing({ events, loading, error }) {
                         <div className="pb-12">
                         <a href="/events" className="btn-secondary" style={{ all: 'unset' }}>
                         <button className="px-8 py-4 tracking-wider text-lg font-georgia bg-[#4f2683] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">
-                            View More Events
+                            View Full Events
                         </button>
                         </a>
                         </div>
@@ -434,7 +449,11 @@ function Landing({ events, loading, error }) {
 
                 {/* JOIN */}
                 <div className="relative w-full h-[60vh] py-8 flex flex-col items-center">
-                    <div className="absolute inset-0 bg-[url(/CHICAGO.jpg)] bg-cover bg-center opacity-40"></div>
+                    <div
+                        className="absolute inset-0 bg-[url(/CHICAGO.jpg)] bg-cover bg-center opacity-40"
+                        style={{ backgroundPositionY: `${scrollY * 0.13}px` }}
+                    ></div>
+
                     <div className="relative z-10 h-full flex flex-col items-center justify-center">
                         <h2 className="text-4xl font-georgia font-bold text-white mb-8 px-12">Begin your journey with us today.</h2>
                         <a href="https://westernusc.store/product/western-sales-club/" target="_blank" rel="noopener noreferrer">

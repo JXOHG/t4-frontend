@@ -2,18 +2,27 @@ import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Sponsor from '../components/Sponsor';
-import PageTitle from '../components/page-title';
 
 function Sponsors() {
+  const [scrollY, setScrollY] = React.useState(0);
+  
+    React.useEffect(() => {
+        const handleScroll = () => setScrollY(window.scrollY);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
               <>
-
                 {/** HERO */}
                 <div className="relative flex flex-col w-full h-[80vh] items-center">
                     <div className="contents relative z-10">
                         <Nav/>
                     </div>
-                    <div className="absolute inset-0 bg-[url(/NEWYORK.jpg)] bg-cover bg-top opacity-30"></div>
+                    <div
+                      className="absolute inset-0 bg-[url(/NEWYORK.jpg)] bg-cover bg-top opacity-50"
+                      style={{ backgroundPositionY: `${scrollY * 0.3}px` }}
+                  ></div>
                     <div className="relative z-10 flex-grow flex px-12">
                         <div>
                             <h1 className="text-5xl text-white font-bold pt-64">Our Sponsors</h1>
