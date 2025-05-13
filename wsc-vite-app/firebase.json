@@ -6,11 +6,29 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [
+    {
+      "source": "**",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        }
+      ]
+    }
+  ],
     "rewrites": [
       {
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+     "redirects": [
+    {
+      "source": "**",
+      "destination": "https://westernsalesclub.ca/:path",
+      "type": 301
+    }
+  ]
   }
 }
