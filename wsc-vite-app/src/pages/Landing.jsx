@@ -93,16 +93,16 @@ function Landing({ events, loading, error }) {
                             <p className="text-gray-600">Active Members</p>
                         </div>
                         <div className="text-center p-4 border-b-2 border-gold">
-                            <h4 className="text-4xl font-bold text-[#4f2683]">3+</h4>
-                            <p className="text-gray-600">Esteemed Partners</p>
+                            <h4 className="text-4xl font-bold text-[#4f2683]">10</h4>
+                            <p className="text-gray-600">Committed Executives</p>
                         </div>
                         <div className="text-center p-4 border-b-2 border-gold">
                             <h4 className="text-4xl font-bold text-[#4f2683]">8+</h4>
                             <p className="text-gray-600">Annual Events</p>
                         </div>
                         <div className="text-center p-4 border-b-2 border-gold">
-                            <h4 className="text-4xl font-bold text-[#4f2683]">10</h4>
-                            <p className="text-gray-600">Committed Executives</p>
+                            <h4 className="text-4xl font-bold text-[#4f2683]">3</h4>
+                            <p className="text-gray-600">Dedicated Partners</p>
                         </div>
                         </div>
                     </div>

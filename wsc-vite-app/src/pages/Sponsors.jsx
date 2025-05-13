@@ -25,8 +25,8 @@ function Sponsors() {
                   ></div>
                     <div className="relative z-10 flex-grow flex px-12">
                         <div>
-                            <h1 className="text-5xl text-white font-bold pt-64">Our Sponsors</h1>
-                            <p className="text-white text-lg mt-4 hidden sm:block"> 
+                            <h1 className="text-5xl text-white font-bold pt-48 lg:pt-64">Our Sponsors</h1>
+                            <p className="text-white text-lg mt-4"> 
                               Our sponsors empower us to deliver our events and fulfill our mission to 
                               equip students with the social skillset they need to excel as professionals. <br/>
                               We are truly grateful for their support and collaborative efforts.
