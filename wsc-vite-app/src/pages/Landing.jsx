@@ -241,7 +241,11 @@ function Landing({ events, loading, error }) {
                             const month = dateObj.toLocaleString('default', { month: 'long' });
                             const day = dateObj.getDate();
                             const year = dateObj.getFullYear();
-                            const time = dateObj.toLocaleString('default', { hour: '2-digit', minute: '2-digit', hour12: true });
+                            const rawTime = event.event_date.split(' ')[4]; // "19:00:00"
+                            const [hour, minute] = rawTime.split(':').map(Number);
+                            const hour12 = hour % 12 || 12;
+                            const ampm = hour < 12 ? 'AM' : 'PM';
+                            const time = `${hour12}:${minute.toString().padStart(2, '0')} ${ampm}`;
 
                             return (
                                 <div

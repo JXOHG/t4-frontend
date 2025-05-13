@@ -87,7 +87,7 @@ function Events({ events, loading, error }) {
                             key={event.event_id}
                             image={event.image_url}
                             title={event.title}
-                            date={formatDate(event.event_date)}
+                            date={event.event_date}
                             location={event.location}
                             description={event.description}
                         />
