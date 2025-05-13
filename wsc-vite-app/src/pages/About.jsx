@@ -11,7 +11,7 @@ function About() {
         title="About Us" 
         description="Welcome to the Western Sales Club, where we equip students with the social skillset they need to excel as professionals." 
       />
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="max-w-5xl mx-auto px-12 py-8">
         {/* Mission Section */}
         <section className="mb-16">
           <div className="flex flex-col md:flex-row items-center gap-6">
