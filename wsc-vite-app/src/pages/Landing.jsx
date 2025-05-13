@@ -110,7 +110,7 @@ function Landing({ events, loading, error }) {
                 </div>
 
                 {/* WHAT WE DO */}
-                <div className="w-full pb-12 sm:pb-24 py-8 sm:py-16 flex flex-col items-center px-12">
+                <div id="team" className="w-full pb-12 sm:pb-24 py-8 sm:py-16 flex flex-col items-center px-12">
                 <h2 className="text-3xl sm:text-4xl font-georgia font-bold pt-4 mb-4">What We Do</h2>
                 <div className="w-20 h-1 bg-gold mx-auto mb-12"></div>
 
@@ -185,7 +185,7 @@ function Landing({ events, loading, error }) {
                     <div className="text-center">
                         <div className="pb-12">
                         <a href="/events" className="btn-secondary" style={{ all: 'unset' }}>
-                        <button className="px-4 py-2 tracking-wider text-lg font-georgia bg-[#4f2683] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">
+                        <button className="px-8 py-4 tracking-wider text-lg font-georgia bg-[#4f2683] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">
                             View More Events
                         </button>
                         </a>
@@ -226,7 +226,7 @@ function Landing({ events, loading, error }) {
                             const month = dateObj.toLocaleString('default', { month: 'long' });
                             const day = dateObj.getDate();
                             const year = dateObj.getFullYear();
-                            const time = `${new Date(`1970-01-01T${event.start_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${new Date(`1970-01-01T${event.end_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+                            const time = dateObj.toLocaleString('default', { hour: '2-digit', minute: '2-digit', hour12: true });
 
                             return (
                                 <div
@@ -238,7 +238,7 @@ function Landing({ events, loading, error }) {
                                 <div className="bg-[#4f2683] text-white px-6 py-6 md:w-1/4 flex flex-col items-center justify-center">
                                     <div className="text-lg">{month} {day}</div>
                                     <div className="text-3xl font-bold">{year}</div>
-                                    {/** <div className="text-sm mt-2">{time}</div> */}
+                                    <div className="text-sm mt-2">{time}</div>
                                 </div>
 
                                 {/* CONTENT BLOCK */}
@@ -281,41 +281,24 @@ function Landing({ events, loading, error }) {
                 {/* The marquee-track div holds two sets of logos, each set side by side */}
                 <div className="marquee-track">
 
-                    <div className="flex gap-x-24 pl-20">
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-                        <img src="/TSI.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-                        <img src="/OGPW.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="w-64 h-48 pr-16 flex-shrink-0 flex items-center justify-center">
-                        <img src="/DRT.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    </div>
-
-                    <div className="flex gap-x-24">
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-                        <img src="/TSI.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-                        <img src="/OGPW.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="w-64 h-48 pr-16 flex-shrink-0 flex items-center justify-center">
-                        <img src="/DRT.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    </div>
-
-                    <div className="flex gap-x-24">
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-                        <img src="/TSI.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-                        <img src="/OGPW.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    <div className="w-64 h-48 pr-16 flex-shrink-0 flex items-center justify-center">
-                        <img src="/DRT.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
-                    </div>
-                    </div>
+                    {[...Array(5)].map((_, index) => (
+                        <div
+                        key={index}
+                        className="flex flex-col md:flex-row items-center"
+                        >
+                            <div className="flex gap-x-16">
+                            <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+                                <img src="/TSI.png" alt="Sponsor 1" className="max-w-full max-h-full object-contain" />
+                            </div>
+                            <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+                                <img src="/OGPW.png" alt="Sponsor 2" className="max-w-full max-h-full object-contain" />
+                            </div>
+                            <div className="w-64 h-48 pr-12 flex-shrink-0 flex items-center justify-center">
+                                <img src="/DRT.png" alt="Sponsor 3" className="max-w-full max-h-full object-contain" />
+                            </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
                 </div>
 
@@ -335,22 +318,38 @@ function Landing({ events, loading, error }) {
                     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div className="grid md:grid-cols-2">
                         <div className="bg-[#4f2683] text-white p-8 flex flex-col justify-center">
-                            <h3 className="text-2xl font-bold mb-8">Connect With Us</h3>
-                            <div className="space-y-4 pl-24">
-                                <div className="flex pt-1">
-                                <a href="https://www.linkedin.com/company/western-sales-club/" className="hover:text-western-gold transition-colors" aria-label="LinkedIn">
-                                    <img src='/Linkedin.svg' className="w-10 h-10 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
-                                </a> 
-                                <span className="pl-2 text-lg">Western Sales Club</span>
-                                </div>
-
-                                <div className="flex pt-1">
-                                <a href="https://www.instagram.com/westernsalesclub/" className="hover:text-western-gold transition-colors" aria-label="Instagram">
-                                    <img src='/Instagram.svg' className="w-10 h-10 hover:opacity-75 delay-100 duration-200 ease-in-out"></img>
-                                </a> 
-                                <span className="pl-2 text-lg">@westernsalesclub</span>
-                                </div>
+                        <h3 className="text-2xl font-bold mb-12">Connect With Us</h3>
+                        <div className="space-y-4">
+                            <div className="flex items-center space-x-4">
+                            <a
+                                href="https://www.linkedin.com/company/western-sales-club/"
+                                className="hover:text-western-gold transition-colors"
+                                aria-label="LinkedIn"
+                            >
+                                <img
+                                src="/Linkedin.svg"
+                                className="w-10 h-10 hover:opacity-75 transition duration-200 ease-in-out"
+                                alt="LinkedIn"
+                                />
+                            </a>
+                            <span className="text-md">Western Sales Club</span>
                             </div>
+
+                            <div className="flex items-center space-x-4">
+                            <a
+                                href="https://www.instagram.com/westernsalesclub/"
+                                className="hover:text-western-gold transition-colors"
+                                aria-label="Instagram"
+                            >
+                                <img
+                                src="/Instagram.svg"
+                                className="w-10 h-10 hover:opacity-75 transition duration-200 ease-in-out"
+                                alt="Instagram"
+                                />
+                            </a>
+                            <span className="text-md">@westernsalesclub</span>
+                            </div>
+                        </div>
                         </div>
 
                         <div className="p-8">

@@ -61,19 +61,22 @@ function Footer() {
             <h3 className="text-xl font-serif font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="text-gray-300 hover:text-western-gold transition-colors">About Us</a>
+                <a href="/" className="text-gray-300 hover:text-western-gold transition-colors">Home</a>
               </li>
               <li>
-                <a href="#team" className="text-gray-300 hover:text-western-gold transition-colors">Executive Team</a>
+                <a href="/about" className="text-gray-300 hover:text-western-gold transition-colors">About Us</a>
               </li>
               <li>
-                <a href="#events" className="text-gray-300 hover:text-western-gold transition-colors">Events</a>
+                <a href="/executive-team" className="text-gray-300 hover:text-western-gold transition-colors">Executive Team</a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-western-gold transition-colors">Contact Us</a>
+                <a href="/events" className="text-gray-300 hover:text-western-gold transition-colors">Events</a>
               </li>
               <li>
-                <a href="#sponsors" className="text-gray-300 hover:text-western-gold transition-colors">Sponsors</a>
+                <a href="/sponsors" className="text-gray-300 hover:text-western-gold transition-colors">Sponsors</a>
+              </li>
+              <li>
+                <a href="/contact-us" className="text-gray-300 hover:text-western-gold transition-colors">Contact Us</a>
               </li>
             </ul>
           </div>
