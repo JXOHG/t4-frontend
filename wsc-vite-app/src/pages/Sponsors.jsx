@@ -14,10 +14,10 @@ function Sponsors() {
                         <Nav/>
                     </div>
                     <div className="absolute inset-0 bg-[url(/NEWYORK.jpg)] bg-cover bg-top opacity-30"></div>
-                    <div className="relative z-10 flex-grow flex">
+                    <div className="relative z-10 flex-grow flex px-12">
                         <div>
                             <h1 className="text-5xl text-white font-bold pt-64">Our Sponsors</h1>
-                            <p className="text-white text-lg mt-4"> 
+                            <p className="text-white text-lg mt-4 hidden sm:block"> 
                               Our sponsors empower us to deliver our events and fulfill our mission to 
                               equip students with the social skillset they need to excel as professionals. <br/>
                               We are truly grateful for their support and collaborative efforts.

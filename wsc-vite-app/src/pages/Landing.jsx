@@ -135,7 +135,7 @@ function Landing({ events, loading, error }) {
                 <hr className="mx-auto w-2/3 py-14 border-1 border-[#F9C726]" />
 
                 {/* EVENTS PREVIEW */}
-                <section id="events" className="section-padding pb-32">
+                <section id="events" className="section-padding pb-32 px-12">
                 <div className="container-custom">
                     <div className="text-center mb-12">
                     <h2 className="text-4xl font-georgia font-bold mb-4">Our Events</h2>
@@ -285,7 +285,7 @@ function Landing({ events, loading, error }) {
                 <div className="py-8"></div>
 
                 {/* CONTACT US */}
-                <section id="contact" className="px-64 pb-24 section-padding">
+                <section id="contact" className="px-12 pb-24 section-padding">
                 <div className="container-custom">
                     <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-western-purple mb-4">Get In Touch</h2>
@@ -402,7 +402,7 @@ function Landing({ events, loading, error }) {
                 <div className="relative w-full h-[60vh] py-8 flex flex-col items-center">
                     <div className="absolute inset-0 bg-[url(/CHICAGO.jpg)] bg-cover bg-center opacity-40"></div>
                     <div className="relative z-10 h-full flex flex-col items-center justify-center">
-                        <h2 className="text-4xl font-georgia font-bold text-white mb-8">Begin your journey with us today.</h2>
+                        <h2 className="text-4xl font-georgia font-bold text-white mb-8 px-12">Begin your journey with us today.</h2>
                         <a href="https://westernusc.store/product/western-sales-club/" target="_blank" rel="noopener noreferrer">
                             <button className="px-8 py-4 text-m tracking-wider font-georgia bg-[#4f2683] text-white rounded-lg hover:bg-[#9252b9] transition-all duration-300">Register with WSC</button>
                         </a>

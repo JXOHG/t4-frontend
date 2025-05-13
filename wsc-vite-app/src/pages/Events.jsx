@@ -29,10 +29,10 @@ function Events({ events, loading, error }) {
                     <Nav/>
                 </div>
                 <div className="absolute inset-0 bg-[url(/SANFRANCISCO.jpg)] bg-cover bg-top opacity-30"></div>
-                <div className="relative z-10 flex-grow flex">
+                <div className="relative z-10 flex-grow flex px-12">
                     <div>
                         <h1 className="text-5xl text-white font-bold pt-64">Our Events</h1>
-                        <p className="text-white text-lg mt-4">
+                        <p className="text-white text-lg mt-4 hidden sm:block">
                             Follow our upcoming workshops, seminars, and networking events designed to help you
                             develop your sales skills and connect with industry professionals. Open to all experience levels.
                         </p>
@@ -40,7 +40,7 @@ function Events({ events, loading, error }) {
                 </div>
             </div>
             
-            <div className="flex flex-col justify-center pb-20 pt-12">
+            <div className="flex flex-col justify-center pb-20 pt-12 px-12">
                 {loading ? (
                     <div className="flex flex-col items-center space-y-4">
                     {[...Array(3)].map((_, index) => (

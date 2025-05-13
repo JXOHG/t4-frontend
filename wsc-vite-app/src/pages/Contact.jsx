@@ -61,7 +61,7 @@ function Contact() {
             or resources so we can better understand your needs and work together toward your goals."
         />
 
-        <div className="justify-center mx-auto">
+        <div className="justify-center mx-auto px-12">
   
           {/* Contact Form */}
           <div className="pb-12">
