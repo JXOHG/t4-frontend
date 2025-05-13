@@ -46,9 +46,9 @@ function Event({ image, title, date, location, description }) {
             {pureDate}
           </p>
           <p className="flex items-center justify-center md:justify-start mt-2 sm:mt-0">
-          <i className="far fa-clock mr-2"></i>
-          {pureTime}
-        </p>
+            <i className="far fa-clock mr-2"></i>
+            {pureTime}
+          </p>
         </div>
         <p className="flex items-center justify-center md:justify-start mt-2 sm:mt-0">
             <i className="fas fa-map-marker-alt mr-2"></i>

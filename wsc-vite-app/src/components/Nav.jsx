@@ -21,7 +21,7 @@ function Nav() {
           <span className="block w-6 h-0.5 bg-white"></span>
           <span className="block w-6 h-0.5 bg-white"></span>
         </button>
-        <a href="/" className="text-md pr-8 lg:text-2xl font-bold">Western Sales Club</a>
+        <a href="/" className="text-md pr-4 lg:text-2xl font-bold">Western Sales Club</a>
         <nav
           className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center transition-transform transform ${
             isOpen ? "translate-x-0" : "-translate-x-full"
