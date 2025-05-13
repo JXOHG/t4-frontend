@@ -19,8 +19,8 @@ function ExecutiveTeam() {
                 {/* Co-Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Our Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid justify-center grid-cols-[repeat(auto-fit,_minmax(280px,_max-content))] gap-x-8 gap-y-20 px-4 py-8">
-                <Profile
+                <div className="grid md:grid-cols-2 max-w-3xl mx-auto justify-center sm:grid-cols-1 gap-y-20 px-4 py-8">
+                    <Profile
                         image="placeholder-person.png"
                         name="Hudson Bates"
                         title="Co-President"
@@ -36,7 +36,7 @@ function ExecutiveTeam() {
                 {/* Vice Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Vice Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid justify-center grid-cols-[repeat(auto-fit,_minmax(280px,_max-content))] gap-x-8 gap-y-20 px-4 py-8">
+                <div className="grid justify-center lg:grid-cols-4 md:grid-cols-2 md:gap-x-2 sm:grid-cols-1 gap-x-8 gap-y-20 px-4 py-8">
                 <Profile
                         image="placeholder-person.png"
                         name="Owen Gerrard"
@@ -62,7 +62,7 @@ function ExecutiveTeam() {
                 {/* Assistant Vice Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Assistant Vice Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid justify-center grid-cols-[repeat(auto-fit,_minmax(280px,_max-content))] gap-x-8 gap-y-20 px-4 py-8">
+                <div className="grid justify-center lg:grid-cols-4 md:grid-cols-2 md:gap-x-2 sm:grid-cols-1 gap-x-8 gap-y-20 px-4 py-8">
                     <Profile
                         image="placeholder-person.png"
                         name="Nishaan Mangat"
