@@ -11,17 +11,17 @@ function Event({ image, title, date, location, description }) {
   }
 
   return (
-    <div className="flex flex-col items-center text-white rounded-lg shadow-md m-4 p-4 md:flex-row w-full md:max-w-7xl mx-auto border border-gray-700 hover:border-gray-500 transition-colors duration-300">
+    <div className="flex flex-col items-center bg-[#2C2C2C] text-white rounded-lg shadow-md m-4 p-4 md:flex-row w-full md:max-w-7xl mx-auto border border-gray-700 hover:border-gray-500 transition-colors duration-300">
       <div className="w-full md:w-1/3 flex justify-center">
         {image && !imageError ? (
           <img
-            src={image || "/placeholder.svg"}
+            src={image || "/w2.png"}
             alt={title}
-            className="h-48 w-48 object-contain rounded"
+            className="h-64 w-64 object-contain rounded"
             onError={handleImageError}
           />
         ) : (
-          <div className="h-48 w-48 bg-gray-800 flex items-center justify-center rounded">
+          <div className="h-64 w-64 bg-gray-800 flex items-center justify-center rounded">
             <span className="text-white-400 text-lg font-medium">No Image</span>
           </div>
         )}

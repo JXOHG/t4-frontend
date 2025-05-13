@@ -225,6 +225,8 @@ export default function EventModal({
               defaultValue={description}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 h-24"
               name="description"
+              required
+              maxLength={20}
             />
           </div>
           <div className="mb-6">
@@ -291,7 +293,7 @@ export default function EventModal({
                   Max size: 5MB
                 </span>
                 <span className="text-sm text-gray-500 text-left">
-                  Supported formats: JPG, PNG, GIF
+                  Supported formats: JPG, JPEG, PNG
                 </span>
               </div>
             </div>
