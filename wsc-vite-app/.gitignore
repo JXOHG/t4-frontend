@@ -30,4 +30,6 @@ dist-ssr
 
 # MacOS
 .DS_Store
-.cache
+
+#firebase cache file
+*.cache
