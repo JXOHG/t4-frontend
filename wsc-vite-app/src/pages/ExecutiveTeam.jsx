@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import PageTitle from '../components/page-title';
+import PageTitle from '../components/PageTitle';
 import Profile from '../components/Profile';
 
 function ExecutiveTeam() {
@@ -84,7 +84,7 @@ function ExecutiveTeam() {
                         image="/execs/Maddy.png"
                         alt="Maddy Bates"
                         name="Maddy Bates"
-                        title="AVP External"
+                        title="AVP Communications"
                     />
                     <Profile
                         image="/execs/Liam.png"

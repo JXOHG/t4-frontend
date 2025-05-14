@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
-import PageTitle from "../components/page-title";
+import PageTitle from "../components/PageTitle";
 
 function About() {
   return (

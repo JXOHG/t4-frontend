@@ -42,10 +42,10 @@ function Landing({ events, loading, error }) {
                         className="absolute inset-0 bg-[url(/TORONTO.jpeg)] bg-cover bg-top opacity-50"
                         style={{ backgroundPositionY: `${scrollY * 0.4}px` }}
                     ></div>
-                    <div className="relative z-10 flex-grow flex items-center">
+                    <div className="relative z-10 flex-grow flex items-center justify-center text-center px-8">
                         <div>
-                            <h3 className="text-xl md:text-2xl text-white font-bold">Welcome to</h3>
-                            <h1 className="text-3xl md:text-5xl text-white font-bold">Western's Sales Community</h1>
+                            <h3 className="text-xl md:text-2xl text-white font-bold mx-auto">Welcome to</h3>
+                            <h1 className="text-3xl md:text-5xl text-white font-bold mx-auto">Western's Sales Community</h1>
                         </div>
                     </div>
                 </div>

@@ -39,10 +39,10 @@ function Events({ events, loading, error }) {
                     className="absolute inset-0 bg-[url(/SANFRANCISCO.jpg)] bg-cover bg-top opacity-50"
                     style={{ backgroundPositionY: `${scrollY * 0.3}px` }}
                 ></div>
-                <div className="relative z-10 flex-grow flex px-12">
+                <div className="relative z-10 flex-grow flex items-center justify-center text-center px-12">
                     <div>
-                        <h1 className="text-5xl text-white font-bold pt-48 lg:pt-64">Our Events</h1>
-                        <p className="text-white text-md md:text-lg mt-4 hidden sm:block">
+                        <h1 className="text-4xl sm:text-5xl text-white font-bold">Our Events</h1>
+                        <p className="text-white text-md md:text-lg mt-4 hidden sm:block mx-auto max-w-5xl">
                             Follow our upcoming workshops, seminars, and networking events designed to help you
                             develop your sales skills and connect with industry professionals. Open to all experience levels.
                         </p>
