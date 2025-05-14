@@ -101,7 +101,7 @@ function Landing({ events, loading, error }) {
                             <p className="text-gray-600">Annual Events</p>
                         </div>
                         <div className="text-center p-4 border-b-2 border-gold">
-                            <h4 className="text-4xl font-bold text-[#4f2683]">3</h4>
+                            <h4 className="text-4xl font-bold text-[#4f2683]">3+</h4>
                             <p className="text-gray-600">Dedicated Partners</p>
                         </div>
                         </div>
@@ -382,7 +382,7 @@ function Landing({ events, loading, error }) {
                                 type="text"
                                 id="name"
                                 name="name"
-                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                                 placeholder="John Doe"
                                 required
                             />
@@ -395,7 +395,7 @@ function Landing({ events, loading, error }) {
                                 type="email"
                                 id="email"
                                 name="email"
-                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                                 placeholder="johndoe@example.com"
                                 required
                             />
@@ -408,7 +408,7 @@ function Landing({ events, loading, error }) {
                                 type="text"
                                 id="organization_type"
                                 name="organization_type"
-                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                                 placeholder="Who are you representing?"
                             />
                             </div>
@@ -420,7 +420,7 @@ function Landing({ events, loading, error }) {
                                 type="text"
                                 id="subject"
                                 name="subject"
-                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                                 placeholder="How can we help you?"
                                 required
                             />
@@ -433,7 +433,7 @@ function Landing({ events, loading, error }) {
                                 id="message"
                                 name="message"
                                 rows={4}
-                                className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-western-purple"
+                                className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2"
                                 placeholder="Write your message here..."
                                 required
                             ></textarea>

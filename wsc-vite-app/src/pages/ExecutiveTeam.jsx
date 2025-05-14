@@ -21,40 +21,45 @@ function ExecutiveTeam() {
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
                 <div className="grid md:grid-cols-2 max-w-3xl mx-auto justify-center sm:grid-cols-1 gap-y-20 px-4 py-8">
                     <Profile
-                        image="placeholder-person.png"
+                        image="/execs/Hudson.png"
+                        alt="Hudson Bates"
                         name="Hudson Bates"
                         title="Co-President"
                     />
                     <Profile
-                        image="placeholder-person.png"
+                        image="/execs/Connor.png"
+                        alt="Connor Hinton"
                         name="Connor Hinton"
                         title="Co-President"
                     />
                 </div>
-
 
                 {/* Vice Presidents */}
                 <h3 className="font-bold text-2xl mt-10 mb-4">Vice Presidents</h3>
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
                 <div className="grid justify-center lg:grid-cols-4 md:grid-cols-2 md:gap-x-2 sm:grid-cols-1 gap-x-8 gap-y-20 px-4 py-8">
                 <Profile
-                        image="placeholder-person.png"
+                        image="/execs/Owen.png"
+                        alt="Owen Gerrard"
                         name="Owen Gerrard"
                         title="VP Events, Co-Founder"
                     />
                     <Profile
-                        image="placeholder-person.png"
+                        image="/execs/Jeevan.png"
+                        alt="Jeevan Sahota"
                         name="Jeevan Sahota"
                         title="VP Finance, Co-Founder"
                     />
                     <Profile
-                        image="placeholder-person.png"
+                        image="/execs/Arda.png"
+                        alt="Arda Deniz"
                         name="Arda Deniz"
                         title="VP External, Co-Founder"
                     />
                     <Profile
-                        image="placeholder-person.png"
-                        name="TBD"
+                        image="/execs/Joanna.png"
+                        alt="Joanna Makrostergios"
+                        name="Joanna Makrostergios"
                         title="VP Marketing"
                     />
                 </div>
@@ -64,23 +69,27 @@ function ExecutiveTeam() {
                 <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
                 <div className="grid justify-center lg:grid-cols-4 md:grid-cols-2 md:gap-x-2 sm:grid-cols-1 gap-x-8 gap-y-20 px-4 py-8">
                     <Profile
-                        image="placeholder-person.png"
-                        name="Nishaan Mangat"
-                        title="AVP Finance"
-                    />
-                    <Profile
-                        image="placeholder-person.png"
+                        image="/execs/Max.png"
+                        alt="Max Stewart"
                         name="Max Stewart"
                         title="AVP Events"
                     />
                     <Profile
-                        image="placeholder-person.png"
-                        name="TBD"
+                        image="/execs/Nishaan.png"
+                        alt="Nishaan Mangat"
+                        name="Nishaan Mangat"
+                        title="AVP Finance"
+                    />
+                    <Profile
+                        image="/execs/Maddy.png"
+                        alt="Maddy Bates"
+                        name="Maddy Bates"
                         title="AVP External"
                     />
                     <Profile
-                        image="placeholder-person.png"
-                        name="Joanna Makrostergios"
+                        image="/execs/Liam.png"
+                        alt="Liam Hinton"
+                        name="Liam Hinton"
                         title="AVP Marketing"
                     />
                 </div>

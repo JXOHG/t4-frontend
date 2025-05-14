@@ -23,7 +23,7 @@ function Event({ image, title, date, location, description }) {
   const pureTime = `${formattedHours}:${minutes} ${ampm}`;
 
   return (
-    <div className="flex flex-col items-center bg-[#2C2C2C] text-white rounded-lg shadow-md m-4 p-4 md:flex-row w-full md:max-w-7xl mx-auto border border-gray-700 hover:border-gray-500 transition-colors duration-300">
+    <div className="flex flex-col items-center bg-[#2C2C2C] text-white rounded-lg shadow-md m-4 md:flex-row w-full md:max-w-7xl mx-auto border border-gray-700 hover:border-gray-500 transition-colors duration-300">
       <div className="w-full md:w-1/3 flex justify-center">
         {image && !imageError ? (
           <img
@@ -54,7 +54,7 @@ function Event({ image, title, date, location, description }) {
             <i className="fas fa-map-marker-alt mr-2"></i>
             {location}
           </p>
-        <p className="text-white-400 mt-3">{description}</p>
+        <p className="text-white-400 p-4">{description}</p>
       </div>
     </div>
   )
