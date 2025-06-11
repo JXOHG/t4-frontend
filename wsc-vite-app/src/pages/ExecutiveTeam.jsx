@@ -24,13 +24,13 @@ function ExecutiveTeam() {
                         image="/execs/Hudson.png"
                         alt="Hudson Bates"
                         name="Hudson Bates"
-                        title="Co-President"
+                        title="Co-President, Co-Founder"
                     />
                     <Profile
                         image="/execs/Connor.png"
                         alt="Connor Hinton"
                         name="Connor Hinton"
-                        title="Co-President"
+                        title="Co-President, Co-Founder"
                     />
                 </div>
 
