@@ -1,8 +1,9 @@
 import React from "react";
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-import PageTitle from '../components/PageTitle';
-import Profile from '../components/Profile';
+import Nav from '../../components/Nav';
+import Footer from '../../components/Footer';
+import PageTitle from '../../components/PageTitle';
+import Profile from '../../components/Profile';
+import './ExecutiveTeam.css';
 
 function ExecutiveTeam() {
     return (
@@ -14,12 +15,11 @@ function ExecutiveTeam() {
                 Our executives are dedicated to providing students with the resources and opportunities they need to succeed in sales."
             />
 
-            <div className="w-full max-w-6xl px-4 mx-auto mb-10">
-
+            <div className="team-page-container">
                 {/* Co-Presidents */}
-                <h3 className="font-bold text-2xl mt-10 mb-4">Our Presidents</h3>
-                <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid md:grid-cols-2 max-w-3xl mx-auto justify-center sm:grid-cols-1 gap-y-20 px-4 py-8">
+                <h3 className="team-section-title">Our Presidents</h3>
+                <hr className="team-section-divider" />
+                <div className="team-grid-presidents">
                     <Profile
                         image="/execs/Hudson.png"
                         alt="Hudson Bates"
@@ -35,10 +35,10 @@ function ExecutiveTeam() {
                 </div>
 
                 {/* Vice Presidents */}
-                <h3 className="font-bold text-2xl mt-10 mb-4">Vice Presidents</h3>
-                <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid justify-center lg:grid-cols-4 md:grid-cols-2 md:gap-x-2 sm:grid-cols-1 gap-x-8 gap-y-20 px-4 py-8">
-                <Profile
+                <h3 className="team-section-title">Vice Presidents</h3>
+                <hr className="team-section-divider" />
+                <div className="team-grid-vps">
+                    <Profile
                         image="/execs/Owen.png"
                         alt="Owen Gerrard"
                         name="Owen Gerrard"
@@ -65,9 +65,9 @@ function ExecutiveTeam() {
                 </div>
 
                 {/* Assistant Vice Presidents */}
-                <h3 className="font-bold text-2xl mt-10 mb-4">Assistant Vice Presidents</h3>
-                <hr className="border-t border-[#F9C726] w-1/2 mx-auto" />
-                <div className="grid justify-center lg:grid-cols-4 md:grid-cols-2 md:gap-x-2 sm:grid-cols-1 gap-x-8 gap-y-20 px-4 py-8">
+                <h3 className="team-section-title">Assistant Vice Presidents</h3>
+                <hr className="team-section-divider" />
+                <div className="team-grid-avps">
                     <Profile
                         image="/execs/Max.png"
                         alt="Max Stewart"
@@ -93,8 +93,8 @@ function ExecutiveTeam() {
                         title="AVP Marketing"
                     />
                 </div>
-
             </div>
+            
             <Footer />
         </>
     );

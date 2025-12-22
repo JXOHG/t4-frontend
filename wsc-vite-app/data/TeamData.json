@@ -1,0 +1,22 @@
+{
+    "executives": [
+        {
+            "id": 1,
+            "name": "Hudson Bates",
+            "title": "Co-President, Co-Founder",
+            "image": "execs/Hudson.png"
+        },
+        {
+            "id": 2,
+            "name": "Connor Hinton",
+            "title": "Co-President, Co-Founder",
+            "image": "/execs/Connor.png"
+        },
+        {
+            "id": 3,
+            "name": "Owen Gerrard",
+            "title": "VP Events, Co-Founder",
+            "image": "../../public/execs/Owen.png"
+        }
+    ]
+}

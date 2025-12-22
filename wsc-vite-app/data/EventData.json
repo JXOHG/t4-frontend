@@ -1,0 +1,36 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Bar Night – Sales Saturday",
+            "date": "January 10, 2026",
+            "time": "7:00 PM",
+            "location": "McCabe's Irish Pub",
+            "description": "Join us for an evening of networking and sales insights at the bar."
+        },
+        {
+            "id": 2,
+            "title": "WSC Sales Competition",
+            "date": "April 1, 2026",
+            "time": "3:00 PM",
+            "location": "Morrissette Institute for Entrepreneurship @ Western University",
+            "description": "Compete in a sales case competition hosted by WSC. Register now!"
+        }, 
+        {
+            "id": 3,
+            "title": "New Event Title",
+            "date": "July 15, 2026",
+            "time": "6:00 PM",
+            "location": "Location Name",
+            "description": "Event description here."
+        },
+        {
+            "id": 4,
+            "title": "New Event Title",
+            "date": "July 15, 2026",
+            "time": "6:00 PM",
+            "location": "Location Name",
+            "description": "Event description here."   
+        }
+    ]
+}

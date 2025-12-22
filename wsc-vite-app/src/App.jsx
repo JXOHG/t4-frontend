@@ -2,16 +2,16 @@
 
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Landing from "./pages/Landing"
-import About from "./pages/About"
-import ExecutiveTeam from "./pages/ExecutiveTeam"
-import Events from "./pages/Events"
-import ContactUs from "./pages/Contact"
-import Sponsors from "./pages/Sponsors"
+import Landing from "./pages/Landing/Landing"
+import About from "./pages/About/About"
+import ExecutiveTeam from "./pages/Team/ExecutiveTeam"
+import Events from "./pages/Events/Events"
+import ContactUs from "./pages/Contact/Contact"
+import Sponsors from "./pages/Sponsors/Sponsors"
 import TermsOfService from "./pages/TermsOfService"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
-import EventsDash from "./admin-dash/EventsDash"
-import AdminLogin from "./admin-dash/AdminLogin"
+import EventData from "../data/EventData.json"
+import TeamData from "../data/TeamData.json"
 import "./App.css"
 
 // Add a scroll to top component for better UX with parallax
@@ -30,28 +30,20 @@ function App() {
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch('https://flask-app-250624862173.us-central1.run.app/events');
-        if (!response.ok) throw new Error(`Error: ${response.status}`);
-        const data = await response.json();
-
-        if (Array.isArray(data.message)) {
-          setEvents(data.message);
-          console.log("Fetched events:", data.message);
-        } else {
-          console.error("Unexpected API response format:", data);
-          setError("Unexpected data format");
-        }
-      } catch (err) {
-        console.error("Failed to fetch events:", err);
-        setError("Failed to load events");
-      } finally {
-        setLoading(false);
+    try {
+      if (EventData && Array.isArray(EventData.events)) {
+        setEvents(EventData.events);
+        console.log("Loaded events from EventData.json:", EventData.events);
+      } else {
+        console.error("Unexpected EventData format:", EventData);
+        setError("Unexpected data format");
       }
-    };
-
-    fetchEvents();
+    } catch (err) {
+      console.error("Failed to load events:", err);
+      setError("Failed to load events");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   return (
@@ -72,9 +64,8 @@ function App() {
             <Route path="/sponsors" element={<Sponsors />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/events-dashboard" element={<EventsDash />} />
-            <Route path="/admin-login" element={<AdminLogin />} />
           </Routes>
+
         </Router>
       </main>
     </div>

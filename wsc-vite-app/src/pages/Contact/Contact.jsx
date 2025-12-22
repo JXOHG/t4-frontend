@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-import PageTitle from '../components/PageTitle';
+import Nav from '../../components/Nav';
+import Footer from '../../components/Footer';
+import PageTitle from '../../components/PageTitle';
 import emailjs from '@emailjs/browser';
+import './Contact.css';
 
 function Contact() {
-
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -34,9 +34,10 @@ function Contact() {
         emailjs.sendForm('service_qwpe0fl', 'template_lt8anmn', form, publicKey)
             .then((result) => {
                 console.log('Email sent successfully:', result.text);
+                alert("Form Submitted. We will get back to you soon!");
             }, (error) => {
                 console.error('Error sending email:', error.text);
-                console.log('Error details:', error);
+                alert("Failed to send message. Please try again.");
             });
         
         // Clear form after submission
@@ -47,9 +48,6 @@ function Contact() {
             subject: "",
             message: ""
         });
-
-        alert("Form Submitted. We will get back to you soon!");
-        console.log("Form submitted:", formData);
     }
 
     return (
@@ -58,23 +56,21 @@ function Contact() {
 
         <PageTitle
             title="Contact Us"
-            description="We’d love to hear from you! For business inquiries, collaboration opportunities,
+            description="We'd love to hear from you! For business inquiries, collaboration opportunities,
             or general questions, please fill out the form below. Share any relevant information
             or resources so we can better understand your needs and work together toward your goals."
         />
 
-        <div className="justify-center mx-auto px-12">
-  
-          {/* Contact Form */}
-          <div className="pb-12">
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-6 max-w-md mx-auto">
+        <div className="contact-page-container">
+          <div className="contact-form-section">
+            <form onSubmit={handleSubmit} className="contact-page-form">
               <input
                 type="text"
                 name="name"
                 placeholder="Name*"
                 value={formData.name}
                 onChange={handleChange}
-                className="p-3 bg-white text-black rounded-md outline-none"
+                className="contact-page-input"
               />
               <input
                 type="email"
@@ -82,7 +78,7 @@ function Contact() {
                 placeholder="Email*"
                 value={formData.email}
                 onChange={handleChange}
-                className="p-3 bg-white text-black rounded-md outline-none"
+                className="contact-page-input"
               />
               <input
                 type="text"
@@ -90,7 +86,7 @@ function Contact() {
                 placeholder="Organization Type (optional)"
                 value={formData.organization_type}
                 onChange={handleChange}
-                className="p-3 bg-white text-black rounded-md outline-none"
+                className="contact-page-input"
               />
               <input
                 type="text"
@@ -98,7 +94,7 @@ function Contact() {
                 placeholder="Subject*"
                 value={formData.subject}
                 onChange={handleChange}
-                className="p-3 bg-white text-black rounded-md outline-none"
+                className="contact-page-input"
               />
               <textarea
                 name="message"
@@ -106,11 +102,11 @@ function Contact() {
                 rows="4"
                 value={formData.message}
                 onChange={handleChange}
-                className="p-3 bg-white text-black rounded-md outline-none"
+                className="contact-page-textarea"
               />
               <button
                 type="submit"
-                className="bg-yellow-500 text-black font-bold py-2 rounded-md hover:bg-yellow-600 transition"
+                className="contact-page-submit"
               >
                 Submit
               </button>
@@ -118,11 +114,11 @@ function Contact() {
           </div>
         </div>
         
-        <div className="pb-20"></div>
+        <div className="contact-page-spacer"></div>
 
         <Footer />
       </>
     );
-  }
+}
 
 export default Contact;

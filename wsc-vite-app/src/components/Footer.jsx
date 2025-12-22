@@ -73,9 +73,6 @@ function Footer() {
                 <li>
                   <a href="/contact-us" className="text-gray-300 hover:text-western-gold transition-colors">Contact Us</a>
                 </li>
-                <li>
-                  <a href="/admin-login" className="text-gray-300 hover:text-western-gold transition-colors">Admin Login</a>
-                </li>
               </ul>
             </div>
 
