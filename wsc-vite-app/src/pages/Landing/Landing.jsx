@@ -3,6 +3,7 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import emailjs from '@emailjs/browser';
 import './Landing.css';
+import sponsorData from '../../../data/SponsorData.json';
 
 function Landing({ events, loading, error }) {
 
@@ -256,15 +257,11 @@ function Landing({ events, loading, error }) {
                         className="marquee-item"
                         >
                             <div className="marquee-logos">
-                            <div className="sponsor-logo">
-                                <img src="/TSI.png" alt="Sponsor 1" />
-                            </div>
-                            <div className="sponsor-logo">
-                                <img src="/OGPW.png" alt="Sponsor 2" />
-                            </div>
-                            <div className="sponsor-logo">
-                                <img src="/DRT.png" alt="Sponsor 3" />
-                            </div>
+                            {sponsorData.sponsors.map(sponsor => (
+                                <div key={sponsor.id} className="sponsor-logo">
+                                    <img src={`/data/sponsor-logos/${sponsor.logoFileName}`} alt={sponsor.name} />
+                                </div>
+                            ))}
                             </div>
                         </div>
                     ))}
@@ -396,7 +393,7 @@ function Landing({ events, loading, error }) {
                 <div className="join-section">
                     <div
                         className="join-background"
-                        style={{ backgroundPositionY: `${scrollY * 0.67}px` }}
+                        style={{ backgroundPositionY: `${scrollY * 0.69}px` }}
                     ></div>
 
                     <div className="join-content">

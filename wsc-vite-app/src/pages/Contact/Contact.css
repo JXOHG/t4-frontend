@@ -51,21 +51,19 @@
 }
 
 .contact-page-submit {
-  background-color: var(--wsc-purple);
-  color: var(--wsc-light);
   font-weight: bold;
   padding: 0.75rem;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
   font-family: 'Georgia', Times, serif;
   font-size: 1rem;
+  border: 2px solid rgba(var(--wsc-purple-rgb), 0.4);
+  transition: all 0.2s ease;
 }
 
 .contact-page-submit:hover {
-  background-color: var(--wsc-gold);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 217, 90, 0.3);
+  background-color: rgba(var(--wsc-purple-rgb), 0.6);
+  border-color: var(--wsc-purple);
 }
 
 .contact-page-submit:active {

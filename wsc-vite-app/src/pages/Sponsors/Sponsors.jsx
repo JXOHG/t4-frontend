@@ -3,6 +3,7 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Sponsor from '../../components/Sponsor';
 import './Sponsors.css';
+import sponsorData from '../../../data/SponsorData.json';
 
 function Sponsors() {
     const [scrollY, setScrollY] = React.useState(0);
@@ -37,37 +38,15 @@ function Sponsors() {
             </div>
 
             <div className="sponsors-page-container">
-                <Sponsor  
-                    image="TSI.png"
-                    name="Tech for Social Impact"
-                    description="TSI is a student-led organization that provides
-                    technology solutions to local non-profit organizations. TSI
-                    built this website for us free of charge, denoting their 
-                    committment to empowering the community. We continue to collaborate
-                    with them, helping our clients with their tech-needs."
-                    link="https://uwotsi.com"
-                />
-                
-                <Sponsor  
-                    image="OGPW.png"
-                    name="OG Pressure Washing"
-                    description="OG Pressure washing is a local business that
-                    specializes in residential pressure washing. Run by our very
-                    own Co-Founder and Vice President of Events, Owen Gerrard, 
-                    OG Pressure Washing exemplifies the leadership and 
-                    entrepreneurship WSC fosters."
-                    link="https://ogpressurewashing.ca"
-                />
-                
-                <Sponsor  
-                    image="DRT.png"
-                    name="DRTCyber"
-                    description="DRTCyber is a cybersecurity consulting firm that
-                    provides services to small and medium-sized businesses. They
-                    are a valued sponsor of the WSC that contributes in our guest
-                    speaker panels to bring valued insight to our students."
-                    link="https://drtcyber.com"
-                />
+                {sponsorData.sponsors.map(sponsor => (
+                    <Sponsor
+                        key={sponsor.id}
+                        logoFileName={sponsor.logoFileName}
+                        name={sponsor.name}
+                        description={sponsor.description}
+                        link={sponsor.link}
+                    />
+                ))}
             </div>
             
             <Footer />

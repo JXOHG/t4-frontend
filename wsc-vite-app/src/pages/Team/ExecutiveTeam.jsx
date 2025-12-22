@@ -4,8 +4,13 @@ import Footer from '../../components/Footer';
 import PageTitle from '../../components/PageTitle';
 import Profile from '../../components/Profile';
 import './ExecutiveTeam.css';
+import teamData from '../../../data/TeamData.json';
 
 function ExecutiveTeam() {
+    const presidents = teamData.executives.find(exec => exec.presidents)?.presidents || [];
+    const vicePresidents = teamData.executives.find(exec => exec.vice_presidents)?.vice_presidents || [];
+    const assistantVicePresidents = teamData.executives.find(exec => exec.assistant_vice_presidents)?.assistant_vice_presidents || [];
+
     return (
         <>
             <Nav />
@@ -16,82 +21,43 @@ function ExecutiveTeam() {
             />
 
             <div className="team-page-container">
-                {/* Co-Presidents */}
                 <h3 className="team-section-title">Our Presidents</h3>
                 <hr className="team-section-divider" />
                 <div className="team-grid-presidents">
-                    <Profile
-                        image="/execs/Hudson.png"
-                        alt="Hudson Bates"
-                        name="Hudson Bates"
-                        title="Co-President, Co-Founder"
-                    />
-                    <Profile
-                        image="/execs/Connor.png"
-                        alt="Connor Hinton"
-                        name="Connor Hinton"
-                        title="Co-President, Co-Founder"
-                    />
+                    {presidents.map(president => (
+                        <Profile
+                            key={president.id}
+                            headshotFileName={president.headshotFileName}
+                            name={president.name}
+                            title={president.title}
+                        />
+                    ))}
                 </div>
 
-                {/* Vice Presidents */}
                 <h3 className="team-section-title">Vice Presidents</h3>
                 <hr className="team-section-divider" />
                 <div className="team-grid-vps">
-                    <Profile
-                        image="/execs/Owen.png"
-                        alt="Owen Gerrard"
-                        name="Owen Gerrard"
-                        title="VP Events, Co-Founder"
-                    />
-                    <Profile
-                        image="/execs/Jeevan.png"
-                        alt="Jeevan Sahota"
-                        name="Jeevan Sahota"
-                        title="VP Finance, Co-Founder"
-                    />
-                    <Profile
-                        image="/execs/Arda.png"
-                        alt="Arda Deniz"
-                        name="Arda Deniz"
-                        title="VP External, Co-Founder"
-                    />
-                    <Profile
-                        image="/execs/Joanna.png"
-                        alt="Joanna Makrostergios"
-                        name="Joanna Makrostergios"
-                        title="VP Marketing"
-                    />
+                    {vicePresidents.map(vp => (
+                        <Profile
+                            key={vp.id}
+                            headshotFileName={vp.headshotFileName}
+                            name={vp.name}
+                            title={vp.title}
+                        />
+                    ))}
                 </div>
 
-                {/* Assistant Vice Presidents */}
                 <h3 className="team-section-title">Assistant Vice Presidents</h3>
                 <hr className="team-section-divider" />
                 <div className="team-grid-avps">
-                    <Profile
-                        image="/execs/Max.png"
-                        alt="Max Stewart"
-                        name="Max Stewart"
-                        title="AVP Events"
-                    />
-                    <Profile
-                        image="/execs/Nishaan.png"
-                        alt="Nishaan Mangat"
-                        name="Nishaan Mangat"
-                        title="AVP Finance"
-                    />
-                    <Profile
-                        image="/execs/Maddy.png"
-                        alt="Maddy Bates"
-                        name="Maddy Bates"
-                        title="AVP Communications"
-                    />
-                    <Profile
-                        image="/execs/Liam.png"
-                        alt="Liam Hinton"
-                        name="Liam Hinton"
-                        title="AVP Marketing"
-                    />
+                    {assistantVicePresidents.map(avp => (
+                        <Profile
+                            key={avp.id}
+                            headshotFileName={avp.headshotFileName}
+                            name={avp.name}
+                            title={avp.title}
+                        />
+                    ))}
                 </div>
             </div>
             

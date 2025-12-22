@@ -1,0 +1,25 @@
+{
+    "sponsors": [
+        {
+            "id": 1,
+            "name": "Tech for Social Impact (TSI)",
+            "description": "TSI is a student-led organization that provides technology solutions to local non-profit organizations. TSI built this website for us free of charge, denoting their committment to empowering the community. We continue to collaborate with them, helping our clients with their tech-needs.",
+            "logoFileName": "TSI.png",
+            "link": "https://uwotsi.com"
+        },
+        {
+            "id": 2,
+            "name": "OG Pressure Washing",
+            "description": "OG Pressure washing is a local business that specializes in residential pressure washing. Run by our very own Co-Founder and Vice President of Events, Owen Gerrard, OG Pressure Washing exemplifies the leadership and entrepreneurship WSC fosters.",
+            "logoFileName": "OGPW.png",
+            "link": "https://ogpressurewashing.ca"
+        },
+        {
+            "id": 3,
+            "name": "DRT Cyber Security",
+            "description": "DRTCyber is a cybersecurity consulting firm that provides services to small and medium-sized businesses. They are a valued sponsor of the WSC that contributes through our guest speaker panels to bring valuable insight to our students.",
+            "logoFileName": "DRT.png",
+            "link": "https://drtcyber.com"
+        }
+    ]
+}
