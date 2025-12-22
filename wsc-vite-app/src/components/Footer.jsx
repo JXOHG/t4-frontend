@@ -103,7 +103,7 @@ function Footer() {
                     className="w-16 h-16 object-contain hover:opacity-75 transition-opacity duration-200"
                   />
                 </a>
-                <p className="text-xs text-gray-400 mt-2">Developed and Built by Tech for Social Impact®</p>
+                <p className="text-xs text-gray-400 mt-2">Developed and Built by Tech for Social Impact ®</p>
               </div>
             </div>
           </div>

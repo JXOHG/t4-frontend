@@ -1,6 +1,5 @@
 "use client"
 
-import { formatDate } from "date-fns"
 import { useState } from "react"
 
 function Event({ image, title, date, location, description }) {
