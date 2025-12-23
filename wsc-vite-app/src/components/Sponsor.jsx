@@ -2,20 +2,160 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Sponsor({ logoFileName, name, description, link }) {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    const cardStyles = {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        background: 'linear-gradient(135deg, rgba(var(--wsc-purple-rgb), 0.05) 0%, rgba(0, 0, 0, 0.2) 100%)',
+        border: '2px solid rgba(var(--wsc-purple-rgb), 0.3)',
+        overflow: 'hidden',
+        width: '90%',
+        maxWidth: '70vw',
+        margin: '1.25rem auto',
+        cursor: 'pointer',
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: isHovered 
+            ? '0 20px 40px rgba(var(--wsc-gold-rgb), 0.3), 0 0 60px rgba(79, 38, 131, 0.3)'
+            : '0 4px 6px rgba(0, 0, 0, 0.1)',
+        transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+        borderColor: isHovered ? 'var(--wsc-gold)' : 'rgba(79, 38, 131, 0.3)',
+    };
+
+    const logoBlockStyles = {
+        background: isHovered 
+            ? 'linear-gradient(135deg, var(--wsc-dark) 0%, rgba(var(--wsc-gold-rgb), 0.4) 100%)'
+            : 'rgba(var(--wsc-purple-rgb), 0.05)',
+        padding: '2rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'all 0.4s ease',
+        minHeight: '200px',
+    };
+
+    const glowStyles = {
+        position: 'absolute',
+        top: '-50%',
+        left: '-50%',
+        width: '200%',
+        height: '200%',
+        background: 'radial-gradient(circle, rgba(218, 165, 32, 0.3) 0%, transparent 70%)',
+        opacity: isHovered ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+        pointerEvents: 'none',
+    };
+
+    const logoStyles = {
+        width: '100%',
+        height: '160px',
+        objectFit: 'contain',
+        position: 'relative',
+        zIndex: 1,
+        filter: isHovered ? 'drop-shadow(0 0 20px rgba(218, 165, 32, 0.5))' : 'none',
+        transition: 'all 0.4s ease',
+    };
+
+    const contentBlockStyles = {
+        padding: '2rem 2rem',
+        textAlign: 'left',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        background: 'rgba(0, 0, 0, 0.2)',
+        position: 'relative',
+        overflow: 'hidden',
+    };
+
+    const titleStyles = {
+        color: isHovered ? 'var(--wsc-gold)' : 'var(--wsc-light)',
+        fontWeight: '600',
+        fontSize: '1.75rem',
+        marginBottom: '1rem',
+        transition: 'all 0.3s ease',
+        textShadow: isHovered ? '0 0 15px rgba(218, 165, 32, 0.4)' : 'none',
+        position: 'relative',
+        zIndex: 1,
+        textAlign: 'center',
+    };
+
+    const descriptionStyles = {
+        color: '#e5e7eb',
+        lineHeight: '1.6',
+        fontSize: '1rem',
+        position: 'relative',
+        zIndex: 1,
+        textAlign: 'center',
+    };
+
+    const shimmerStyles = {
+        position: 'absolute',
+        top: 0,
+        left: isHovered ? '100%' : '-100%',
+        width: '50%',
+        height: '100%',
+        background: 'linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.2), transparent)',
+        transition: 'left 0.6s ease',
+        pointerEvents: 'none',
+    };
+
+    const mediaQueryStyles = window.innerWidth >= 768 ? {
+        cardStyles: {
+            ...cardStyles,
+            flexDirection: 'row',
+            width: '80%',
+        },
+        logoBlockStyles: {
+            ...logoBlockStyles,
+            width: '35%',
+        },
+        contentBlockStyles: {
+            ...contentBlockStyles,
+            width: '65%',
+        },
+        titleStyles: {
+            ...titleStyles,
+            textAlign: 'left',
+        },
+        descriptionStyles: {
+            ...descriptionStyles,
+            textAlign: 'left',
+        },
+    } : {};
+
+    const finalCardStyles = window.innerWidth >= 768 ? mediaQueryStyles.cardStyles : cardStyles;
+    const finalLogoBlockStyles = window.innerWidth >= 768 ? mediaQueryStyles.logoBlockStyles : logoBlockStyles;
+    const finalContentBlockStyles = window.innerWidth >= 768 ? mediaQueryStyles.contentBlockStyles : contentBlockStyles;
+    const finalTitleStyles = window.innerWidth >= 768 ? mediaQueryStyles.titleStyles : titleStyles;
+    const finalDescriptionStyles = window.innerWidth >= 768 ? mediaQueryStyles.descriptionStyles : descriptionStyles;
+
     return (
-        <div className="bg-[#262626] flex flex-col md:flex-row w-[90%] md:w-2/3 mx-auto p-4 md:p-6 gap-4 md:gap-6 my-5 rounded-lg hover:bg-[#363636] transition-all duration-500 ease-in-out">
-            <div className="w-full md:w-1/3 h-40 mx-auto md:mx-2">
-                <Link to={link} target="_blank" rel="noopener noreferrer">
+        <div 
+            style={finalCardStyles}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            {/* LOGO BLOCK */}
+            <div style={finalLogoBlockStyles}>
+                <div style={glowStyles}></div>
+                <Link to={link} target="_blank" rel="noopener noreferrer" style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', justifyContent: 'center' }}>
                     <img 
                         src={`/data/sponsor-logos/${logoFileName}`}
                         alt={name} 
-                        className="w-full h-40 object-contain rounded-lg"
+                        style={logoStyles}
                     />
                 </Link>
             </div>
-            <div className="w-full md:w-2/3 px-4 md:px-6">
-                <h3 className="text-2xl font-bold mb-2 pb-3 text-center md:text-left">{name}</h3>
-                <p className="text-gray-400 text-center md:text-left px-2 md:px-0">{description}</p>
+
+            {/* CONTENT BLOCK */}
+            <div style={finalContentBlockStyles}>
+                <div style={shimmerStyles}></div>
+                <h3 style={finalTitleStyles}>{name}</h3>
+                <p style={finalDescriptionStyles}>{description}</p>
             </div>
         </div>
     );

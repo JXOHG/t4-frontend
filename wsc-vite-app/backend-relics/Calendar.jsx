@@ -1,4 +1,5 @@
 "use client"
+/* wsc-vite-app/src/components/Calendar.jsx */
 
 import { useState } from "react"
 import { format } from "date-fns"

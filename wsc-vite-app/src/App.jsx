@@ -53,12 +53,12 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={
-              <Landing events={events} loading={loading} error={error} />
+              <Landing events={events} />
             } />
             <Route path="/about" element={<About />} />
             <Route path="/executive-team" element={<ExecutiveTeam />} />
             <Route path="/events" element={
-              <Events events={events} loading={loading} error={error} />
+              <Events events={events} />
             } />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/sponsors" element={<Sponsors />} />

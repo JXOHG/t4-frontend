@@ -34,9 +34,9 @@ function Nav() {
         </button>
         <a href="/" className="text-md pr-4 lg:text-2xl font-bold">Western Sales Club</a>
         <nav
-          className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center transition-transform transform ${
+          className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center transition-transform transform z-[9999] ${
             isOpen ? "translate-x-0" : "-translate-x-full"
-          } md:static md:translate-x-0 md:bg-transparent md:flex-row md:space-x-4`}
+          } md:static md:translate-x-0 md:bg-transparent md:flex-row md:space-x-4 md:z-auto`}
         >
           <button
             className="absolute top-3 right-3 text-white text-2xl focus:outline-none md:hidden bg-[#4f2683]"
