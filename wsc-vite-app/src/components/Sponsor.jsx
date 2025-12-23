@@ -26,7 +26,7 @@ function Sponsor({ logoFileName, name, description, link }) {
 
     const logoBlockStyles = {
         background: isHovered 
-            ? 'linear-gradient(135deg, var(--wsc-dark) 0%, rgba(var(--wsc-gold-rgb), 0.4) 100%)'
+            ? 'linear-gradient(135deg, var(--wsc-dark) 0%, rgba(var(--wsc-gold-rgb), 0.02) 100%)'
             : 'rgba(var(--wsc-purple-rgb), 0.05)',
         padding: '2rem',
         display: 'flex',
