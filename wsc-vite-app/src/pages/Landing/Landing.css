@@ -220,7 +220,6 @@
   border-bottom: 3px solid var(--wsc-purple);
   background: rgba(var(--wsc-light-rgb), 0.5);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
   position: relative;
   overflow: hidden;
 }
@@ -370,7 +369,6 @@
   border: 2px solid rgba(var(--wsc-purple-rgb), 0.3);
   padding: 2.5rem 2rem;
   overflow: hidden;
-  cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
 }

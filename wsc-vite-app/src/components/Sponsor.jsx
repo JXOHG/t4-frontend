@@ -14,7 +14,6 @@ function Sponsor({ logoFileName, name, description, link }) {
         width: '90%',
         maxWidth: '70vw',
         margin: '1.25rem auto',
-        cursor: 'pointer',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         backdropFilter: 'blur(10px)',
         boxShadow: isHovered 
@@ -26,7 +25,7 @@ function Sponsor({ logoFileName, name, description, link }) {
 
     const logoBlockStyles = {
         background: isHovered 
-            ? 'linear-gradient(135deg, var(--wsc-dark) 0%, rgba(var(--wsc-gold-rgb), 0.02) 100%)'
+            ? 'linear-gradient(135deg, var(--wsc-dark) 0%, rgba(var(--wsc-gold-rgb), 0.02) 100%), cursor-pointer'
             : 'rgba(var(--wsc-purple-rgb), 0.05)',
         padding: '2rem',
         display: 'flex',

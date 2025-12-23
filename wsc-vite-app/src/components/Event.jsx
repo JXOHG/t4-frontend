@@ -24,7 +24,6 @@ function Event({ event }) {
         width: '100%',
         maxWidth: '80rem',
         margin: '0 auto',
-        cursor: 'pointer',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         backdropFilter: 'blur(10px)',
         boxShadow: isHovered 
