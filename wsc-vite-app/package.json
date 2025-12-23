@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jxohg.github.io/t4-frontend",
+  "homepage": "https://westernsalesclub.ca",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
