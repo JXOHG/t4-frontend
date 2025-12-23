@@ -8,6 +8,4 @@ If you plan on updating content like **executive team**, **sponsors**, or **even
 
 ## Structure
 
-- `wsc-vite-app/` - Main frontend application built with React and Vite
-- `backend-relics/` - Legacy backend code and configurations (kept for reference)
-  - The backend has been shutdown and disconnected from the frontend for security and maintenance reasons
+`wsc-vite-app/` Contains the main frontend application source code. 
