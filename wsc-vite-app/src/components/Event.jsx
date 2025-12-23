@@ -1,63 +1,199 @@
-"use client"
+import React from 'react';
 
-import { formatDate } from "date-fns"
-import { useState } from "react"
+function Event({ event }) {
+    // Safety check for event prop
+    if (!event) {
+        return null;
+    }
 
-function Event({ image, title, date, location, description }) {
-  const [imageError, setImageError] = useState(false)
+    const eventDate = new Date(event.date);
+    const month = eventDate.toLocaleDateString('en-US', { month: 'short' });
+    const day = eventDate.getDate();
+    const year = eventDate.getFullYear();
+    const time = event.time || eventDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 
-  const handleImageError = () => {
-    console.error("Failed to load image:", image)
-    setImageError(true)
-  }
+    const [isHovered, setIsHovered] = React.useState(false);
 
-  const rawDate = date.split(' ').slice(0, 3);
-  const pureDate = `${rawDate[0]} ${rawDate[2]} ${rawDate[1]}`;
+    const cardStyles = {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        background: 'linear-gradient(135deg, rgba(79, 38, 131, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%)',
+        border: '2px solid rgba(79, 38, 131, 0.3)',
+        overflow: 'hidden',
+        width: '100%',
+        maxWidth: '80rem',
+        margin: '0 auto',
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: isHovered 
+            ? '0 20px 40px rgba(218, 165, 32, 0.3), 0 0 60px rgba(79, 38, 131, 0.3)'
+            : '0 4px 6px rgba(0, 0, 0, 0.1)',
+        transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+        borderColor: isHovered ? 'var(--wsc-gold)' : 'rgba(79, 38, 131, 0.3)',
+    };
 
-  const rawTime = date.split(' ')[4]; 
-  const sTime = rawTime.split(':');
-  const hours = parseInt(sTime[0], 10);
-  const minutes = sTime[1];
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  const formattedHours = hours % 12 || 12; // Convert to 12-hour format
-  const pureTime = `${formattedHours}:${minutes} ${ampm}`;
+    const dateBlockStyles = {
+        background: isHovered 
+            ? 'linear-gradient(135deg, var(--wsc-purple) 0%, var(--wsc-gold) 100%)'
+            : 'var(--wsc-purple)',
+        color: 'white',
+        padding: '1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        transition: 'all 0.4s ease',
+    };
 
-  return (
-    <div className="flex flex-col items-center bg-[#2C2C2C] text-white rounded-lg shadow-md m-4 md:flex-row w-full md:max-w-7xl mx-auto border border-gray-700 hover:border-gray-500 transition-colors duration-300">
-      <div className="w-full md:w-1/3 flex justify-center">
-        {image && !imageError ? (
-          <img
-            src={image || "/w2.png"}
-            alt={title}
-            className="h-64 w-64 object-contain rounded"
-            onError={handleImageError}
-          />
-        ) : (
-          <div className="h-64 w-64 bg-gray-800 flex items-center justify-center rounded">
-            <span className="text-white-400 text-lg font-medium">No Image</span>
-          </div>
-        )}
-      </div>
-      <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-6 text-center md:text-left">
-        <h2 className="text-2xl font-bold text-white-200">{title}</h2>
-        <div className="flex flex-col sm:flex-row justify-center md:justify-start sm:items-center text-white-400 py-2">
-          <p className="flex items-center justify-center md:justify-start">
-            <i className="far fa-calendar-alt mr-2"></i>
-            {pureDate}
-          </p>
-          <p className="flex items-center justify-center md:justify-start mt-2 sm:mt-0">
-            <i className="far fa-clock mr-2"></i>
-            {pureTime}
-          </p>
+    const glowStyles = {
+        position: 'absolute',
+        top: '-50%',
+        left: '-50%',
+        width: '200%',
+        height: '200%',
+        background: 'radial-gradient(circle, rgba(218, 165, 32, 0.3) 0%, transparent 70%)',
+        opacity: isHovered ? 1 : 0,
+        transition: 'opacity 0.4s ease',
+        pointerEvents: 'none',
+    };
+
+    const dateMonthStyles = {
+        fontSize: '1.125rem',
+        fontWeight: '500',
+        letterSpacing: '0.05em',
+        textTransform: 'uppercase',
+        position: 'relative',
+        zIndex: 1,
+    };
+
+    const dateYearStyles = {
+        fontSize: '2.5rem',
+        fontWeight: 'bold',
+        position: 'relative',
+        zIndex: 1,
+        textShadow: isHovered ? '0 0 20px rgba(218, 165, 32, 0.5)' : 'none',
+        transition: 'text-shadow 0.3s ease',
+    };
+
+    const dateTimeStyles = {
+        fontSize: '0.875rem',
+        marginTop: '0.5rem',
+        opacity: 0.9,
+        position: 'relative',
+        zIndex: 1,
+    };
+
+    const contentBlockStyles = {
+        padding: '1.5rem 2rem',
+        textAlign: 'left',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        background: 'rgba(0, 0, 0, 0.2)',
+        position: 'relative',
+        overflow: 'hidden',
+    };
+
+    const titleStyles = {
+        padding: '0.25rem 0',
+        color: isHovered ? 'var(--wsc-gold)' : 'var(--wsc-light)',
+        fontWeight: '600',
+        fontSize: '1.5rem',
+        marginBottom: '0.75rem',
+        transition: 'all 0.3s ease',
+        textShadow: isHovered ? '0 0 15px rgba(218, 165, 32, 0.4)' : 'none',
+        position: 'relative',
+        zIndex: 1,
+    };
+
+    const locationStyles = {
+        color: '#d1d5db',
+        fontSize: '0.875rem',
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '0.75rem',
+        gap: '0.5rem',
+        position: 'relative',
+        zIndex: 1,
+    };
+
+    const iconStyles = {
+        width: '1rem',
+        height: '1rem',
+        color: 'var(--wsc-gold)',
+        filter: isHovered ? 'drop-shadow(0 0 4px var(--wsc-gold))' : 'none',
+        transition: 'filter 0.3s ease',
+    };
+
+    const descriptionStyles = {
+        color: '#e5e7eb',
+        lineHeight: '1.6',
+        position: 'relative',
+        zIndex: 1,
+    };
+
+    const shimmerStyles = {
+        position: 'absolute',
+        top: 0,
+        left: isHovered ? '100%' : '-100%',
+        width: '50%',
+        height: '100%',
+        background: 'linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.2), transparent)',
+        transition: 'left 0.6s ease',
+        pointerEvents: 'none',
+    };
+
+    const mediaQueryStyles = window.innerWidth >= 768 ? {
+        cardStyles: {
+            ...cardStyles,
+            flexDirection: 'row',
+        },
+        dateBlockStyles: {
+            ...dateBlockStyles,
+            width: '25%',
+        },
+        contentBlockStyles: {
+            ...contentBlockStyles,
+            width: '75%',
+        },
+    } : {};
+
+    const finalCardStyles = window.innerWidth >= 768 ? mediaQueryStyles.cardStyles : cardStyles;
+    const finalDateBlockStyles = window.innerWidth >= 768 ? mediaQueryStyles.dateBlockStyles : dateBlockStyles;
+    const finalContentBlockStyles = window.innerWidth >= 768 ? mediaQueryStyles.contentBlockStyles : contentBlockStyles;
+
+    return (
+        <div 
+            style={finalCardStyles}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            {/* DATE BLOCK */}
+            <div style={finalDateBlockStyles}>
+                <div style={glowStyles}></div>
+                <div style={dateMonthStyles}>{month} {day}</div>
+                <div style={dateYearStyles}>{year}</div>
+                <div style={dateTimeStyles}>{time}</div>
+            </div>
+
+            {/* CONTENT BLOCK */}
+            <div style={finalContentBlockStyles}>
+                <div style={shimmerStyles}></div>
+                <h3 style={titleStyles}>{event.title}</h3>
+                <p style={locationStyles}>
+                    <svg style={iconStyles} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                    {event.location}
+                </p>
+                <p style={descriptionStyles}>{event.description}</p>
+            </div>
         </div>
-        <p className="flex items-center justify-center md:justify-start mt-2 sm:mt-0">
-            <i className="fas fa-map-marker-alt mr-2"></i>
-            {location}
-          </p>
-        <p className="text-white-400 p-4">{description}</p>
-      </div>
-    </div>
-  )
+    );
 }
 
-export default Event
+export default Event;

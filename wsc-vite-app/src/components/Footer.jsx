@@ -73,9 +73,6 @@ function Footer() {
                 <li>
                   <a href="/contact-us" className="text-gray-300 hover:text-western-gold transition-colors">Contact Us</a>
                 </li>
-                <li>
-                  <a href="/admin-login" className="text-gray-300 hover:text-western-gold transition-colors">Admin Login</a>
-                </li>
               </ul>
             </div>
 
@@ -106,7 +103,7 @@ function Footer() {
                     className="w-16 h-16 object-contain hover:opacity-75 transition-opacity duration-200"
                   />
                 </a>
-                <p className="text-xs text-gray-400 mt-2">Developed and Built by Tech for Social Impact®</p>
+                <p className="text-xs text-gray-400 mt-2">Developed and Built by Tech for Social Impact ®</p>
               </div>
             </div>
           </div>

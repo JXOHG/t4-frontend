@@ -1,3 +1,5 @@
+/* wsc-vite-app/src/components/AdminEvent.jsx */
+
 import React, { useState } from "react";
 import EventModal from "./EventModal";
 

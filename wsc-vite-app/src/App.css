@@ -1,3 +1,5 @@
+/* Styles for animations and transitions */
+
 #root {
   max-width: 100vw;
   text-align: center;
@@ -11,7 +13,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--wsc-gold));
 }
 
 @keyframes logo-spin {
@@ -53,6 +55,21 @@ html {
   animation: fadeIn 0.5s ease-in-out;
 }
 
+
+/* Hero fade-in animation */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.5s ease-in;
+}
+
 /* Pulse animation for loading state */
 @keyframes pulse {
   0%,
@@ -72,4 +89,22 @@ html {
 .parallax-container {
   overflow: hidden;
   will-change: transform;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reusable fade-in-up animation */
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
 }

@@ -1,3 +1,5 @@
+/* wsc-vite-app/src/components/EventModal.jsx */
+
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../utils/config";
 

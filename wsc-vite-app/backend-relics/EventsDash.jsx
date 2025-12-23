@@ -1,4 +1,5 @@
 "use client"
+/* wsc-vite-app/src/admin-dash/EventsDash.jsx */
 
 import { useState, useEffect } from "react"
 import MyEventCalendar from "../components/Calendar"

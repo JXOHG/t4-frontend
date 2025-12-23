@@ -1,0 +1,28 @@
+{
+    "events": [
+        {
+            "id": 1,
+            "title": "Bar Night – Sales Saturday",
+            "date": "January 10, 2026",
+            "time": "7:00 PM",
+            "location": "McCabe's Irish Pub",
+            "description": "Join us for an evening of networking and sales insights at the bar."
+        },
+        {
+            "id": 2,
+            "title": "WSC Sales Competition",
+            "date": "April 1, 2026",
+            "time": "3:00 PM",
+            "location": "Morrissette Institute for Entrepreneurship",
+            "description": "Compete in a sales case competition hosted by Western University's very own sales club."
+        },
+        {
+            "id": 3,
+            "title": "Guest Speaker Event – Kurt Connors",
+            "date": "April 15, 2026",
+            "time": "5:00 PM",
+            "location": "Sommerville House",
+            "description": "Join us for a talk with Professor Kurt Connors, an expert in consumer behaviour."
+        }
+    ]
+}
