@@ -192,6 +192,31 @@ function Landing({ events, loading, error }) {
                 </div>
                 </div>
 
+                {/* ========== SPONSORS CAROUSEL ================================================================================ */}
+                <h2 className="section-title">Our Esteemed Sponsors</h2>
+                <div className="divider"></div>
+                <div className="sponsors-carousel">
+                <div className="marquee-track">
+
+                    {[...Array(5)].map((_, index) => (
+                        <div
+                        key={index}
+                        className="marquee-item"
+                        >
+                            <div className="marquee-logos">
+                            {sponsorData.sponsors.map(sponsor => (
+                                <div key={sponsor.id} className="sponsor-logo">
+                                    <img src={`/data/sponsor-logos/${sponsor.logoFileName}`} alt={sponsor.name} />
+                                </div>
+                            ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                </div>
+
+                <div className="sponsors-spacer"></div>
+
                 {/* ========== EVENTS PREVIEW ================================================================================ */}
                 <section id="events" className="events-section">
                 <div className="container-custom">
@@ -220,31 +245,6 @@ function Landing({ events, loading, error }) {
                     </div>
                 </div>
                 </section>
-
-                {/* ========== SPONSORS CAROUSEL ================================================================================ */}
-                <h2 className="section-title">Our Esteemed Sponsors</h2>
-                <div className="divider"></div>
-                <div className="sponsors-carousel">
-                <div className="marquee-track">
-
-                    {[...Array(5)].map((_, index) => (
-                        <div
-                        key={index}
-                        className="marquee-item"
-                        >
-                            <div className="marquee-logos">
-                            {sponsorData.sponsors.map(sponsor => (
-                                <div key={sponsor.id} className="sponsor-logo">
-                                    <img src={`/data/sponsor-logos/${sponsor.logoFileName}`} alt={sponsor.name} />
-                                </div>
-                            ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                </div>
-
-                <div className="sponsors-spacer"></div>
 
                 {/* ========== CONTACT US ================================================================================ */}
                 <section id="contact" className="contact-section">

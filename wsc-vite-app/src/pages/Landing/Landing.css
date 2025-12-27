@@ -42,7 +42,7 @@
   align-items: center;
 }
 
-/* ========== Hero Section ========== */
+/* ========== Hero Section =================================== */
 .hero-section {
   position: relative;
   display: flex;
@@ -98,7 +98,7 @@
   }
 }
 
-/* ========== About Section ========= */
+/* ========== About Section =================================== */
 
 .about-header {
   text-align: center;
@@ -270,7 +270,7 @@
   margin-top: 0.5rem;
 }
 
-/* ========== Landscape Image Section ========== */
+/* ========== Landscape Image Section =================================== */
 .landscape-section {
   position: relative;
   display: flex;
@@ -326,11 +326,12 @@
   }
 }
 
-/* ========== What We Do Section ========== */
+/* ========== What We Do Section =================================== */
 .what-we-do-section {
   width: 100%;
   margin-top: 3rem;
-  padding: 2rem 1rem 3rem;
+  margin-bottom: 3rem;
+  padding: 2rem 1rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -533,10 +534,10 @@
   }
 }
 
-/* ========== Events Section ========== */
+/* ========== Events Section =================================== */
 .events-section {
   margin-top: 3rem;
-  padding-bottom: 8rem;
+  padding-bottom: 3rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -684,7 +685,7 @@
   margin-bottom: 1rem;
 }
 
-/* ========== SPONSORS CAROUSEL ========== */
+/* ========== SPONSORS CAROUSEL =================================== */
 
 .sponsors-carousel {
   position: relative;
@@ -761,12 +762,12 @@
 }
 
 .sponsors-spacer {
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
-/* Contact Section */
+/* ========== Contact Section =================================== */
 .contact-section {
-  padding: 0 1rem 6rem;
+  padding: 0 1rem 3rem;
 }
 
 @media (min-width: 768px) {
@@ -925,7 +926,7 @@
   background-color: rgba(var(--wsc-purple-rgb), 0.8);
 }
 
-/* Join Section */
+/* ========== Join Section =================================== */
 .join-section {
   position: relative;
   width: 100%;
