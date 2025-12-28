@@ -61,8 +61,8 @@ function Event({ event }) {
     };
 
     const dateMonthStyles = {
-        fontSize: '1.125rem',
-        fontWeight: '500',
+        fontSize: '2rem',
+        fontWeight: 'bold',
         letterSpacing: '0.05em',
         textTransform: 'uppercase',
         position: 'relative',
@@ -70,8 +70,8 @@ function Event({ event }) {
     };
 
     const dateYearStyles = {
-        fontSize: '2.5rem',
-        fontWeight: 'bold',
+        fontSize: '1rem',
+        fontWeight: '500',
         position: 'relative',
         zIndex: 1,
         textShadow: isHovered ? '0 0 20px rgba(218, 165, 32, 0.5)' : 'none',

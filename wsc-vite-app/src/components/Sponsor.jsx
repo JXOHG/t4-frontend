@@ -143,7 +143,7 @@ function Sponsor({ logoFileName, name, description, link }) {
                 <div style={glowStyles}></div>
                 <Link to={link} target="_blank" rel="noopener noreferrer" style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', justifyContent: 'center' }}>
                     <img 
-                        src={`/data/sponsor-logos/${logoFileName}`}
+                        src={new URL(`../../data/sponsor-logos/${logoFileName}`, import.meta.url).href}
                         alt={name} 
                         style={logoStyles}
                     />

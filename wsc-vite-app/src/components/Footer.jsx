@@ -7,10 +7,10 @@ function Footer() {
     return (
       <div className="w-full py-16 bg-[#1F1F1F]"> 
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-2 md:px-24">
             <div>
               <h3 className="text-xl font-serif font-bold mb-4">Western Sales Club</h3>
-              <p className="mb-6 text-gray-300">
+              <p className="mb-6 text-sm text-gray-300">
                 Empowering students to succeed in the world of professional sales through education, 
                 networking, and hands-on experiences.
               </p>

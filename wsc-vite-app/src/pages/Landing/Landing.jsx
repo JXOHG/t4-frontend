@@ -72,8 +72,8 @@ function Landing({ events, loading, error }) {
                             We're not just teaching sales, we're building effective communicators and personable leaders –
                             giving you the confidence to succeed in any field.
                         </p>
-                        <h3 className="about-subtitle-mission">Our Mission</h3>
-                        <p className="about-description-mission">
+                        <h3 className="about-subtitle">Our Mission</h3>
+                        <p className="about-description">
                             Western Sales Club envisions a future where sales education and representation 
                             is fully integrated into post-secondary learning, equipping students with practical 
                             communication skills, confidence, industry connections, and a supportive community to 
@@ -206,7 +206,10 @@ function Landing({ events, loading, error }) {
                             <div className="marquee-logos">
                             {sponsorData.sponsors.map(sponsor => (
                                 <div key={sponsor.id} className="sponsor-logo">
-                                    <img src={`/data/sponsor-logos/${sponsor.logoFileName}`} alt={sponsor.name} />
+                                    <img 
+                                        src={new URL(`../../../data/sponsor-logos/${sponsor.logoFileName}`, import.meta.url).href} 
+                                        alt={sponsor.name} 
+                                    />
                                 </div>
                             ))}
                             </div>

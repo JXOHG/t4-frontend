@@ -131,25 +131,26 @@
 }
 
 .about-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
-}
-
-.about-subtitle-mission {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-top: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .about-description {
-  font-size: 1.125rem;
-  color: #d1d5db;
+  font-size: 0.9rem;
+  color: rgba(var(--wsc-light-rgb), 0.8);
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.about-description-mission {
-  font-size: 1.125rem;
-  color: #d1d5db;
-  padding-bottom: 1rem;
+@media (min-width: 768px) {
+  .about-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .about-description {
+    font-size: 1.125rem;
+  }
 }
 
 .about-button-wrapper {
@@ -165,18 +166,6 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-}
-
-.about-stats-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(79, 38, 131, 0.05) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
 }
 
 .about-stats-card:hover::before {
@@ -266,8 +255,16 @@
 
 .stat-label {
   color: var(--wsc-dark);
+  font-size: 1rem;
   font-weight: 500;
   margin-top: 0.5rem;
+  justify-self: center;
+}
+
+@media (min-width: 512px) {
+  .stat-label {
+    font-size: 1.25rem;
+  }
 }
 
 /* ========== Landscape Image Section =================================== */
@@ -310,7 +307,7 @@
 }
 
 .landscape-quote {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: white;
   padding: 0 1rem;
   font-weight: bold;
