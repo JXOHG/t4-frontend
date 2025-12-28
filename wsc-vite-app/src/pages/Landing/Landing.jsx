@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 import './Landing.css';
 import sponsorData from '../../../data/SponsorData.json';
 import Event from '../../components/Event';
+import { Link } from "react-router-dom";
 
 function Landing({ events, loading, error }) {
 
@@ -81,9 +82,9 @@ function Landing({ events, loading, error }) {
                         </p>
                         
                         <div className="about-button-wrapper">
-                        <a href="/executive-team" style={{ all: 'unset' }}>
-                        <button> Meet our Team </button>
-                        </a>
+                            <Link to="/executive-team" style={{ all: 'unset' }}>
+                                <button>Meet our Team</button>
+                            </Link>
                         </div>
                         
 
@@ -233,11 +234,9 @@ function Landing({ events, loading, error }) {
 
                     <div className="events-content">
                         <div className="events-button-wrapper">
-                        <a href="/events" style={{ all: 'unset' }}>
-                            <button className="events-button">
-                                View All Events
-                            </button>
-                        </a>
+                        <Link to="/events" style={{ all: 'unset' }}>
+                            <button> View All Events </button>
+                        </Link>
                         </div>
                     
                         <div className="events-list">

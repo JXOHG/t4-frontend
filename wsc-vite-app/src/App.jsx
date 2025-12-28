@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 import Landing from "./pages/Landing/Landing"
 import About from "./pages/About/About"
 import ExecutiveTeam from "./pages/Team/ExecutiveTeam"
@@ -11,16 +11,20 @@ import Sponsors from "./pages/Sponsors/Sponsors"
 import TermsOfService from "./pages/TermsOfService"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
 import EventData from "../data/EventData.json"
-import TeamData from "../data/TeamData.json"
 import "./App.css"
 
-// Add a scroll to top component for better UX with parallax
 const ScrollToTop = () => {
+  const location = useLocation(); // Import useLocation from react-router-dom
+  
   React.useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+  }, [location.pathname]); // Re-run whenever the route changes
 
-  return null
+  return null;
 }
 
 function App() {
