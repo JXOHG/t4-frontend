@@ -56,22 +56,22 @@ function Footer() {
               <h3 className="text-xl font-serif font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="/" className="text-gray-300 hover:text-western-gold transition-colors">Home</a>
+                  <Link to="/" className="text-gray-300 hover:text-western-gold transition-colors">Home</Link>
                 </li>
                 <li>
-                  <a href="/about" className="text-gray-300 hover:text-western-gold transition-colors">About Us</a>
+                  <Link to="/about" className="text-gray-300 hover:text-western-gold transition-colors">About Us</Link>
                 </li>
                 <li>
-                  <a href="/executive-team" className="text-gray-300 hover:text-western-gold transition-colors">Executive Team</a>
+                  <Link to="/executive-team" className="text-gray-300 hover:text-western-gold transition-colors">Executive Team</Link>
                 </li>
                 <li>
-                  <a href="/events" className="text-gray-300 hover:text-western-gold transition-colors">Events</a>
+                  <Link to="/events" className="text-gray-300 hover:text-western-gold transition-colors">Events</Link>
                 </li>
                 <li>
-                  <a href="/sponsors" className="text-gray-300 hover:text-western-gold transition-colors">Sponsors</a>
+                  <Link to="/sponsors" className="text-gray-300 hover:text-western-gold transition-colors">Sponsors</Link>
                 </li>
                 <li>
-                  <a href="/contact-us" className="text-gray-300 hover:text-western-gold transition-colors">Contact Us</a>
+                  <Link to="/contact-us" className="text-gray-300 hover:text-western-gold transition-colors">Contact Us</Link>
                 </li>
               </ul>
             </div>
